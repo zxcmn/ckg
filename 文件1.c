@@ -3,8 +3,9 @@
 #include<stdio.h>	
 
 
-ͬb
-
+int main(){
+	
+		
 
 
 
