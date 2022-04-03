@@ -7,6 +7,122 @@
 
 
 
+	
+
+
+//int main() {
+//
+//	char a[]="12345";
+//	char* pa = &a;
+//	printf("%p\n", pa);
+//	printf("%c\n", *(pa++));
+//	printf("%p\n", pa);
+
+
+
+//【字符串拷贝会把\0拷贝过去吗】
+//#include<string.h>
+//int main(){
+//	
+//	char arr[] = "xxxxxxxxxxxx";
+//	char arr1[] = "hell";
+//	strcpy(arr, arr1);
+//	printf("%s\n", arr);//结果纸只打印hell,因为字符串拷贝的时候会把\0也拷贝过去；
+
+
+
+
+
+
+
+//模拟字符串拷贝  
+
+//void Get(char* arr1, char* arr2) {
+//	while (*arr2 != '\0') {
+//
+//		*arr1 = *arr2;
+//		arr1++;
+//		arr2++;
+//	}
+//	*arr1 = *arr2;
+//}
+//#include<string.h>
+//int main(){
+//	char arr1[] = "xxxxxxxxx";
+//	char arr2[] = "Hahfah";
+//	Get(arr1, arr2);
+//	printf("%s\n", arr1);
+//	printf("%s\n", arr2);
+
+
+
+	//模拟字符串拷贝  优化1
+
+	/*void Get(char* arr1, char* arr2) {
+		while (*arr2 != '\0') {
+
+			*arr1++ = *arr2++;
+			
+		}
+		*arr1 = *arr2;
+	}*/
+
+
+
+	//模拟字符串拷贝  优化2
+
+	//void Get(char* arr1, char* arr2) {
+	//	while (*arr1++ = *arr2++;) {//里面是个表达式，赋值完H时，As码值不是零，为真，当赋值万\0时，\0的As码值=0；为假，停止
+	//	}
+	//}
+
+
+
+
+
+	//模拟字符串拷贝  优化3
+
+//#include<assert.h>
+	//void Get(char* arr1, char* arr2) {
+	// assert(arr1!=NULL);//断言，如果错了，【会停止程序】，并且提示哪里错了
+	// assert(arr2!=NULL);//如果断言1成立，则这个断言没机会运行
+													//【 assert(arr1!=NULL&&arr2!=NULL);】
+	//	while (*arr1++ = *arr2++;) {//里面是个表达式，赋值完H时，As码值不是零，为真，当赋值万\0时，\0的As码值=0；为假，停止
+	//	
+	// }
+	//}
+
+
+//模拟字符串拷贝  优化4
+
+//如果拷贝目标和被拷贝目标写错位置了。则程序奔溃，因为arr1拷贝到arr2,arr2的空间不够【但依旧就拷贝，这就很坑爹】；
+//void Get(char* arr1, char* arr2) {
+	//	while (*arr2++ = *arr1++;) {//反了
+	//	}
+	//}
+//如何让拷贝反了容易发现呢
+//void Get(char* arr1,const char* arr2) {//给arr2加const把arr2变成不可修改的值，这样如果arr2试图被修改，就会报错；
+	//	while (*arr1++ = *arr2++;) {
+	//	}
+	//}
+
+
+
+
+//模拟字符串拷贝  优化4
+
+//但是还是有缺陷
+int main(){
+	const int a = 20;
+	const int* pa = &a;
+	int* paa = &a;
+	//const int* pa = &a;//【把窗户锁死】
+	/**pa = 10;*/
+	*paa = 10;
+	printf("%d\n", a);
+	//此时你会发现a的值被改变了！【就好像我把教室门关了，不让你进，你过了门我就报错，但是你翻窗进】【所以我应该，只要你在教室里，我就报错】
+	//【1】const int *pa   把这个窗户锁死【除非你又找来个窗户】
+
 
 
 
@@ -33,15 +149,15 @@
 //	printf(str);
 
 
-
-int main(){
-	int i;
-	int k = 10;
-	int* p=10;
-	
-	printf("%p\n", p);
-	printf("%p\n", k);
-	printf("%p\n", 10);
+//指针的初始化
+//int main(){
+//	int i;
+//	int k = 10;
+//	int* p=10;
+//	
+//	printf("%p\n", p);
+//	printf("%p\n", k);
+//	printf("%p\n", 10);
 
 
 
