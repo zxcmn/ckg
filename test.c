@@ -13,9 +13,9 @@ void t_get(char store[ROWS][COLS]) {
 	InitStore(store1, ROWS, COLS, '#');//初始化提示盘
 	InitStore(store2, ROWS, COLS, '0');//初始化雷盘
 
-	SetMine(store2, ROWS, COLS);//布置雷
-	PrintBoard(store2, ROW, COL);//打印雷
+	SetMine(store2);//布置雷
 	PrintBoard(store1, ROW, COL);//打印提示    
+	PrintBoard(store2, ROW, COL);//打印雷
 
 	FinMine(store1, store2, ROW, COL);//扫雷实现
 }
