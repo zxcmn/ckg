@@ -7,20 +7,123 @@
 
 
 
-void get() {
-	printf("haha\n");
-}
 
-int main() {
 
-	int a = 10;
-	for (int i = 1; i < a; i++) {
-		printf("%d\n", i);
-		get();
-	}
 
+
+                                                    //大概率是死循环，i=12的时候越界访问了i，使得i=0；代码陷入死循环
+//int main() {
+//	int i;
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	for (i = 0; i <= 12; i++) {
+//		arr[i] = 0;
+//		printf("hahahahahah\n");
+//	}
+
+
+														// 【寻找错误的笔试题】
+//void GetMemorty(char* p) {
+//	p = (char*)malloc(100);
+//}
+//
+//int main(){
+//	char* str = NULL;
+//	GetMemorty(str);
+//	strcpy(str, "hello world");
+//	printf(str);
+
+
+
+int main(){
+	int i;
+	int k = 10;
+	int* p=10;
+	
+	printf("%p\n", p);
+	printf("%p\n", k);
+	printf("%p\n", 10);
+
+
+
+
+//int main(){
+//	int i;
+//	char k[4];
+//	/*scanf("%3d%3c", &i, &k);
+//	printf("%d,%c", i, k);
+//	*/
+//
+//	scanf("%3c", &k);
+//	printf("%c\n", k[1]);
+
+
+
+
+//int main(){
+//	int i = 1;
+//	for (; i <= 5; i++) {
+//		i *= i;//i的值影响条件，应该重新设置一个变量；
+//		printf("%d\n", i);
+//	}
+
+
+
+
+
+
+//【条件断点】
+//void get() {
+//	printf("haha\n");
+//}
+//
+//int main() {
+//
+//	int a = 10;
+//	for (int i = 1; i < a; i++) {//条件断点i==5
+//		printf("%d\n", i);
+//		
+//
+//	}
+//	int f = 1;
+//	int d = 1;
+//	for (f = 3; f >0; f--) {
+//		d *= f;
+//		printf("%d\n", d);
+//	}
 	
 	
+//int main() {
+	//int n;
+	//int b = 1;
+	//int k = 1;
+	//for (n = 1; n <= 4; n++)
+	//{
+
+
+	//	//b = b * n;
+	//	b *= n;
+
+	//	
+	//	printf("%d\n", b);
+	//}
+
+	
+					
+	/* int z = 1;
+	 int x = 5;
+	 int Z = 1;
+		for(;x>1;x--)
+		{
+			Z*=x;
+			printf("%d\n", Z);
+		}*/
+		
+
+
+
+
+
+
 
 	
 
@@ -2959,9 +3062,9 @@ int main() {
 				//
 				//
 				//		b = b * n;
-				//
-				//		k = k + b;
-				//		printf("%d\n", k);
+				//		//b*=n;
+				//		
+				//		printf("%d\n", b);
 				//	}
 
 
