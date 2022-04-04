@@ -3,11 +3,55 @@
 #include<stdio.h>	
 
 
+#include<assert.h>
+int Get(const char* arr) {
+	assert(arr != NULL);
+	char* arr1 = arr;
+	while (*arr != '\0') {
+		arr++;
+	}
+	return arr - arr1;
+}
+
+//模拟求字符串长度优化
+int main(){
+	int store;
+	char arr[] = "hahahaha";
+	printf("%d\n",store = Get(arr));
+
+
+
+//int Getstore(char arr[]) {//传的是首地址，利用这点指针求末尾斜杠零地址
+//	char* store2 = arr;//把首地址记住，一会arr会变成斜杠零的地址；
+//	while (*arr != '\0') {//条件不满足的时候找到斜杠零的地址了；
+//		arr++;
+//	}
+//	return arr - store2;//两个地址相减；
+//}
+//
+//
+//int main() {
+//	char arr[] = "adfgj";
+//	int len = Getstore(arr);
+//	printf("%d\n", len);
 
 
 
 
+
+
+
+
+
+//int main() {
+//	int a = 10;
+//	int b = 3;
+//	int const* pa = &a;
+//	//*pa = 10;
+//	pa = &b;
+//	*pa = 2;
 	
+
 
 
 //int main() {
@@ -20,7 +64,7 @@
 
 
 
-//【字符串拷贝会把\0拷贝过去吗】
+                                                    //【字符串拷贝会把\0拷贝过去吗】
 //#include<string.h>
 //int main(){
 //	
@@ -87,7 +131,7 @@
 	// assert(arr1!=NULL);//断言，如果错了，【会停止程序】，并且提示哪里错了
 	// assert(arr2!=NULL);//如果断言1成立，则这个断言没机会运行
 													//【 assert(arr1!=NULL&&arr2!=NULL);】
-	//	while (*arr1++ = *arr2++;) {//里面是个表达式，赋值完H时，As码值不是零，为真，当赋值万\0时，\0的As码值=0；为假，停止
+	//	while (*arr1++ = *arr2++;) {//里面是个表达式，赋值完H时，As码值不是零，为真，当赋值万\0时，\0的As码值=0；为假，停止【这时arr不会加加】
 	//	
 	// }
 	//}
@@ -101,7 +145,7 @@
 	//	}
 	//}
 //如何让拷贝反了容易发现呢
-//void Get(char* arr1,const char* arr2) {//给arr2加const把arr2变成不可修改的值，这样如果arr2试图被修改，就会报错；
+//void Get(char* arr1,const char* arr2) {//给arr2加const把arr2变成不可修改的值，这样如果arr2试图被修改，就会报错；char const *arr2;
 	//	while (*arr1++ = *arr2++;) {
 	//	}
 	//}
@@ -109,19 +153,55 @@
 
 
 
-//模拟字符串拷贝  优化4
+
+
+
+
+
+
+
+//模拟字符串拷贝  优化4【标准】
 
 //但是还是有缺陷
-int main(){
-	const int a = 20;
-	const int* pa = &a;
-	int* paa = &a;
-	//const int* pa = &a;//【把窗户锁死】
-	/**pa = 10;*/
-	*paa = 10;
-	printf("%d\n", a);
-	//此时你会发现a的值被改变了！【就好像我把教室门关了，不让你进，你过了门我就报错，但是你翻窗进】【所以我应该，只要你在教室里，我就报错】
+//int main(){
+//	const int a = 20;
+//	int* pa = &a;
+//	//const int* pa = &a;//【把pa这个窗户锁死】【但是指针变量本身可以被修改【可以换个窗户（换了也不能改）】，只不过是不能通过指针变量修改窗户里的内容】
+//	*pa = 10;
+//	printf("%d\n", a);
+	//此时你会发现a的值被改变了！【就好像我把教室门关了，不让你进，你过了门我就报错，但是你翻窗进】
 	//【1】const int *pa   把这个窗户锁死【除非你又找来个窗户】
+
+
+//【标准结果】1，const  2,assert  3,char *;
+//char* Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+//	char* a = arr1;//存放目标起始地址；
+//	assert(arr1 != NULL);
+//	assert(arr1 != NULL);
+//	while (*arr1++ = *arr2++;) {
+//	}
+//	return a; 返回目标空间的起始地址；//同样返回类型是char *
+//}
+
+//#include<string.h>
+//int main(){
+//	char arr1[] = "xxxxxxxxx";
+//	char arr2[] = "Hahfah";
+//	
+//	printf("%s\n", arr1);
+//	printf("%s\n", Get(arr1, arr2));//【链式访问】既然返回的是目标空间的起始地址，那我们就可以放在打印里面，这叫链式访问；
+//【链式访问】这个函数的返回值作为这个函数的参数，这就叫链式访问；
+
+
+
+
+
+
+
+
+
+
+
 
 
 
