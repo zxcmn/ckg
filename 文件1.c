@@ -7,65 +7,6 @@
 
 
 
-
-
-
-//
-
-
-
-
-
-
-																//【获取奇数与偶数位写法】
-//int main(){
-//	int a = 15;
-//	int i;
-//	for (i = 0; i <= 30; i += 2) {//获取奇数位
-//		printf("%d  ", (a >> i) & 1);
-//	}
-//	printf("\n");
-//	for (i = 1; i <= 31; i += 2) {
-//		printf("%d  ", (a >> i) & 1);
-//	}
-
-
-
-	
-
-
-
-//										【求两个二进制中不同位个数、】
-//int main(){
-//	int a = 1999;
-//	int b = 2299;
-//	int k = a ^ b;
-//	int count = 0;
-//	while (k) {
-//		if (k & 1) {
-//			count++;
-//		}
-//		k = k >> 1;
-//		
-//	}
-//	printf("%d\n", count);
-
-
-
-										//【优化1】
-//int main(){
-//	int a = 1999;
-//	int i = 2299;
-//	int k = 0;
-//	int count = 0;
-//	for (k = 0; k < 32; k++) {
-//		if (((a >> k) & 1) != ((i >> k) & 1)){
-//			count++;
-//		}
-//	}
-//	printf("%d\n", count);
-
-
 										//【最后优化2】
 
 
