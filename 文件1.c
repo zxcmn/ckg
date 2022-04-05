@@ -3,21 +3,321 @@
 #include<stdio.h>	
 
 
-#include<assert.h>
-int Get(const char* arr) {
-	assert(arr != NULL);
-	char* arr1 = arr;
-	while (*arr != '\0') {
-		arr++;
-	}
-	return arr - arr1;
-}
 
-//模拟求字符串长度优化
-int main(){
-	int store;
-	char arr[] = "hahahaha";
-	printf("%d\n",store = Get(arr));
+
+
+
+
+
+
+//
+
+
+
+
+
+
+																//【获取奇数与偶数位写法】
+//int main(){
+//	int a = 15;
+//	int i;
+//	for (i = 0; i <= 30; i += 2) {//获取奇数位
+//		printf("%d  ", (a >> i) & 1);
+//	}
+//	printf("\n");
+//	for (i = 1; i <= 31; i += 2) {
+//		printf("%d  ", (a >> i) & 1);
+//	}
+
+
+
+	
+
+
+
+//										【求两个二进制中不同位个数、】
+//int main(){
+//	int a = 1999;
+//	int b = 2299;
+//	int k = a ^ b;
+//	int count = 0;
+//	while (k) {
+//		if (k & 1) {
+//			count++;
+//		}
+//		k = k >> 1;
+//		
+//	}
+//	printf("%d\n", count);
+
+
+
+										//【优化1】
+//int main(){
+//	int a = 1999;
+//	int i = 2299;
+//	int k = 0;
+//	int count = 0;
+//	for (k = 0; k < 32; k++) {
+//		if (((a >> k) & 1) != ((i >> k) & 1)){
+//			count++;
+//		}
+//	}
+//	printf("%d\n", count);
+
+
+										//【最后优化2】
+
+
+//int main(){
+//	int a = 1999;
+//	int b = 2299;
+//	int k = a ^ b;
+//	int count = 0;
+//	while (k) {
+//			k = k & (k - 1);
+//			count++;
+//	}
+//	printf("%d\n", count);
+
+
+
+
+
+
+
+
+
+
+//【如何判断一个数是不是二的n次方】
+//只要该数的二进制位里只有一个1，该数就是2的n次方
+//如果【n&(n=1)=0】,就是只减1，就按位与零了，那么这个数就是2的n次方；
+
+
+
+
+														//【计算二进制1的个数的最优写法】
+//int main(){
+//	int i = -1;
+//	int connt = 0;
+//	while (i) {
+//		i = i & (i - 1);//就不需要位移，既满足正数，也满足了负数
+//		conut++;
+//	}
+//	printf("1的个数=%d\n", conut);
+
+//【网课92，30分】
+
+
+
+
+
+													//【正确的计算二进制的写法，包括负数时】计算奇数偶数位时可用
+//int main(){
+//	int i = -1;
+//	int conut = 0;
+//	int k = 0;
+//	for (k = 0; k < 32;k++) {
+//		if ((i>>k) & 1) {
+//			conut++;
+//		}
+//	}
+//	printf("%d\n", conut);
+
+
+																//例如奇偶
+
+//int main(){
+//	int i = -1;
+//	int conut = 0;
+//	int k = 0;
+//	for (k = 0; k < 32; k++) {
+//		int p = (i >> k) & 1;
+//		if (k % 2) {
+//			printf("偶数位=%d\n", p);
+//		}
+//		else {
+//			printf("奇数位=%d\n", p);
+//		}
+//	}
+	
+
+
+
+
+
+
+
+
+
+//int main(){
+//	int i = -1;
+//	int conut = 0;
+//	while (i) {
+//		if (i & 1) {
+//			conut++;
+//		}
+//		i >> 1;//i是负1，补码都是1，右移动左边补1，i&1不会为零，会死循环
+//	}
+//	printf("%d\n", conut);
+
+
+
+
+
+
+
+															//【利用位移打印正数二进制中奇数位和偶数位】
+
+//int main(){
+//	int a = 13;
+//	int conut = 0;
+//	while (a) {
+//		int z = a & 1;
+//		conut++;
+//		if (conut % 2) {
+//			printf("位%d奇数=%d\n", conut, z);
+//		}
+//		else {
+//			printf("位%d偶数=%d\n", conut, z);
+//		}
+//		a = a >> 1;
+//	}
+
+															//【利用模二除二打印正数二进制中奇数位和偶数位】
+//int main(){
+//	int a = 14;//用这种方法要考虑负数；如果unsigned int 的话，就算输入负数1，答案就是正确的32【负数以补码存储】/但代码不够好
+//	int conut = 0;
+//	while (a) {
+//		int i = a % 2;
+//		a = a / 2;
+//		conut++;
+//		if (conut % 2) {
+//			printf("位%d奇数=%d\n", conut, i);
+//		}
+//		else {
+//			printf("位%d偶数=%d\n", conut, i);
+//		}
+//	}
+
+
+
+
+
+
+
+														//【位移操作符计算正数二进制位数】
+//int main(){
+//	int a = 5;//101
+//	int conut = 0;
+//	do {
+//		
+//		if (a & 1) {
+//			conut++;
+//		}
+//		a=a >> 1;
+//	} while (a);
+//	printf("%d\n", conut);
+
+
+
+														//【利用模二除二法计算正数二进制位数】
+
+//int main(){
+//	int a = 15;
+//	int conut = 0;
+//	while (a) {
+//		if (a % 2) {
+//			conut++;
+//		}
+//		a = a / 2;//相当于把a的二进制向右移动一位;a/=2;
+//	}
+//	printf("%d\n", conut);
+
+
+
+
+
+
+
+
+
+
+
+// 【源文件写法】
+//size_t MyStrlen(const char* arr2){
+//	const arr1 = arr2;
+//	while (*arr2++) {
+//	}
+//	return (arr2 - arr1 - 1);//*arr2++为假后，后置还要加加，所以减去1；
+
+
+
+
+
+
+
+
+
+// 【优化写法2】
+//size_t MyStrlen(const char* arr) {//const我只要计算字符串长度，不需要改变字符串本身的内容   size_t无符号整型
+//	assert(arr != NULL);
+//	//assert(arr);这样也可以，arr如果为空指针，空指针为0；0为假
+//	size_t conut = 0;
+//	char* arr1 = arr;
+//	while (*arr != '\0') {
+//		arr++;
+//	}
+//	return conut;
+//}
+
+
+
+
+
+
+
+//#include<assert.h>
+//int MyStrlen(const char* arr) {//我只要计算字符串长度，不需要改变字符串本身的内容
+//	assert(arr != NULL);
+//	//assert(arr);这样也可以，arr如果为空指针，空指针为0；0为假
+//	char* arr1 = arr;
+//	while (*arr != '\0') {
+//		arr++;
+//	}
+//	return arr - arr1;
+//}
+//
+////模拟求字符串长度优化
+//int main(){
+//	int store;
+//	char arr[] = "hahahaha";
+//	printf("%d\n",store = MyStrlen(arr));
+
+
+
+
+
+
+
+
+//int Get(const char* arr) {
+
+//	int conut = 0;
+//	while (*arr) {//【/0的AS码值=0】
+// 		conut++;
+//		arr++;
+//	}
+//	return conut;
+//}
+//
+//	int main() {
+//		int store;
+//		char arr[] = "hahahaha";
+//		printf("%d\n", store = Get(arr));
+
+
+
 
 
 
