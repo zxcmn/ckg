@@ -5,9 +5,31 @@
 
 
 
-
-
+//int count = 0;
 //
+//int fib(int i) {
+//	count++;
+//	if (i == 0) {
+//		return 1;
+//	}
+//	if (i == 1) {
+//		return 2;
+//	}
+//	else {
+//		return fib(i - 1) + fib(i - 2);
+//	}
+//}
+//
+//int main(){
+//	fib(8);
+//	printf("%d\n", count);
+
+//第一次：         7          6
+//第二次：      6     5    5     4
+//第三次：    5  4  4  3  4  3  3  2
+//以此类推：共67次
+
+
 
 
 
