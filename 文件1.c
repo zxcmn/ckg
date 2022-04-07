@@ -8,6 +8,91 @@
 
 
 
+
+
+
+
+
+
+
+
+
+//int main(){
+//	int a;
+//	int b;
+//	int count = 0;
+//	scanf("%d%d", &a, &b);
+//	do {
+//		count++;
+//	} while (!(count % a == 0 && count % b == 0));
+//	printf("%d\n", count);
+
+
+
+//【最小公倍数最小只会等于两个数中最大的那个数】
+	/*int main() {
+		int a;
+		int b;
+		scanf("%d%d", &a, &b);
+		int count = a > b ? a : b;
+		do {
+			count++;
+		} while (!(count % a == 0 && count % b == 0));
+		printf("%d\n", count);*/
+
+																//【更加高效的算法】
+
+//int main(){
+//	int a = 0;
+//	int b = 0;
+//	int i = 0;
+//	scanf("%d%d", &a, &b);
+//	for (i = 1; ; i++) {
+//		if (a * i % b == 0) {
+//			printf("%d", a * i);
+//			break;
+//		}
+//	}
+
+
+																//【辗转相除法】
+
+//int main(){
+//	int a = 0;
+//	int b = 0;
+//	int i = 0;
+//	scanf("%d%d", &a, &b);
+//	if (a < b) {
+//		i = a;
+//		a = b;
+//		b = i;
+//	}
+//	int k = a * b;
+//	int c = a % b;
+//	while (c != 0) {
+//		a = b;
+//		b = c;
+//		c = a % b;
+//	}
+//	printf("%d", k / b);
+
+
+
+
+
+
+
+
+//int main(){
+//	double x = 2;
+//	double y;
+//	y = x +( 3 / 2);
+//	printf("%lf\n", y);
+
+
+
+
+
 //点兵，5人一排，多出2人，9人一排多出3人，19人一排多出1人，求出一个数即可
 //int main(){
 //	int x = 0;
