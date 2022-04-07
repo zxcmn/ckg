@@ -15,6 +15,127 @@
 
 
 
+	
+										//【三步翻转法】
+
+//例如：Hell beijing.
+//三步：
+//1.整体翻转=>         .gnijieb lleH
+//2.每个单词逆序=>     beijing. Hell
+//
+
+//int main(){
+//	char arr[]={0};
+//	//scanf("%s", arr);是不行的。%c%s遇到空格会停止；得用gets()
+//	gets(arr);
+//	printf("%s",arr);
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+//int main(){
+	/*int a = 5;
+	int b = 3;
+	a ^= b;
+	b ^= a;
+	a ^= b;
+	printf("%d\n%d", a, b);*/
+
+
+	/*char a = 5;
+	char b = 3;
+	a ^= b;
+	b ^= a;
+	a ^= b;
+	printf("%d\n%d", a, b);*/
+
+
+
+	/*char a = 127;
+	char b = 3;
+	a ^= b;
+	b ^= a;
+	a ^= b;
+	printf("%d\n%d", a, b);*/
+
+
+
+	/*char a = 129;
+	char b = 3;
+	a ^= b;
+	b ^= a;
+	a ^= b;
+	printf("%d\n%d", a, b);*/
+
+
+
+
+	/*char a = 'y';
+	char b = 'x';
+	a ^= b;
+	b ^= a;
+	a ^= b;
+	printf("%c\n%c", a, b);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+											//【倒置字符串】
+//int main(){
+//	char arr[] = "abcdefg";
+//	int i=strlen(arr)-1;
+//	int k = 0;
+//	for (i; i > k; i--,k++) {
+//		char arr1 = arr[k];
+//		arr[k] = arr[i];
+//		arr[i] = arr1;
+//	}
+//	printf("%s", arr);
+
+
+
+
 
 
 //int main(){
@@ -61,13 +182,13 @@
 //	int a = 0;
 //	int b = 0;
 //	int i = 0;
+//	int k = a * b;
 //	scanf("%d%d", &a, &b);
 //	if (a < b) {
 //		i = a;
 //		a = b;
 //		b = i;
 //	}
-//	int k = a * b;
 //	int c = a % b;
 //	while (c != 0) {
 //		a = b;
