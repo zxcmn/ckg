@@ -34,9 +34,43 @@
 
 
 
+//【翻转】
 
+
+//void MyStrcpy(char* left, char* right) {
+//	while (left<right) {
+//		char arr = *left;
+//		*left = *right;
+//		*right = arr;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//#include<string.h>
+//
+//int main() {
+//	char arr[100] = { 0 };
+//	gets_s(arr,100);
+//	int len = strlen(arr);
+//	MyStrcpy(arr,arr+len-1);
+//	char* str = arr;
+//	while (*str) {//不能在外面设置同名pa用在里面，局部变量优先；
+//		char* pa = str;
+//
+//		while (*pa != ' ' && *pa != '\0') {
+//			pa++;
+//		}
+//		MyStrcpy(str, pa - 1);
+//		if (*pa == ' ') {
+//			str = pa + 1;
+//		}
+//		else {
+//			str = pa;
+//		}
+//	}
+//	printf("%s\n", arr);
 	
-
 
 
 
