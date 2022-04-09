@@ -5,12 +5,17 @@
 
 
 
+//地址进行强制类型转化，仅仅转化的是类型，地址里面的值并没有改变
+int main(){
 
+	int n = 9;
+	float* pa = (float*)&n;//地址是一个地址，地址是指针，强制类型转化用float*；
+	printf("n的值为%d\n", n);
+	printf("*pa的值为%f\n", *pa);
 
-
-
-
-
+	*pa = 9.0;
+	printf("以整型打印：%d\n", n);
+	printf("以浮点打印：%f\n", *pa);
 
 
 
@@ -22,20 +27,29 @@
 //	unsigned int a = 9;
 //	for (a = 9; a >= 0; a--) {//i=0时减一变成一个2^32的数，因为是无符号的数，取值0~2^32【有符号-2^32-1~0~2^32-1】
 //		printf("%u\n", a);
+//		//printf("%d\n", a);
 //	}
 
 
 
-#include<string.h>
-int main(){
-	char a[1000];
-	int i;
-	for (i = 0; i < 1000; i++) {
-		a[i] = -1 - i;
-	}
-	printf("%d\n", strlen(a));
+ /*int main(){
+	 unsigned int a = 0;
+	 a = a - 1;
+	 printf("%u", a);*/
 
 
+//【零界后加一截断的是符号位，而不是末尾位】
+//int main(){
+//	unsigned char a = 255;
+//	a += 1;
+//	printf("%u\n", a);
+
+
+//int main(){
+//	unsigned char a = 0;
+//	for (a = 0; a <= 255; a++) {
+//		printf("haha\n");
+//	}
 
 
 
@@ -157,7 +171,7 @@ int main(){
 
 
 //int main(){
-//	short a = 263;//100000111
+//	short a = 263;//0000000100000111
 //	char* pa = (char*)&a;//00000111=7
 //
 //	if (*pa == 7) {
