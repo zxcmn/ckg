@@ -3,6 +3,53 @@
 #include<stdio.h>	
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+														//【指针进阶1】
+//int main(){
+//	char arr1[] = "Hello haha";
+//	char arr2[] = "Hello haha";
+//	char* pa1 = "Hello haha";//存入H的地址【Hello haha是一个字符串常量】
+//	char* pa2 = "Hello haha";//同为字符串常量且一样，在内存中共用          【建议常量加const】const char *pa
+//	if (arr1 == arr2) {
+//		printf("arr1=arr2 Yes\n");
+//	}
+//	else {
+//		printf("arr1=arr2 No\n");
+//	}
+//	if (pa1 == pa2) {
+//		printf("pa1==pa2 Yes\n");
+//	}
+//	else {
+//		printf("pa1==pa2 No\n");
+//	}
+
+
+
+//int main(){
+//	char* pa = "haha";
+//	const char* pa = "haha";
+//	*pa = 's';
+//	printf("%c\n", *pa);
+
+
+
+
+
+
+
 															  //【浮点数与整数在内存中存储的方式不同】
 
 //地址进行强制类型转化，仅仅转化的是类型，地址里面的值并没有改变
