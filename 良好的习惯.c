@@ -3,7 +3,7 @@
 
 
 
-
+//命名：【MyStrlen  或者   my_strlen】     不能My_strlen
 
 //任何量尽量去初始化它int i=0;
 
