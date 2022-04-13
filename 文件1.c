@@ -177,7 +177,9 @@
 //
 //int  main(){
 //	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
-//	print(arr, 3, 5);//传的是第一行5个数组元素的首地址//如果传的是&arr，不能用一维数组，要用二维数组char (*pa)[3][5]
+//	print(arr, 3, 5);
+//传的是第一行5个数组元素的首地址【本身传的不是地址，是数组，如果接收，应该用数组指针】
+//如果传的是&arr，不能用一维数组，要用二维数组char (*pa)[3][5]
 
 
 
@@ -196,7 +198,11 @@
 //如果将数组或则指针传给函数，函数参数应该怎么设计
 
 
+//一维数组传参】
 
+//void test(int arr[]) {//形参可以不用写
+//	printf("%d\n", arr[0]);
+//}
 //void test(int arr[10]) {
 //	printf("%d\n", arr[0]);
 //}
@@ -214,35 +220,56 @@
 //	printf("%d\n", arr2[0]);
 //}
 
+//void test2(int** arr2) {//存放指针地址的指针//二级指针
+//	printf("%d\n", *arr2);
+//}
 
-void test2(int** arr2) {
-	printf("%d\n", *arr2);
-}
-
-int main(){
-	int arr[10] = { 0 };
-	int* arr2[20] = { 0 };
-	//test(arr);
-	test2(arr2);
-
+//int main(){
+//	int arr[10] = { 0 };
+//	int* arr2[20] = { 0 };
+//	//test(arr);
+//	test2(arr2);
 
 
+//二维数组传参】
 
-
-
-
-
-
-
-
-//void print(int* pa, int r, int c) {
-//	for (int k = 0; k < r; k++) {
-//		for (int i = 0; i < c; i++) {
-//			printf("%d", *pa + i);
-//		}
-//	}
+//void test(int arr[3][5]) {
 //
 //}
+//void test(int arr[][5]) {
+//	
+//}
+//void test(int arr[][]) {//【错】，只能忽视行，不能忽视列
+//	
+//}
+//void test(int(* arr)[5]) {//不能int *arr;传的是第一行的【数组】，5个元素;int *arr[5];这是指针数组，存放指针；【传的是数组，我应该用指向数组的指针接收】
+//
+//}
+
+//void test(int(* arr)[5]) {
+//	printf("%d\n", *((*arr)[1]));
+//}
+
+
+//void test(int(*arr)[5]) {
+//	printf("%d ", (*arr)[3]);//解引用=数组名，数组名+下表=访问【要上面那样（*（*pa+k）+i），这是指针位移，位移完要知道知道指针内容，通过解引用】
+//}
+//int main(){
+//	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
+//	test(arr);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 															  //【浮点数与整数在内存中存储的方式不同】
 
