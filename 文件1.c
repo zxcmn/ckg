@@ -165,18 +165,68 @@
  
 
 
-void print(int(*pa)[5], int r, int c) {//p是一个指向一维数组的指针，它指向的这个数组有5个元素，每个元素int型,则1代表arr[1],6代表arr[2],11代表arr[3]
-	for (int k = 0; k < r; k++) {
-		for (int i = 0; i < c; i++) {
-			printf("%d ", *(pa + k)[i]);
-		}
-	}
+//void print(int(*pa)[5], int r, int c) {//p是一个指向一维数组的指针，它指向的这个数组有5个元素，每个元素int型,则1代表arr[1],6代表arr[2],11代表arr[3]
+//	for (int k = 0; k < r; k++) {
+//		for (int i = 0; i < c; i++) {
+//			printf("%d ", *(*(pa + k) + i));
+//		}
+//		printf("\n");
+//	}
+//
+//}
+//
+//int  main(){
+//	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
+//	print(arr, 3, 5);//传的是第一行5个数组元素的首地址//如果传的是&arr，不能用一维数组，要用二维数组char (*pa)[3][5]
 
+
+
+
+
+//int arr[10];
+//int(*pa)[10];
+//int(*pa[10])[5];//pa是一个存放数组指针的数组；能够存放10个数组指针，每个数组指针能够指向一个数组，数组5个元素，每个元素int型
+//理解：pa是数组名，int （*pa)[5]是一个数组指针，数组名加[10],有十个空间看，能存放10个数组指针
+
+
+
+
+														//【数组参数和指针参数】
+
+//如果将数组或则指针传给函数，函数参数应该怎么设计
+
+
+
+//void test(int arr[10]) {
+//	printf("%d\n", arr[0]);
+//}
+//void test(int* arr) {
+//	printf("%d\n", *arr);
+//}
+//void test(int* arr[10]) {
+//	printf("%d\n", arr[0]);
+//}
+
+
+
+
+//void test2(int* arr2[20]) {
+//	printf("%d\n", arr2[0]);
+//}
+
+
+void test2(int** arr2) {
+	printf("%d\n", *arr2);
 }
 
-int  main(){
-	int arr[3][5] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
-	print(arr, 3, 5);//传的是第一行5个数组元素的首地址
+int main(){
+	int arr[10] = { 0 };
+	int* arr2[20] = { 0 };
+	//test(arr);
+	test2(arr2);
+
+
+
 
 
 
