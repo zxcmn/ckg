@@ -101,18 +101,30 @@
 
 
 
+
+
+																	//¡¾Ë®ÏÉ»¨Êý¡¿
+
+#include<math.h>
 int main() {
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int sum = sizeof(arr) / sizeof(arr[0]);
-	int* pa = &arr;
-	int* pa2 = arr + sum-1;
-	while(pa < pa2) {
-		printf("%d\n", *pa);
-		pa++;
-		printf("%d\n", *pa2);
-		pa2--;
-	}
+	int a = 100;
+
+	int i, k, b;
+	
+	do {
+		
+		i = a / 100;
+		k = a / 10 % 10;
+		b = a % 10;
+
+		if (pow(i, 3) + pow(k, 3) + pow(b, 3) == a) {
+			printf("%d\n", a);
+		}
+		a++;
+	} while (a!=100000);
+	
 	return 0;
+
 }
 
 
@@ -682,6 +694,23 @@ int main() {
 
 
 
+
+
+
+
+//int main() {
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sum = sizeof(arr) / sizeof(arr[0]);
+//	int* pa = &arr;
+//	int* pa2 = arr + sum-1;
+//	while(pa < pa2) {
+//		printf("%d\n", *pa);
+//		pa++;
+//		printf("%d\n", *pa2);
+//		pa2--;
+//	}
+//	return 0;
+//}
 
 
 
