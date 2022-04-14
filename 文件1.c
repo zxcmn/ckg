@@ -43,13 +43,15 @@
 //}
 
 
+
 											//【计算a+aa+aaa+aaaa+aaaaa】
+//我一开始写的
 //int main() {
-//	int a = 0;
-//	scanf("%d", &a);
+//	int a, col;
+//	scanf("%d%d", &a,&col);
 //	int b = a;
 //	int c = a;
-//	for (int k = 0; k < 5;k++) {
+//	for (int k = 0; k < col-1;k++) {
 //		b = b * 10 + c;
 //		a += b;
 //	}
@@ -59,6 +61,61 @@
 
 
 //写法
+ 
+//int main() {
+//	int sum = 0;
+//	int ret = 0;
+//	int i = 0;
+//	int input, col;
+//	scanf("%d%d", &input, &col);//输入数和项
+//	for (i = 0; i < col; i++) {
+//		ret = ret * 10 + input;
+//		sum += ret;
+//	}
+//	printf("%d\n", sum);
+//
+//	return 0;
+//}
+
+//思路：先考虑产生每一个数，然后都加起来；产生2，22，222，2222，22222
+
+
+//int rece(int i, int col, int input) {
+//	int sum = 0;
+//	if (>0) {
+//		i = i * 10 + input;
+//		--;
+//		sum=rece(i, col, input);
+//	}
+//	sum += i;
+//	return sum;
+//}
+//int main() {
+//	int input, col;
+//	int i = 0;
+//	int k;
+//	scanf("%d%d", &input, &col);
+//	k=rece(i, col,input);
+//	printf("%d\n", k);
+//	return 0;
+
+
+
+int main() {
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sum = sizeof(arr) / sizeof(arr[0]);
+	int* pa = &arr;
+	int* pa2 = arr + sum-1;
+	while(pa < pa2) {
+		printf("%d\n", *pa);
+		pa++;
+		printf("%d\n", *pa2);
+		pa2--;
+	}
+	return 0;
+}
+
+
 
 
 
