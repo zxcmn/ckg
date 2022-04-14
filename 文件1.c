@@ -8,6 +8,58 @@
 														//【指针作业讲解】
 
 
+//int main(){
+//	int arr = 0x11223344;
+//	char* pa = (char*)&arr;
+//	*pa = 0;//指针指向地址，指针跨度为一个字节，修改1个字节
+//	printf("%x\n", arr);
+
+
+
+
+//int i;//i是全局变量//全局变量不初始化，默认为0；
+//int main() {
+//	i--;
+//	if (i > sizeof(i)) {//sizeof这个操作符，算出结果类型是unsigned int 
+//		printf(">\n"); //于是他会返回一个无符号整型；这时i与其进行运算时，会整型提升为unsigned int; -1变为很大的数所以>4
+//	}
+//	else {
+//		printf("<\n");
+//	}
+//	return 0;
+//}
+
+
+
+
+//int i;
+//int main() {
+//	
+//	i--;
+//	printf("%d\n", i);
+  //
+//
+//	return 0;
+//}
+
+
+											//【计算a+aa+aaa+aaaa+aaaaa】
+//int main() {
+//	int a = 0;
+//	scanf("%d", &a);
+//	int b = a;
+//	int c = a;
+//	for (int k = 0; k < 5;k++) {
+//		b = b * 10 + c;
+//		a += b;
+//	}
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+
+//写法
+
 
 
 
@@ -5995,9 +6047,9 @@ int main()
 		printf("c=%d\n", c);*/
 
 
-		return 0;
+	/*	return 0;
 
-		}
+		}*/
 
 
 
