@@ -105,27 +105,73 @@
 
 																	//【水仙花数】
 
+//#include<math.h>
+//int main() {
+//	int a = 100;
+//	int n;//幂
+//	int i, k, b;
+//	printf("请输入水仙花的幂\n");
+//	scanf("%d", &n);
+//	do {
+//		
+//		i = a / 100;
+//		k = a / 10 % 10;
+//		b = a % 10;
+//
+//		if (pow(i, n) + pow(k, n) + pow(b, n) == a) {
+//			printf("%d\n", a);
+//		}
+//		a++;
+//	} while (a!=1000);
+//	
+//	return 0;
+//
+//}
+
+
+
+
+
+									//【求1~100000的水仙花数】
+
 #include<math.h>
 int main() {
-	int a = 100;
 
-	int i, k, b;
+	int n = 0;
+	int i = 0;
 	
-	do {
-		
-		i = a / 100;
-		k = a / 10 % 10;
-		b = a % 10;
-
-		if (pow(i, 3) + pow(k, 3) + pow(b, 3) == a) {
-			printf("%d\n", a);
+	
+	int ret = 0;
+	for (n = 1; n < 100000; n++) {
+		int rep = n;//防止影响n
+		int a = 1;//每次循环重新赋值
+		while (rep / 10) {
+			a++;
+			rep = rep / 10;
 		}
-		a++;
-	} while (a!=100000);
-	
-	return 0;
+		rep = n;//防止影响n
+		int sum = 0;//每次循环重新赋值
+		while (rep) {
+			
+ 			sum+=pow(rep % 10, a);
+			rep=rep / 10;
+			
+		}
+		if (sum == n) {
+			printf("%d\n", sum);
+		}
+		
+	}
 
+	return 0;
 }
+
+
+
+
+
+
+
 
 
 
