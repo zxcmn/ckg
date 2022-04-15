@@ -11,7 +11,7 @@
 //int main(){
 //	int arr = 0x11223344;
 //	char* pa = (char*)&arr;
-//	*pa = 0;//指针指向地址，指针跨度为一个字节，修改1个字节
+//	*pa = 0;//char指针指向地址，char指针跨度为1个字节，修改1个字节
 //	printf("%x\n", arr);
 
 
@@ -169,6 +169,9 @@
 
 
 
+
+
+
 //int main() {
 //	unsigned long arr[5] = { 6,7,8,9,10 };
 //	unsigned long* pa;
@@ -179,15 +182,70 @@
 //}
 
 
-int main() {
-	unsigned long i;
-	unsigned int k;
-	long arr;
-	double z;
-	printf("%d\n%d\n%d\n%d\n", sizeof(i), sizeof(k), sizeof(arr),sizeof(z));
+//int main() {
+//	unsigned long i;
+//	unsigned int k;
+//	long arr;
+//	double z;
+//	printf("%d\n%d\n%d\n%d\n", sizeof(i), sizeof(k), sizeof(arr),sizeof(z));
+//
+//	return 0;
+//}
 
-	return 0;
-}
+
+
+
+//struct get() {
+//	int a;
+//	float b;
+//	char arr[10];
+//}stu;//这个stu是利用这个结构体创建一个变量；就好像利用int创建a   ->    int a;
+//
+//等价struct get stu
+//stu是结构体变量名
+
+
+
+
+//struct stu {
+//	int id;
+//	char name[10];
+//	int age;
+//};
+//
+//void fun(struct stu* pa) {//结构体类型形参
+//	printf("%s\n", (*pa).name);
+//}
+//
+//int main() {
+//	struct stu a[3] = { {9928,"chen",20},{9936,"ke",19},{9958,"gang",21} };
+//	fun(a + 1);//传第二个元素{9936,"chen",20}的首地址
+//
+//	return 0;
+//}
+
+//struct stu a[3],存了3个该结构体类型的变量，a+1指向第二个变量；
+
+
+
+//【指针减去指针=指针之间元素的个数】【不是字节的个数】
+
+
+
+					//【下面哪个是指针数组】A
+//int main() {
+//	int* arr[10];
+//	int* arr[];
+//	int** arr;
+//	int(*arr)[10];
+//
+//	return 0;
+//}
+
+
+
+
+
 
 
 
@@ -1668,7 +1726,7 @@ int main() {
 
 
 																	//【结构体传参】
-
+//【形参是指针用->,形参是变量用.】
 
 //struct b {
 //	char m[20];
@@ -1677,7 +1735,7 @@ int main() {
 //};
 //
 //struct stu {
-//	struct b s;
+//	struct b s;//结构体
 //	char name[20];
 //	int age;
 //	char id[20];
