@@ -134,46 +134,60 @@
 
 									//【求1~100000的水仙花数】
 
-#include<math.h>
-int main() {
+//#include<math.h>
+//int main() {
+//
+//	int n = 0;
+//	int i = 0;
+//	
+//	
+//	int ret = 0;
+//	for (n = 1; n < 100000; n++) {
+//		int rep = n;//防止影响n
+//		int a = 1;//每次循环重新赋值
+//		while (rep / 10) {
+//			a++;
+//			rep = rep / 10;
+//		}
+//		rep = n;//防止影响n
+//		int sum = 0;//每次循环重新赋值 
+//		while (rep) {
+//			
+// 			sum+=pow(rep % 10, a);
+//			rep=rep / 10;
+//			
+//		}
+//		if (sum == n) {
+//			printf("%d\n", sum);
+//		}
+//		
+//	}
+//
+//	return 0;
+//}
 
-	int n = 0;
-	int i = 0;
-	
-	
-	int ret = 0;
-	for (n = 1; n < 100000; n++) {
-		int rep = n;//防止影响n
-		int a = 1;//每次循环重新赋值
-		while (rep / 10) {
-			a++;
-			rep = rep / 10;
-		}
-		rep = n;//防止影响n
-		int sum = 0;//每次循环重新赋值
-		while (rep) {
-			
- 			sum+=pow(rep % 10, a);
-			rep=rep / 10;
-			
-		}
-		if (sum == n) {
-			printf("%d\n", sum);
-		}
-		
-	}
+
+
+
+//int main() {
+//	unsigned long arr[5] = { 6,7,8,9,10 };
+//	unsigned long* pa;
+//	pa = arr;
+//	*(pa + 3) += 3;//只是指针移动3个unsigned long字节长度后改变里面的元素；指针并并没用发生pa=pa+3
+//	printf("%d\n%d\n", *pa, *(pa + 3));
+//	return 0;
+//}
+
+
+int main() {
+	unsigned long i;
+	unsigned int k;
+	long arr;
+	double z;
+	printf("%d\n%d\n%d\n%d\n", sizeof(i), sizeof(k), sizeof(arr),sizeof(z));
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
 
 
 
