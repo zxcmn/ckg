@@ -243,9 +243,76 @@
 //}
 
 
+//struct s {
+//	int a;
+//	int b;
+//
+//};
+//
+//
+//int main() {
+//	struct s a, * pa = &a;
+//	a.a = 99;
+//	printf("%d\n", );//a.a【对】//*pa.a【错，点的优先级更高】//(*pa).a【对】//pa->a【对】
+//	return 0;
+//}
 
 
 
+//字符串逆序
+//int main() {
+//	char arr[] = "Hell wo si";
+//	int left = 0;
+//	int right =strlen(arr)-1;
+//	printf("%d\n", sizeof(arr));
+//	printf("%d\n", strlen(arr));
+//	char* pa = arr;
+//	char* pa2 = pa+ right;
+//	char arr2=0;
+//	while (left < right) {
+//		arr2 = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = arr2;
+//		left++;
+//		right--;
+//	}
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}//写成函数，最好加个断言assert(形参!=NNLL);
+
+
+
+
+//递归求法
+
+//我一开始呆呆是思路。其实便没有什么用
+//void get(char* left, char* right) {
+//	if (left < right) {
+//		char a = *left;
+//		*left = *right;
+//		*right = a;
+//		left++;
+//		right--;
+//		get(left, right);
+//	}
+//	return 0;
+//
+//}
+//
+//#include<string.h>
+//int main() {
+//	char arr[] = "ni hao qo";
+//	char* left = arr;
+//	char* right = arr + strlen(arr) - 1;
+//	get(left, right);
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+
+
+//真正的写法【思路：先让地址向后移，直到移动到最后，条件促发，递归开始打印最后一个字符，返回返回上一个递归打印倒数第二个字符】
 
 
 
