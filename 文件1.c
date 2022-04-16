@@ -328,7 +328,7 @@
 //}
 
 
-
+//【不能写成char*pa="hahfids";这里的字符串是常量字符串；】
 
 
 
@@ -342,6 +342,20 @@
 //	printf("%c\n", *pa);//这里的指针存入的是一个字符的地址，%c输出值，%p输出地址
 //	return 0;
 //}
+
+
+
+//#include<string.h>
+//int main() {
+//	char arr[] = "hageh";
+//	printf("%c\n", arr[2]);
+//	printf("%d\n", sizeof(arr) / sizeof(arr[0]) - 1);
+//	printf("%d\n", strlen(arr));
+//
+//	return 0;
+//}
+
+
 
 
 
