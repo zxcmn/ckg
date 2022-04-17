@@ -394,8 +394,23 @@
 
 
 
+												//【喝汽水游戏，一元一瓶汽水，2个空瓶子换一瓶汽水，能喝几瓶】
 
-
+//int main() {
+//	
+//	int money = 0;
+//	scanf("%d", &money);
+//	int kong=money;
+//	int he = money;
+//	while (kong >= 2) {
+//		he += kong / 2;
+//		kong = kong / 2 + kong % 2;//上一次余下的一个空瓶子
+//		
+//	}
+//	printf("%d\n", he);
+//
+//	return 0;
+//}
 
 
 
