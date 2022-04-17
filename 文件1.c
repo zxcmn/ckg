@@ -407,10 +407,58 @@
 //		kong = kong / 2 + kong % 2;//上一次余下的一个空瓶子
 //		
 //	}
-//	printf("%d\n", he);
+//	printf("%d\n", he);//依次输入8，9.10；会发现规律，2*money-1；
 //
 //	return 0;
 //}
+
+
+
+													//通过规律2*money-1写法：
+
+//int main() {
+//	int money = 0;
+//	scanf("%d", &money);//如果0，结果就不对
+//	int total = 2 * money - 1;
+//	printf("%d\n", total);
+//	return 0;
+//}
+
+//于是
+
+//int main() {
+//	int money = 0;
+//	int total = 0;
+//	scanf("%d", &money);
+//	if (money > 0) {
+//		total = 2 * money - 1;
+//	}
+//	printf("%d\n", total);
+//	return 0;
+//}
+
+
+
+
+
+
+//写法思路：【边喝边换】
+//int main() {
+//	int s = 20;
+//	int b = 0;//喝
+//	while (s) {
+//		s--;
+//		b++;
+//		if (b % 2 == 0) {//喝来偶数，余出两个空瓶子，换一瓶，使得s++
+//			s++;
+//		}
+//	}
+//	printf("%d\n", b);
+//	return 0;
+//}
+
+
+
 
 
 
