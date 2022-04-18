@@ -458,6 +458,107 @@
 //}
 
 
+													//【将数组偶数放在前半部分，奇数放在后半部分】
+
+
+//粗糙的
+//int main() {
+//	int arr[] = { 1,2,3,4,5,6,8,8,8,8,7,12};
+//	int i = 0;
+//	int k = sizeof(arr) / sizeof(arr[0])-1;
+//	for (i = 0; i < sizeof(arr) / sizeof(arr[0]) - 1;i++) {
+//		if (arr[i] % 2 != 0) {
+//			while (k>i) {
+//				if (arr[k] % 2 == 0) {
+//					int a = arr[i];
+//					arr[i] = arr[k];
+//					arr[k] = a;
+//					break;
+//				}
+//				k--;
+//			}
+//		}
+//	}
+//	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+//		printf("%d\n", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+
+
+
+
+//粗糙的函数置换
+//void move(int* pa, int sz) {
+//	int*pa2=pa+(sz-1);
+//	while (pa < pa2) {
+//		
+//		if (*pa % 2 != 0) {//找到了，开始找后面的
+//			while (pa2>pa) {
+//				if (*pa2 % 2 == 0) {//找到了，置换
+//					int a = *pa;
+//					*pa = *pa2;
+//					*pa2 = a;
+//					break;
+//				}
+//				pa2--;//没找到，前挪
+//			}
+//		}
+//		pa++;//没找到奇数，向后找
+//	}
+//}
+
+
+
+
+
+
+
+//void print(int arr[], int sz) {
+//	int i = 0;
+//	for (i = 0; i < sz; i++) {
+//		printf("%d ", arr[i]);
+//	}
+//}
+//
+//
+//void move(int* pa, int sz) {
+//	int* pa2 = pa + sz - 1;
+//	while (pa < pa2) {
+//
+//		while (*pa % 2 == 0) {//没找到奇数
+//			pa++;//后移
+//		}
+//		while (*pa2 % 2 != 0) {//没找到偶数
+//			pa2--;//前移
+//		}
+//		if (pa < pa2) {
+//			int a = *pa;
+//			*pa = *pa2;
+//			*pa2 = a;
+//		}
+//	}
+//}
+
+
+
+//int main() {
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	move(arr,sz);//实现置换
+//	print(arr,sz);//实现打印
+//	return 0;
+//}
+
+
+
+
+
+
+
+
 
 
 
