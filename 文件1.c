@@ -528,10 +528,10 @@
 //	int* pa2 = pa + sz - 1;
 //	while (pa < pa2) {
 //
-//		while (*pa % 2 == 0) {//没找到奇数
+//		while ((pa<pa2)&&(*pa % 2 == 0)) {//没找到奇数//pa<pa2是因为防止当数组都是偶数时pa向后访问越界访问到数组外面
 //			pa++;//后移
 //		}
-//		while (*pa2 % 2 != 0) {//没找到偶数
+//		while ((pa<pa2)&&(*pa2 % 2 != 0)) {//没找到偶数//pa<pa2是因为防止当数组都是奇数时pa2向前访问越界访问到数组外面
 //			pa2--;//前移
 //		}
 //		if (pa < pa2) {
@@ -541,9 +541,9 @@
 //		}
 //	}
 //}
-
-
-
+//
+//
+//
 //int main() {
 //	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
 //	int sz = sizeof(arr) / sizeof(arr[0]);
@@ -553,6 +553,45 @@
 //}
 
 
+
+
+
+//#include<stdio.h>
+//
+//void print(int arr[], int sz) {//打印数组
+//	int i = 0;
+//	for (i = 0; i < sz; i++) {
+//		printf("%d ", arr[i]);
+//	}
+//}
+//
+//	void subs(int arr[], int sz) {
+//		int left = 0;
+//		int right = sz - 1;
+//		while (left < right) {
+//			while (left < right && arr[left] % 2!= 0) {//条件成立，则left下标元素是奇数，不用置换
+//				left++;
+//			}
+//			while (left < right && arr[right] % 2 == 0) {//条件成立，则right下标元素是偶数，不用置换
+//				right--;
+//			}
+//			if (left < right) {
+//				int a = arr[left];
+//				arr[left] = arr[right];
+//				arr[right] = a;
+//			}
+//
+//		}
+//	}
+//
+//	int main() {
+//		//int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//		int arr[] = { 1,3,5,7,9 };//如果都是奇数
+//		int sz = sizeof(arr) / sizeof(arr[0]);
+//		subs(arr, sz);//置换奇数与偶数
+//		print(arr, sz);//打印数组
+//		return 0;
+//	}
 
 
 
