@@ -1224,6 +1224,70 @@
 
 
 
+//【喝汽水写博客分析】
+//int main() {
+//
+//	int i = 0;
+//	scanf("%d", &i);
+//	int kong=i;
+//	int bu = i;
+//	while (kong>=2) {
+//		bu += kong / 2;
+//		kong = kong/2+kong%2;
+//	}
+//	printf("%d", bu);
+//
+//	return 0;
+//}
+
+
+
+//int main() {
+//
+//	int i = 0;
+//	scanf("%d", &i);
+//	int kong = 0;
+//	int bu = i;
+//	int sum = 0;
+//	while (kong!= 1) {
+//		
+//		sum += bu;
+//		kong = bu+kong%2;
+//		bu = kong / 2;
+//		
+//	}
+//	printf("%d", sum);
+//
+//	return 0;
+//}
+
+
+
+//#include<stdio.h>
+//
+//int main() {
+//
+//	int money = 0;//钱
+//	scanf("%d", &money);
+//	int sum = 0;//喝进肚子里的汽水量
+//	int q = money;//有多少瓶汽水可以喝
+//	int k = 0;//空瓶子数量
+//
+//	while (k != 1) {
+//		sum += q;//把手上的汽水装到肚子里
+//		k = q + k % 2;//汽水喝完剩下的空瓶子
+//		q = k / 2;
+//	}
+//	printf("%d", sum);
+//
+//	return 0;
+//}
+
+
+
+
+
+
 
 
 
