@@ -1284,16 +1284,125 @@
 //}
 
 
+//int main() {
+//	char arr[] = "fhek";
+//	int arr1[] = { 1,2,3,4 };
+//	printf("%d",arr[4]);
+//	printf("%c", arr[4]);
+//
+//
+//
+//	return 0;
+//}
 
 
 
+//一级指针传参
+
+//int main() {
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* pa = &arr;
+//
+//
+//
+//	return 0;
+//
+//}
 
 
 
+//#include<math.h>
+//int main() {
+//
+//	int k = 1;
+//	float n = 1;
+//	double sum = 0;
+//	double term = 0;
+//
+//	 do{
+//		
+//		term=k / n;
+//		sum += term;
+//		n += 2;
+//		k=-k;
+//
+//	 } while (fabs(term) > 1.0/100000);
+//
+//	printf("%lf", sum*4);
+//
+//	return 0;
+//}
+//
+//
+//
+//#include<math.h>
+//int main() {
+//
+//	int k = 1;
+//	float n = 1;
+//	double sum = 0;
+//	double term = 0;
+//
+//	do {
+//
+//		term = k / n;
+//		sum += term;
+//		n += 2;
+//		k = -k;
+//
+//	} while (fabs(term) > 1e-5);
+//
+//	printf("%lf", sum * 4);
+//
+//	return 0;
+//}
 
 
 
+//int main() {
+//
+//	printf("%d\n", sizeof(char));//1
+//	printf("%d\n", sizeof(unsigned char));//1
+//	printf("%d\n", sizeof(int));//4
+//	printf("%d\n", sizeof(unsigned int));//4
+//	printf("%d\n", sizeof(float));//4
+//	printf("%d\n", sizeof(double));//8
+//
+//	return 0;
+//}
 
+
+//int main() {
+//
+//	unsigned int a = -1;
+//	printf("%d",a);//以有符号
+//
+//	return 0;
+//}
+
+
+//int main() {
+//
+//	/*float a = 1;
+//	int* pa = &a;
+//	*pa = 1;*/
+//
+//	int a = 0;
+//	float* pa = &a;
+//	*pa = 1;
+//
+//	printf("%d", a);
+//
+//	return 0;
+//}
+
+int main() {
+	int a = 3.0 / 2;
+	printf("%d", a);
+
+
+	return 0;
+}
 
 
 
