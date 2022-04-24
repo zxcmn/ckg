@@ -1396,13 +1396,30 @@
 //	return 0;
 //}
 
-int main() {
-	int a = 3.0 / 2;
-	printf("%d", a);
+//int main() {
+//	int a = 3.0 / 2;
+//	printf("%d", a);
+//
+//
+//	return 0;
+//}
 
 
-	return 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
