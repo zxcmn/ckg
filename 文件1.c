@@ -5,6 +5,38 @@
 
 
 
+//void get(int** pa1) {//形参为二级指针时，能传什么参数给他呢？【传二级指针&pa1】【传一级指针&pa】
+//	printf("%d\n", *(*pa1));
+//	printf("%d", **pa1);
+//}
+//
+//int main() {
+//	int a = 10;
+//	int* arr[] = {0};
+//	int* pa = &a;
+//	int** pa1 = &pa;
+//	get(pa1);
+//	//二级pa1,一级pa,指针数组arr,
+////arr[0]本身是一个指针，但是arr是数组名，保存的是数组首元素的地址，
+//	//也就是说arr中存储的是一级指针的地址，所以可以传递可以 int *arr[10]这个是一个指针数组
+//	return 0;
+//}
+
+
+//int main() {
+//	int a = 10;
+//	int b = 2;
+//	int c = 3;
+//	int* pa[3] = { &a,&b,&c };
+//	int** pa1 = &pa;
+//	printf("%d", *(* pa1));
+//
+//	return 0;
+//}
+
+
+
+
 
 
 
@@ -626,6 +658,17 @@
 //}
 
 
+//char=‘0’和char=0 都对，有啥区别吗
+//有区别，一个是字符0，一个是数值0.
+//字符0的asc码值是0x30, 数值0的就是0
+//char c=0和char c='\0' 是相同的 ， char c='0' 和 char c=0x30是相同的
+
+
+
+
+
+
+
 
 //int main() {
 //	char a = 127;
@@ -956,13 +999,13 @@
 
 
 
-	//【对数组arr[10]取地址arr和arr区别】
+	//【对数组arr[10]取地址&arr和arr区别】
 	//int arr[10] = { 0 };
 	//printf("%p\n", &arr);
 	//printf("%p\n", arr);
 	////指向同一个位置，但意义完全不一样
 	////char arr='a';//97-char
-	////int arr=97;//97-int 
+	////int arr=97;//97-int 就好像这两个的意义不一样
 
 
 	//int arr[10] = { 0 };
@@ -1405,21 +1448,41 @@
 //}
 
 
+//void get(int* pa) {
+//
+//	printf("%d ", *pa);
+//}
+//
+//int main() {
+//	int arr[3] = { 1,2,3 };
+//	get(arr+1);
+//	printf("\n");//
+//	get(&arr+1);//跳过一个数组,跳到arr[4]
+//	printf("\n");
+//	printf("%p\n", &arr);
+//	printf("%p", &arr + 1);//十六进制地址
+//
+//
+//	return 0;
+//}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+//void get(int* pa) {
+//
+//	printf("%d", *(pa + 1));
+//}
+//
+//int main() {
+//	int arr[] = { 1,2,3 };
+//	get(&arr);
+//	printf("\n");
+//	printf("%p\n",&arr);
+//	printf("%p\n",&arr+1);
+//	return 0;
+//}
+//
+////结论：对&arr进行操作+1；和将&arr传给*pa进行+1是不同的
 
 
 
