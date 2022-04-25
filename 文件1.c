@@ -5,7 +5,163 @@
 
 
 
-//void get(int** pa1) {//形参为二级指针时，能传什么参数给他呢？【传二级指针&pa1】【传一级指针&pa】
+
+
+
+
+
+
+//void get(int** pa) {
+//	printf("%d", **pa);
+//}
+//
+//int main() {
+//
+//	int a = 10;
+//	int* pa = &a;
+//	get(&pa);
+//
+//	return 0;
+//}
+
+
+
+//
+//#include<stdio.h>
+//
+//
+//
+//void get(int** pa) {
+//	printf("%d", **pa);
+//}
+//
+//int main() {
+//
+//	int a = 10;
+//	int* a1 = &a;
+//	int* pa[] = {a1};
+//	get(pa);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+//void get(int* pa) {
+//
+//	printf("%d", *pa);
+//}
+//
+//int main() {
+//
+//	int a = 10;
+//	int* pa = &a;
+//	get(pa);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+//一级指针传参：数组名，&数组名，&a，*pa；
+//二级指针传参：一级指针，二级指针，指针数组
+
+
+//void get(int** pa) {
+//
+//	printf("%p\n", *pa);
+//	printf("%d\n", **pa);
+//	
+//}
+//
+//int main() {
+//	int a = 2;
+//	//get(&a);
+//	
+//	int* p = &a;//*pa=&a;*p就是通过a的地址找到a具体的值；
+//	int* arr[] = { p };//arr存的是p的地址，就是p=&a，故arr可以传给二级指针
+//	get(arr);
+//	printf("%p", a);
+//
+//	return 0;
+//}
+
+
+
+									//【传指针】
+
+//void get(int* pa) {
+//	printf("%d", *pa);
+//}
+//
+//int main() {
+//	int a = 10;
+//	int* pa = &a;
+//	get(pa);
+//
+//
+//	return 0;
+//}
+
+
+									//【传指针地址】相当与二级指针
+
+//void get(int **pa) {
+//	printf("%d", **pa);
+//}
+//
+//int main() {
+//	int a = 10;
+//	int* pa = &a;
+//	get(&pa);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//void get(int a) {
+//	printf("%d", a);
+//}
+//
+//int main() {
+//	int a = 10;
+//	int* pa = &a;
+//	get(*pa);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+//void get(int** pa1) {//形参为二级指针时，能传什么参数给他呢？【传二级指针&pa1】【传一级指针的地址&pa】//一级指针地址，要用二级指针接收指针地址
 //	printf("%d\n", *(*pa1));
 //	printf("%d", **pa1);
 //}
