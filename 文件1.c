@@ -6,7 +6,19 @@
 
 
 
-
+//struct tan {
+//	char name[10];
+//	int money;
+//	char ID[20];
+//}ren;
+//
+//int main() {
+//
+//	struct tan ren = { "Ёб©иаж",50200,"202115002332" };
+//	printf("%s", ren.name);
+//
+//	return 0;
+//}
 
 
 
