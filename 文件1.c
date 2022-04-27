@@ -25,7 +25,7 @@
 //存放函数地址的指针
 //arr != &arr
 //Add == &Add
-
+//[]数组，()函数
 
 
 //int Add(int x, int y) {
@@ -36,6 +36,9 @@
 //
 //	int a = 10;
 //	int b = 10;
+//
+//	//pa就是一个函数指针变量
+//	int (*pa)(int, int) = &Add;//int返回类型；（参数类型int,int）
 //
 //	printf("%p\n", &Add);//打印函数地址
 //	printf("%p\n", Add);//数组名和地址一样，同理函数也可以
@@ -48,7 +51,7 @@
 //void Get(int(*pa)[6]) {
 //	int i = 0;
 //	for (i; i < 6; i++) {
-//		printf("%d\n", **(pa+1)+i);//pa+1找到6后面的5，然后+i打印，导致最后5+5=10；
+//		printf("%d\n", **(pa + 1) + i);//pa+1指向6后面的5的数组地址，然后*（pa+1）解一次，得到数组地址；然后+i挪动指针，*解一次，通过数组地址得到具体值，导致最后5+5=10；
 //	}
 //}
 //
@@ -66,7 +69,94 @@
 
 
 
-//检测函数里，指针+1后下一次会不会恢复
+//void test(char*pa) {
+//	
+//}
+//
+//int main() {
+//
+//	void (*pt)(char*) = &test;
+//
+//	return 0;
+//}
+
+
+
+
+											//【使用指针里的函数地址；调用函数】
+
+//int test(int x,int y) {
+//	return x + y;
+//}
+//
+//int main() {
+//	//存储：
+//	int (*pa)(int,int) = &test;
+//	//等价
+//	int (*pa)(int,int) = test;//&test=test
+//	
+//	//调用：
+//	//int sum=(*pa)(3, 5);//(*pa)=test;  //(*****pa)(3,5)都一样
+//	// 等价
+//	//int sum=pa(3,5);
+//	// 等价
+//	//int sum=Add(3,5);//Add = &Add;又 &Add = pa；所以 Add(3,5);=pa(3,5);     【下面证明】
+//	// 
+//	// 
+//	//printf("%d", sum);
+//	/*printf("%d", (*pa)(3, 5));*/
+//
+//	return 0;
+//}
+
+
+
+																//证明pa=&a
+
+//int main() {
+//
+//
+//	int a = 10;
+//	int* pa = &a;
+//
+//
+//	printf("%p\n", a);
+//	printf("%p\n", *pa);
+//	printf("%p\n", &a);//&a==pa
+//	printf("%p\n", pa);
+//	printf("%p\n", &pa);
+//
+//
+//	return 0;
+//}
+
+
+
+
+//void Get(int *pa) {
+//	int i = 0;
+//	for (i = 0; i < 3; i++) {
+//		printf("%d", *pa+i);
+//	}
+//
+//}
+//
+//int main() {
+//	int a[] = {1,2,3};
+//	int* pa = &a;
+//	Get(pa);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+//检测函数里
 
 
 
