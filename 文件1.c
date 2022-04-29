@@ -26,6 +26,7 @@
 //arr != &arr
 //Add == &Add
 //[]数组，()函数
+//只有函数可以省略*
 
 
 //int Add(int x, int y) {
@@ -96,7 +97,7 @@
 //	int (*pa)(int,int) = test;//&test=test
 //	
 //	//调用：
-//	//int sum=(*pa)(3, 5);//(*pa)=test;  //(*****pa)(3,5)都一样
+//	//int sum=(*pa)(3, 5);//(*pa)=test;  //(*****pa)(3,5)都一样//只有函数可以省略*
 //	// 等价
 //	//int sum=pa(3,5);
 //	// 等价
@@ -202,6 +203,47 @@
 //
 //	return 0;
 //}
+
+
+
+
+
+//int Get(int sum) {
+//	int i = 1;
+//	int sum1 = 1;
+//	for (i = 1; i <= sum; i++) {
+//		int k = 1;
+//		int z = 1;
+//
+//		for (k = 1; k <= i; k++) {
+//
+//			z *= k;
+//		}
+//		sum1 *= z;
+//	}
+//	return sum1;
+//
+//}
+//
+//
+//int main() {
+//
+//	int i, k;
+//	int sum = 0;
+//	scanf("%d%d", &i,&k);
+//	sum = i + k;
+//
+//	printf("%d", Get(sum));
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
 
 
 
