@@ -223,25 +223,56 @@
 
 
  
+//int main() {
+//
+//
+//	printf("%p\n", (*(void (*)())0));
+//	printf("%p\n", ((void (*)())0));//同理，根据函数指针调用的特点，可以忽略*；
+//	printf("%d\n", ((void (*)())0));
+//	printf("%p",0);
+//
+//
+//
+//	//(*(void (*)())0)();//void (*p)()是函数指针变量;void (*)()是函数指针类型；就好想int a和int;后者用来定义以及强制类型转化；
+//};//把数据类型括起来是强制类型转化0【把0的地址就被当成这个函数指针类型的地址】；调用0,因为0数据类型是无参的，调用0（）也是无参的；
+
+
+
+
+
+
+
+//int main() {
+//
+//	void (*signal(int, void (*)(int)))(int);//理解：signal是一个函数，函数的数据类型是int整型  void(*)(int)函数指针类型，
+//	//这个函数的返回类型是函数指针类型
+//
+//	//void(*)(int)(signal(int, void(*)(int)));读取理解的写法
+//	//想要用这中容易理解的写法，可以用typedef类型重定义
+//
+//
+//	//typedef
+//	// 一般typedef unsigned int uint;
+//	//但typedef void (*)(int) pfun_t;不能这样写
+//	typedef void (*pfun_t)(int);//对void (*)(int)的函数指针类型重命名为pfun_t;
+//	pfun_t signal(int, pfun_t);
+//
+//	//于是pfun_t signal(int , pfun_t)=void (*signal(int,void (*)(int)))(int)
+//
+//
+//
+//	return 0;
+//}
+
+
+
 int main() {
+	
+	typedef unsigned int uint;
+	char a = -1;
 
-
-	printf("%p\n", (*(void (*)())0));
-	printf("%p\n", ((void (*)())0));//同理，根据函数指针调用的特点，可以忽略*；
-	printf("%d\n", ((void (*)())0));
-	printf("%p",0);
-
-
-
-	//(*(void (*)())0)();//void (*p)()是函数指针变量;void (*)()是函数指针类型；就好想int a和int;后者用来定义以及强制类型转化；
-};//把数据类型括起来是强制类型转化0【把0的地址就被当成这个函数指针类型的地址】；调用0,因为0数据类型是无参的，调用0（）也是无参的；
-
-
-
-
-
-
-
+	return 0;
+}
 
 
 
