@@ -266,13 +266,123 @@
 
 
 
+//int main() {
+//	
+//	typedef unsigned int uint;
+//	char a = -1;
+//
+//	return 0;
+//}
+
+
+
+										//函数指针数组
+
+//int Sum(int x, int y) {
+//	return x + y;
+//}
+//
+//int Sum2(int x, int y) {
+//	return x - y;
+//}
+//
+//int main() {
+//	
+//
+//	int (*pf1)(int, int) = Sum;
+//	int (*pf2)(int, int) = Sum2;
+//	//函数指针数组
+//	int (*pa[2])(int, int) = { Sum,Sum2 };
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+											//不使用函数指针写计算两个数
+
+
+
+
+void Game() {
+	printf("********************\n");
+	printf("**** 1.+    2.- ****\n");
+	printf("**** 3.*    4./ ****\n");
+	printf("****   0.退出   ****\n");
+	printf("********************\n");
+
+}
+
+int ap1(int x,int y) {
+	return x + y;
+}
+
+int ap2(int x, int y) {
+	return x - y;
+}
+
+
+int ap3(int x, int y) {
+	return x * y;
+}
+
+
+int ap4(int x, int y) {
+	return x / y;
+}
+
+
 int main() {
-	
-	typedef unsigned int uint;
-	char a = -1;
+
+	int input = 0;
+
+	do {
+
+		int get = 0;
+		int x = 0, y = 0;
+		Game();
+		scanf("%d", &input); 
+		
+		switch (input) {
+
+		case 1:
+			printf("请输入两个运算数：");
+			scanf("%d%d", &x, &y);
+			get=ap1(x,y);
+			break;
+		case 2:
+			printf("请输入两个运算数：");
+			scanf("%d%d", &x, &y);
+			get = ap1(x, y);
+			break;
+		case 3:
+			printf("请输入两个运算数：");
+			scanf("%d%d", &x, &y);
+			get = ap1(x, y);
+			break;
+		case 4:
+			printf("请输入两个运算数：");
+			scanf("%d%d", &x, &y);
+			get = ap1(x, y);
+			break;
+		case 0:
+			break;
+		default:
+			printf("输入错误\n");
+			break;
+		}
+
+	}while(input);
 
 	return 0;
 }
+//后续的维护特别困难，比如要加<<计算，>>计算，比较大小，按位与，按位或；
+
+
+																//【于是使用函数指针数组】
 
 
 
