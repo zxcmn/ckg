@@ -307,82 +307,233 @@
 
 
 
-void Game() {
-	printf("********************\n");
-	printf("**** 1.+    2.- ****\n");
-	printf("**** 3.*    4./ ****\n");
-	printf("****   0.退出   ****\n");
-	printf("********************\n");
-
-}
-
-int ap1(int x,int y) {
-	return x + y;
-}
-
-int ap2(int x, int y) {
-	return x - y;
-}
-
-
-int ap3(int x, int y) {
-	return x * y;
-}
-
-
-int ap4(int x, int y) {
-	return x / y;
-}
-
-
-int main() {
-
-	int input = 0;
-
-	do {
-
-		int get = 0;
-		int x = 0, y = 0;
-		Game();
-		scanf("%d", &input); 
-		
-		switch (input) {
-
-		case 1:
-			printf("请输入两个运算数：");
-			scanf("%d%d", &x, &y);
-			get=ap1(x,y);
-			break;
-		case 2:
-			printf("请输入两个运算数：");
-			scanf("%d%d", &x, &y);
-			get = ap1(x, y);
-			break;
-		case 3:
-			printf("请输入两个运算数：");
-			scanf("%d%d", &x, &y);
-			get = ap1(x, y);
-			break;
-		case 4:
-			printf("请输入两个运算数：");
-			scanf("%d%d", &x, &y);
-			get = ap1(x, y);
-			break;
-		case 0:
-			break;
-		default:
-			printf("输入错误\n");
-			break;
-		}
-
-	}while(input);
-
-	return 0;
-}
+//void Game() {
+//	printf("********************\n");
+//	printf("**** 1.+    2.- ****\n");
+//	printf("**** 3.*    4./ ****\n");
+//	printf("****   0.退出   ****\n");
+//	printf("********************\n");
+//
+//}
+//
+//int ap1(int x,int y) {
+//	return x + y;
+//}
+//
+//int ap2(int x, int y) {
+//	return x - y;
+//}
+//
+//
+//int ap3(int x, int y) {
+//	return x * y;
+//}
+//
+//
+//int ap4(int x, int y) {
+//	return x / y;
+//}
+//
+//
+//int main() {
+//
+//	int input = 0;
+//
+//	do {
+//
+//		int get = 0;
+//		int x = 0, y = 0;
+//		Game();
+//		scanf("%d", &input); 
+//		
+//		switch (input) {
+//
+//		case 1:
+//			printf("请输入两个运算数：");
+//			scanf("%d%d", &x, &y);
+//			get=ap1(x,y);
+//			break;
+//		case 2:
+//			printf("请输入两个运算数：");
+//			scanf("%d%d", &x, &y);
+//			get = ap1(x, y);
+//			break;
+//		case 3:
+//			printf("请输入两个运算数：");
+//			scanf("%d%d", &x, &y);
+//			get = ap1(x, y);
+//			break;
+//		case 4:
+//			printf("请输入两个运算数：");
+//			scanf("%d%d", &x, &y);
+//			get = ap1(x, y);
+//			break;
+//		case 0:
+//			break;
+//		default:
+//			printf("输入错误\n");
+//			break;
+//		}
+//
+//	}while(input);
+//
+//	return 0;
+//}
 //后续的维护特别困难，比如要加<<计算，>>计算，比较大小，按位与，按位或；
 
 
 																//【于是使用函数指针数组】
+
+//【优化】
+
+
+
+
+//void Game() {
+//	printf("********************\n");
+//	printf("**** 1.+    2.- ****\n");
+//	printf("**** 3.*    4./ ****\n");
+//	printf("****   0.退出   ****\n");
+//	printf("********************\n");
+//
+//}
+//
+//int ap1(int x,int y) {
+//	return x + y;
+//}
+//
+//int ap2(int x, int y) {
+//	return x - y;
+//}
+//
+//
+//int ap3(int x, int y) {
+//	return x * y;
+//}
+//
+//
+//int ap4(int x, int y) {
+//	return x / y;
+//}
+//
+//
+//int main() {
+//
+//	int input = 0;
+//
+//	do {
+//
+//		int get = 0;
+//		int x = 0, y = 0;
+//		Game();
+//		int (*pfArr[5])(int, int) = { 0,ap1,ap2,ap3,ap4 };//创建函数指针数组，同时使ap1数组下标从1开始；对应输入的序号//返回类型必须一致；
+//		scanf("%d", &input);
+//		if (input >= 1 && input <= 4) {
+//		printf("请输入两个有效数字：\n");
+//		scanf("%d%d", &x, &y);
+//		printf("结果：%d\n", (pfArr[input])(x, y));
+//		}
+//		else if (input == 0) {
+//			printf("退出成功\n");
+//		}
+//		else {
+//			printf("选择错误\n");
+//		}
+//		
+//	} while (input);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//02d%
+
+//int main() {
+//
+//	int i = 0;
+//	for (i = 0; i <= 10; i++) {
+//		printf("%02d\n", i);
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+
+
+//int main() {
+//
+//	int i = 10;
+//	int* pa = &i;
+//	printf("%p\n", pa);
+//	printf("%p\n", &i);
+//	printf("%d\n", *pa);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+																//【转移表】
+
+//如果一个数组，起到跳转作用，比如上面的函数指针数组；这样的一个数组叫做【转移表】
+
+
+
+
+																//【指向函数指针数组的指针】
+
+
+//指针数组-指向数组的指针
+//不难想到既然有指向数组的指针；那么就有指向函数指针数组的指针
+
+
+//int Get(int x, int y) {
+//	return x + y;
+//}
+//
+//int main() {
+//	int i = 0;
+//
+//	int (*pfArr[])(int, int) = { Get };//函数指针数组
+//	i=(*pfArr[0])(3, 5);//传参
+//	int* pfArr2[] = { pfArr };//指向函数指针数组的 指针数组
+//
+//	printf("%d\n", *pfArr2);
+//	printf("%d\n", pfArr);
+//	printf("%d\n", *pfArr);
+//	printf("%d\n", Get);//是用整型输出打印的函数的地址
+//	printf("%d\n", Get(3,5));//打印函数返回值；
+//	printf("%d\n", (*pfArr[0])(3, 5));
+//	printf("%d\n", i);
+//
+//	return 0;
+//}
+
+
+
+//int main() {
+//
+//	int arr[] = { 1,2,3,4,5,6,7 };
+//	int(* pa)[3] = arr;
+//	printf("%d\n",**(pa+1));
+//
+//	return 0;
+//}
+
+
 
 
 
