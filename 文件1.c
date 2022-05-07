@@ -500,27 +500,33 @@
 //不难想到既然有指向数组的指针；那么就有指向函数指针数组的指针
 
 
-//int Get(int x, int y) {
-//	return x + y;
-//}
-//
-//int main() {
-//	int i = 0;
-//
-//	int (*pfArr[])(int, int) = { Get };//函数指针数组
-//	i=(*pfArr[0])(3, 5);//传参
-//	int* pfArr2[] = { pfArr };//指向函数指针数组的 指针数组
-//
-//	printf("%d\n", *pfArr2);
-//	printf("%d\n", pfArr);
-//	printf("%d\n", *pfArr);
-//	printf("%d\n", Get);//是用整型输出打印的函数的地址
-//	printf("%d\n", Get(3,5));//打印函数返回值；
-//	printf("%d\n", (*pfArr[0])(3, 5));
-//	printf("%d\n", i);
-//
-//	return 0;
-//}
+int Get(int x, int y) {
+	return x + y;
+}
+
+int main() {
+	int i = 0;
+
+	int (*pfArr[])(int, int) = { Get };//函数指针数组
+	i=(*pfArr[0])(3, 5);//传参
+	int(* pfArr2[])(int ,int) = {pfArr};//指向函数指针数组的 指针数组
+
+	printf("%d\n", pfArr);
+	printf("%d\n\n", Get);
+
+
+
+	printf("%d\n", *pfArr2);
+	printf("%d\n", pfArr);
+	printf("%d\n", *pfArr);
+	printf("%d\n", **pfArr2);
+	printf("%d\n", Get);//是用整型输出打印的函数的地址
+	printf("%d\n", Get(3,5));//打印函数返回值；
+	printf("%d\n", (*pfArr[0])(3, 5));
+	printf("%d\n", i);
+
+	return 0;
+}
 
 
 
