@@ -500,33 +500,33 @@
 //不难想到既然有指向数组的指针；那么就有指向函数指针数组的指针
 
 
-int Get(int x, int y) {
-	return x + y;
-}
-
-int main() {
-	int i = 0;
-
-	int (*pfArr[])(int, int) = { Get };//函数指针数组
-	i=(*pfArr[0])(3, 5);//传参
-	int(* pfArr2[])(int ,int) = {pfArr};//指向函数指针数组的 指针数组
-
-	printf("%d\n", pfArr);
-	printf("%d\n\n", Get);
-
-
-
-	printf("%d\n", *pfArr2);
-	printf("%d\n", pfArr);
-	printf("%d\n", *pfArr);
-	printf("%d\n", **pfArr2);
-	printf("%d\n", Get);//是用整型输出打印的函数的地址
-	printf("%d\n", Get(3,5));//打印函数返回值；
-	printf("%d\n", (*pfArr[0])(3, 5));
-	printf("%d\n", i);
-
-	return 0;
-}
+//int Get(int x, int y) {
+//	return x + y;
+//}
+//
+//int main() {
+//	int i = 0;
+//
+//	int (*pfArr[])(int, int) = { Get };//函数指针数组
+//	i=(*pfArr[0])(3, 5);//传参
+//	int(* (*pfArr2)[])(int ,int) = {pfArr};//指向函数指针数组的 指针数组
+//
+//	printf("%d\n", pfArr);
+//	printf("%d\n\n", Get);
+//
+//
+//
+//	printf("%d\n", *pfArr2);
+//	printf("%d\n", pfArr);
+//	printf("%d\n", *pfArr);
+//	printf("%d\n", **pfArr2);
+//	printf("%d\n", Get);//是用整型输出打印的函数的地址
+//	printf("%d\n", Get(3,5));//打印函数返回值；
+//	printf("%d\n", (*pfArr[0])(3, 5));
+//	printf("%d\n", i);
+//
+//	return 0;
+//}
 
 
 
@@ -538,6 +538,77 @@ int main() {
 //
 //	return 0;
 //}
+
+
+
+														//【整合】
+
+//int main() {
+//
+//	int a[10];
+//	//int是数组元素类型
+//	//int[10]是数组类型
+//
+//
+//
+//	int a[]={0};
+//	int(*pk)[] = &a;//指针数组//指向整型数组的指针
+//	int(*pa[])[] = &a;//数组指针数组//指向多个数组的指针
+//
+//
+//	int* i[] = { 0 };
+//	int (*pk)[] = &i;//指向整型指针数组的指针
+//
+//
+//	int i;
+//	int(* i)[];//指针数组
+//	int* i[]={0};//数组指针//可以存放多个地址的指针变量；
+//
+//
+//	//函数指针数组
+//	int (*pk)(int, int);//函数指针
+//	int (*pfArr[])(int, int) = { pk };//函数指针数组
+//	int (*(*pa)[])(int, int) = { pfArr };//指向函数指针数组的指针
+//	int (*(*pa[])[])(int, int) = {pfArr};//指向函数指针数组的指针数组
+////(*pa)代表指针；[]代表指向数组的指针；int (*)(int ,int );代表指针类型即每个元素的类型；
+//
+//	return 0;
+//}
+
+
+
+
+
+
+															//【回调函数】
+//回调函数：如果你把函数指针（地址）作为参数传递给另一个函数
+//当这个指针被用来调用其所指向的函数时，我们就说这是回调函数
+
+
+//自己写的例子：
+//int Get1(int x, int y) {
+//	return x + y;
+//}
+//
+//int Get2(int (*formal_parameter)(int, int)) {//形参接收
+//	int i = 0;
+//	i=(formal_parameter)(3, 5);//通过形参反过来调用函数Get1
+//	printf("%d\n", i);
+//}
+//
+//int main() {
+//
+//	int (*pa)(int, int) = { Get1 };//创建函数指针
+//	Get2(pa);//传入函数指针
+//
+//	return 0;
+//}
+
+
+
+
+
+
 
 
 
