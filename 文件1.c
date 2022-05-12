@@ -9,6 +9,139 @@
 
 
 
+
+
+
+
+//结构体数据变量
+
+
+//struct Stu {
+//	char name[20];
+//	int age;
+//};
+//
+//
+//int main() {
+//	int i = 0;
+//	struct Stu s[] = { {"张三",16},{"李四",18},{"陈五",20}};//数组大小3；可以存放3个变量；
+//
+//	for (i = 0; i < 3; i++) {
+//	printf("%s  %d\n", s[i].name, s[i].age);
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+
+												//结构体变量使用qsort排序
+
+
+
+
+//struct Stu {
+//	char name[20];
+//	int age;
+//};
+//
+//
+//int main() {
+//	int i = 0;
+//	struct Stu s[] = { {"张三",18},{"李四",16},{"陈五",20}};//数组大小3；可以存放3个变量；
+//
+//	for (i = 0; i < 3; i++) {
+//	printf("%s  %d\n", s[i].name, s[i].age);
+//	}
+//
+//	return 0;
+//}
+ 
+
+//对s进行排序
+
+
+
+//struct Stu {
+//	char name[20];
+//	int age;
+//};
+//
+//
+//int Get(const void*e1,const void*e2) {
+//	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//不需要解引用，->已经找到了age
+//}
+//
+//void print(int sz, struct Stu *s) {
+//	for (int i = 0; i < sz; i++) {
+//		printf("%s  %d\n", (s+i)->name, (s+i)->age);
+//	}
+//
+//}
+//
+//
+//#include<stdlib.h>
+//int main() {
+//	int i = 0;
+//	struct Stu s[] = { {"张三",18},{"李四",16},{"陈五",20} };//数组大小3；可以存放3个变量；
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	
+//	qsort(s,sz,sizeof(s[0]),Get);
+//	
+//	print(sz,&s);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int Get(int x) {
+//	if (x==0) {
+//		return 0;
+//	}
+//
+//		return x + Get(x - 1);
+//	
+//}
+//
+//
+//int main() {
+//
+//	int x=0;
+//
+//	scanf("%d", &x);
+//
+//	printf("%d", Get(x));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
 //#include<stdio.h>
 //
 //int main() {
@@ -820,7 +953,7 @@
 
 																	//【库函数qsort快速排序】
 
-//什么数据类型都可以排。排整形，排字符串，排char，排结构体都可以
+//什么数据类型都可以排。排整形，排字符串，排char，排体都可以
 
 
 //排整型
@@ -829,7 +962,7 @@
 //
 //int cmp_int(const void*e1,const void*e2) {
 //	return *(int*)e1 - *(int*)e2;
-//}
+//}f
 //
 //
 //void print(int *a,int sz) {
@@ -1427,10 +1560,10 @@
 //	int a;
 //	float b;
 //	char arr[10];
-//}stu;//这个stu是利用这个结构体创建一个变量；就好像利用int创建a   ->    int a;
+//}stu;//这个stu是利用这个体创建一个变量；就好像利用int创建a   ->    int a;
 //
 //等价struct get stu
-//stu是结构体变量名
+//stu是体变量名
 
 
 
@@ -1441,7 +1574,7 @@
 //	int age;
 //};
 //
-//void fun(struct stu* pa) {//结构体类型形参
+//void fun(struct stu* pa) {//体类型形参
 //	printf("%s\n", (*pa).name);
 //}
 //
@@ -1452,7 +1585,7 @@
 //	return 0;
 //}
 
-//struct stu a[3],存了3个该结构体类型的变量，a+1指向第二个变量；
+//struct stu a[3],存了3个该体类型的变量，a+1指向第二个变量；
 
 
 
@@ -2762,16 +2895,13 @@
 
 
 
-int main() {
-
-	int a = 10;
-	char b = -2;
-	char k = a + b;
-	printf("%d\n", k);
-
-	return 0;
-}
-
+//int main() {
+//
+//	unsigned char k = -1;
+//	printf("%d",k);
+//
+//	return 0;
+//}
 
 
 
@@ -3875,7 +4005,7 @@ int main() {
 	
 
 
-																	//【结构体传参】
+																	//【体传参】
 //【形参是指针用->,形参是变量用.】
 
 //struct b {
@@ -3885,14 +4015,14 @@ int main() {
 //};
 //
 //struct stu {
-//	struct b s;//结构体
+//	struct b s;//体
 //	char name[20];
 //	int age;
 //	char id[20];
-//};//在结构体变量后面
+//};//在体变量后面
 //
 //
-////结构体传参（传变量）
+////体传参（传变量）
 //void print2(struct stu pa) {
 //	printf(" %s\n %d\n %s\n %s\n %d\n %s\n", pa.s.m, pa.s.i, pa.s.d, pa.name, pa.age, pa.id);
 //};
