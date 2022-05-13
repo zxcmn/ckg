@@ -98,6 +98,131 @@
 
 
 
+//通过排名字
+
+
+
+//struct Stu {
+//	char name[20];
+//	int age;
+//};
+//
+//
+//int Get(const void* e1,const void* e2) {
+//	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+//}
+//
+//void print(int sz, struct Stu *s) {
+//	for (int i = 0; i < sz; i++) {
+//		printf("%s  %d\n", (s + i)->name, (s + i)->age);
+//	}
+//}
+//
+//
+//
+//#include<string.h>
+//#include<stdlib.h>
+//int main() {
+//
+//	struct Stu s[] = { {"zhangsan",18},{"lisi",16},{"chenwu",20} };//数组大小3；可以存放3个变量；
+//																   //注意：abcq和adc比较，是a 的Asc码==a,b的Asc<d,于是adc>abcq
+//																		
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	
+//	qsort(s,sz,sizeof(s[0]),Get);
+//	
+//	print(sz,&s);
+//
+//	return 0;
+//}
+
+
+
+
+
+												//测试strcmp
+
+//int main() {
+//
+//	/*char arr[] = "chenwu";
+//	char arr2[] = "lisi";*/
+//
+//	char arr[] = "abcq";
+//	char arr2[] = "ad";
+//
+//	printf("%d", strcmp(arr, arr2));//>返回1；==0返回0；<返回-1；
+//
+//	return 0;
+//}
+
+
+//#include<string.h>
+//int main() {
+//
+//	char a[] = "abcq";
+//	char b[] = "adc";
+//
+//	if (strcmp(a, b)>0) {
+//		printf("haha\n");
+//	}
+//	else {
+//		printf("hehe\n");
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+//#include<string.h>
+//int main() {
+//
+//	char a[] = "haha";
+//	char b[] = "hehehe";
+//	printf("%d", strcmp(a, b));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//#include<stdlib.h>
+//
+//int cmp_int(const void*e1,const void*e2) {
+//	return *(int*)e1 - *(int*)e2;
+//}
+//
+//
+//void print(int *a,int sz) {
+//	int i = 0;
+//	for (i = 0; i < sz; i++) {
+//		printf("%d\n", *(a + i));
+//	}
+//}
+//
+//
+//
+//int main() {
+//
+//	int arr[] = { 8,8,7,6,5,4,3,2,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	qsort(arr,sz,sizeof(arr[0]), cmp_int);
+//
+//	print(arr,sz);
+//
+//	return 0;
+//}
+
+
 
 
 
