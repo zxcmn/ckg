@@ -9,9 +9,60 @@
 
 
 
-
-
-
+//int compare_element(const void*pa1,const void*pa2) {
+//	return *(int*)pa1 - *(int*)pa2;
+//}
+//
+//
+//void print(int sz, int* arr) {
+//	for (int i = 0; i < sz; i++) {
+//		printf("%d ", *(arr + i));
+//	}
+//}
+//
+//
+//void swap(char* pa1, char* pa2, int element_size) {
+//	int i = 0;
+//	for (i = 0; i < element_size; i++) {
+//		char store = *pa1;
+//		*pa1 = *pa2;
+//		*pa2 = store;
+//		pa1++;
+//		pa2++;
+//	}
+//}
+//
+//void mock_qsort(void* pa, int element_sum, int element_size, int (*compare_element)(const void* e1, const void* e2)) {
+//	int i = 0;
+//	for (i = 0; i < element_sum - 1; i++) {
+//		int j = 0;
+//		for (j = 0; j < element_sum - 1 - i; j++) {
+//			if (compare_element((char*)pa + j * element_size, (char*)pa + (j + 1) * element_size) > 0) {
+//				swap((char*)pa + j * element_size, (char*)pa + (j + 1) * element_size, element_size);
+//			}
+//		}
+//	}
+//}
+//
+//
+//void deliver_set() {
+//
+//	int sz;
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	mock_qsort(arr, sz, sizeof(arr[0]), compare_element);
+//	print(sz,arr);
+//}
+//
+//
+//int main() {
+//
+//	//传参
+//	deliver_set();
+//
+//	return 0;
+//}
 
 
 
