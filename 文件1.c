@@ -4,6 +4,16 @@
 
 
 
+//模仿qsort,自己创建一个函数可以实现个个数据的类型的排序
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,7 +141,7 @@
 //	
 //	qsort(s,sz,sizeof(s[0]),Get);
 //	
-//	print(sz,&s);
+//	print(sz,s);
 //
 //	return 0;
 //}
@@ -226,7 +236,133 @@
 
 
 
+//int Get(const void* pa1, const void* pa2) {
+//	return strcmp((char*)pa1, (char*)pa2);
+//}
+//
+//
+//void print(int sz, char* pa) {
+//	int i = 0;
+//	for (i = 0; i < sz; i++) {
+//		printf("%c", *(pa + i));
+//	}
+//
+//}
+//
+//#include<stdlib.h>
+//#include<string.h>
+//
+//int main() {
+//
+//	int sz;
+//	char arr[] = { 'h','g','f','e','d','c','b','a',0};
+//	sz = strlen(arr);
+//	qsort(arr, sz, sizeof(arr[0]), Get);
+//	print(sz, arr);
+//
+//	return 0;
+//}
 
+
+
+
+//int Get(const void* pa1, const void* pa2) {
+//	return strcmp(*(char**)pa1, *(char**)pa2);
+//}
+//
+//
+//void print(int sz, char** pa) {//二级指针接收【有些人可能迷糊了，为什么不是一级指针，下面解释
+//	int i = 0;
+//	for (i = 0; i < sz; i++) {
+//		printf("%s ", *(pa + i));
+//	}
+//
+//}
+//
+//
+//#include<string.h>
+//#include<stdlib.h>
+//int main() {
+//
+//	int sz;
+//	char* arr[] = {"ef","cd","ab"};
+//	sz = sizeof(arr) / sizeof(arr[0]);
+//
+//
+//	qsort(arr,sz,sizeof(arr[0]), Get);
+//	print(sz,arr);
+//
+//	return 0;
+//}
+
+
+
+//int main() {
+//
+//	int arr[] = { 1,2,3 };
+//	int(*pa)[] = { arr };
+//	printf("%p\n", *pa);
+//	printf("%p\n", &arr);
+//	printf("%p\n", **pa);
+//	printf("%p\n", arr);
+//	printf("%p\n", &arr[0]);
+//
+//	int* pa1 = &arr;
+//	printf("%d", *pa1);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	char* arr[] = { "ab","cd","ef" };
+//
+//	printf("%p\n", arr);
+//	printf("%p\n", arr[0]);
+//	printf("%p\n", &arr[0]);
+//
+//	printf("-----------------\n");
+//	int arr1[] = { 1,2,3,4 };
+//
+//	printf("%p\n", arr1);
+//	printf("%p\n", arr1[0]);
+//	printf("%p\n", &arr1[0]);
+//
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//#include<string.h>
+//int main() {
+//
+//	char a = 'a';
+//	char b = 'b';
+//	char* a1 = &a;
+//	char* b1 = &b;
+//
+//	printf("%d", strcmp(a1,b1));
+//
+//
+//	return 0;
+//}
 
 
 
