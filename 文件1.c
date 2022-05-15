@@ -6,98 +6,152 @@
 
 
 
-#include<string.h>
+//#include<string.h>
+//int main() {
+//
+//
+//
+//	/*int a[] = { 1,2,3,4 };*/
+//	//	printf("%d\n", sizeof(a));//16
+//	//	printf("%d\n", sizeof(a+0));//4/8
+//	//	printf("%d\n", sizeof(*a));//4
+//	//	printf("%d\n", sizeof(a+1));//4/8//第一个元素地址+1
+//	//	printf("%d\n", sizeof(a[1]));//4
+//	//
+//	//	printf("%d\n", sizeof(&a));//4/8
+//	//	printf("%d\n", sizeof(*&a));//16//数组地址解引用=数组a
+//	//	printf("%d\n", sizeof(&a+1));//4/8//是数组后面的空间的地址
+//	//	printf("%d\n", sizeof(&a[0]));//4/8
+//	//	printf("%d\n", sizeof(&a[0]+1));//4/8
+//	//
+//
+//
+//
+//	//char arr[] = { 'a','b','c','d','e','f' };
+//	//printf("%d\n", sizeof(arr));//6
+//	//printf("%d\n", sizeof(arr+0));//4/8
+//	//printf("%d\n", sizeof(*arr));//1
+//	//printf("%d\n", sizeof(arr[1]));//1
+//	//printf("%d\n", sizeof(&arr));//4/8
+//	//printf("%d\n", sizeof(&arr+1));//4/8
+//	//printf("%d\n", sizeof(&arr[0]+1));//4/8
+//	//printf("%d\n", strlen(arr));//随机值
+//	//printf("%d\n", strlen(arr+0));//随机值
+//	//printf("%d\n", strlen(*arr));//错误,不是地址，把a（Ascii=97）传过去，把97当成地址；错误
+//	//printf("%d\n", strlen(arr[1]));//错误
+//	//printf("%d\n", strlen(&arr));//随机值
+//	//printf("%d\n", strlen(&arr+1));//随机值
+//	//printf("%d\n", strlen(&arr[0]+1));//随机值
+//
+//
+//
+//
+//
+//	//char arr[] = "abcdef";
+//
+//	//printf("%d\n", sizeof(arr));//7
+//	//printf("%d\n", sizeof(arr+0));//4/8
+//	//printf("%d\n", sizeof(*arr));//1
+//	//printf("%d\n", sizeof(arr[1]));//1
+//	//printf("%d\n", sizeof(&arr));//4/8		取出的地址类型应该是char(*)[7]
+//	//printf("%d\n", sizeof(&arr+1));//4/8
+//	//printf("%d\n", sizeof(&arr[0]+1));//4/8
+//
+//
+//	//printf("%d\n", strlen(arr));//6
+//	//printf("%d\n", strlen(arr + 0));//6
+//	//printf("%d\n", strlen(*arr));//错误
+//	//printf("%d\n", strlen(arr[1]));//错误
+//	//printf("%d\n", strlen(&arr));//6   strlen接收从数组首地址开始数
+//	//printf("%d\n", strlen(&arr + 1));//随机
+//	//printf("%d\n", strlen(&arr[0] + 1));//5
+//
+//
+//
+//
+//	char* p = "abcdef";
+//
+//	//printf("%d\n", sizeof(p));//4/8
+//	//printf("%d\n", sizeof(p+1));//4/8
+//	//printf("%d\n", sizeof(*p));//1
+//	//printf("%d\n", sizeof(p[0]));//1
+//	//printf("%d\n", sizeof(&p));//4/8
+//	//printf("%d\n", sizeof(&p+1));//4/8
+//	//printf("%d\n", sizeof(&p[0]+1));//4/8
+//
+//
+//	//printf("%d\n", strlen(p));//6
+//	//printf("%d\n", strlen(p+1));//5
+//	//printf("%d\n", strlen(*p));//arr
+//	
+//
+//	char* pa = p;
+//
+//	//printf("%d\n", strlen(p[0]));//err
+//
+//	printf("%p\n", p);
+//
+//	printf("%d\n", strlen(&p));//随机（如果有0，必定小于4个字节）（地址4个字节，
+//	// 如果0x23343600(十六进制：8个字节，一个字节4bit),以字节为单位解读，其中的00就等价\0;所以必定小于4个字节（例如这里233436=3字节））
+//	
+//	//printf("%d\n", strlen(&p+1));//随机
+//	//printf("%d\n", strlen(&p[0]+1));//5
+//
+//	
+//	char* k = "ha";
+//
+//	printf("%p\n",k);
+//
+//	printf("%d\n", strlen(&k));
+//
+//
+//
+//
+//
+//
+//	
+//
+//
+//	return 0;
+//}
+
+
+
+
+#include<stdio.h>
 int main() {
 
+	char* a = "abcdef";
 
+	printf("%d\n",strlen(&a));
+	printf("%p\n", a);
 
-	/*int a[] = { 1,2,3,4 };*/
-	//	printf("%d\n", sizeof(a));//16
-	//	printf("%d\n", sizeof(a+0));//4/8
-	//	printf("%d\n", sizeof(*a));//4
-	//	printf("%d\n", sizeof(a+1));//4/8//第一个元素地址+1
-	//	printf("%d\n", sizeof(a[1]));//4
-	//
-	//	printf("%d\n", sizeof(&a));//4/8
-	//	printf("%d\n", sizeof(*&a));//16//数组地址解引用=数组a
-	//	printf("%d\n", sizeof(&a+1));//4/8//是数组后面的空间的地址
-	//	printf("%d\n", sizeof(&a[0]));//4/8
-	//	printf("%d\n", sizeof(&a[0]+1));//4/8
-	//
-
-
-
-	//char arr[] = { 'a','b','c','d','e','f' };
-	//printf("%d\n", sizeof(arr));//6
-	//printf("%d\n", sizeof(arr+0));//4/8
-	//printf("%d\n", sizeof(*arr));//1
-	//printf("%d\n", sizeof(arr[1]));//1
-	//printf("%d\n", sizeof(&arr));//4/8
-	//printf("%d\n", sizeof(&arr+1));//4/8
-	//printf("%d\n", sizeof(&arr[0]+1));//4/8
-	//printf("%d\n", strlen(arr));//随机值
-	//printf("%d\n", strlen(arr+0));//随机值
-	//printf("%d\n", strlen(*arr));//错误,不是地址，把a（Ascii=97）传过去，把97当成地址；错误
-	//printf("%d\n", strlen(arr[1]));//错误
-	//printf("%d\n", strlen(&arr));//随机值
-	//printf("%d\n", strlen(&arr+1));//随机值
-	//printf("%d\n", strlen(&arr[0]+1));//随机值
-
-
-
-
-
-	//char arr[] = "abcdef";
-
-	//printf("%d\n", sizeof(arr));//7
-	//printf("%d\n", sizeof(arr+0));//4/8
-	//printf("%d\n", sizeof(*arr));//1
-	//printf("%d\n", sizeof(arr[1]));//1
-	//printf("%d\n", sizeof(&arr));//4/8		取出的地址类型应该是char(*)[7]
-	//printf("%d\n", sizeof(&arr+1));//4/8
-	//printf("%d\n", sizeof(&arr[0]+1));//4/8
-
-
-	//printf("%d\n", strlen(arr));//6
-	//printf("%d\n", strlen(arr + 0));//6
-	//printf("%d\n", strlen(*arr));//错误
-	//printf("%d\n", strlen(arr[1]));//错误
-	//printf("%d\n", strlen(&arr));//6   strlen接收从数组首地址开始数
-	//printf("%d\n", strlen(&arr + 1));//随机
-	//printf("%d\n", strlen(&arr[0] + 1));//5
-
-
-
-
-	char* p = "abcdef";
-
-	//printf("%d\n", sizeof(p));//4/8
-	//printf("%d\n", sizeof(p+1));//4/8
-	//printf("%d\n", sizeof(*p));//1
-	//printf("%d\n", sizeof(p[0]));//1
-	//printf("%d\n", sizeof(&p));//4/8
-	//printf("%d\n", sizeof(&p+1));//4/8
-	//printf("%d\n", sizeof(&p[0]+1));//4/8
-
-
-	//printf("%d\n", strlen(p));//6
-	//printf("%d\n", strlen(p+1));//5
-	//printf("%d\n", strlen(*p));//arr
-	//printf("%d\n", strlen(p[0]));//err
-	//printf("%d\n", strlen(&p));//随机（如果有0，必定小于4个字节）（地址4个字节，
-	// 如果0x23343600(十六进制：8个字节，一个字节4bit),以字节为单位解读，其中的00就等价\0;所以必定小于4个字节（例如这里233436=3字节））
-	
-	//printf("%d\n", strlen(&p+1));//随机
-	//printf("%d\n", strlen(&p[0]+1));//5
-
-	
-
-
-
-	return 0;
 }
 
 
+
+
+
+
+
+
+
+
+
+//int main() {
+//	int a = 1;
+//
+//	char* pa = (char*)&a;
+//	if (*pa == 1) {
+//		printf("小端\n");
+//	}
+//	else {
+//		printf("大端\n");
+//	}
+//
+//
+//	return 0;
+//}
 
 
 
