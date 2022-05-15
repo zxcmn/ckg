@@ -4,10 +4,231 @@
 
 
 
+
+
+#include<string.h>
+int main() {
+
+
+
+	/*int a[] = { 1,2,3,4 };*/
+	//	printf("%d\n", sizeof(a));//16
+	//	printf("%d\n", sizeof(a+0));//4/8
+	//	printf("%d\n", sizeof(*a));//4
+	//	printf("%d\n", sizeof(a+1));//4/8//第一个元素地址+1
+	//	printf("%d\n", sizeof(a[1]));//4
+	//
+	//	printf("%d\n", sizeof(&a));//4/8
+	//	printf("%d\n", sizeof(*&a));//16//数组地址解引用=数组a
+	//	printf("%d\n", sizeof(&a+1));//4/8//是数组后面的空间的地址
+	//	printf("%d\n", sizeof(&a[0]));//4/8
+	//	printf("%d\n", sizeof(&a[0]+1));//4/8
+	//
+
+
+
+	//char arr[] = { 'a','b','c','d','e','f' };
+	//printf("%d\n", sizeof(arr));//6
+	//printf("%d\n", sizeof(arr+0));//4/8
+	//printf("%d\n", sizeof(*arr));//1
+	//printf("%d\n", sizeof(arr[1]));//1
+	//printf("%d\n", sizeof(&arr));//4/8
+	//printf("%d\n", sizeof(&arr+1));//4/8
+	//printf("%d\n", sizeof(&arr[0]+1));//4/8
+	//printf("%d\n", strlen(arr));//随机值
+	//printf("%d\n", strlen(arr+0));//随机值
+	//printf("%d\n", strlen(*arr));//错误,不是地址，把a（Ascii=97）传过去，把97当成地址；错误
+	//printf("%d\n", strlen(arr[1]));//错误
+	//printf("%d\n", strlen(&arr));//随机值
+	//printf("%d\n", strlen(&arr+1));//随机值
+	//printf("%d\n", strlen(&arr[0]+1));//随机值
+
+
+
+
+
+	//char arr[] = "abcdef";
+
+	//printf("%d\n", sizeof(arr));//7
+	//printf("%d\n", sizeof(arr+0));//4/8
+	//printf("%d\n", sizeof(*arr));//1
+	//printf("%d\n", sizeof(arr[1]));//1
+	//printf("%d\n", sizeof(&arr));//4/8		取出的地址类型应该是char(*)[7]
+	//printf("%d\n", sizeof(&arr+1));//4/8
+	//printf("%d\n", sizeof(&arr[0]+1));//4/8
+
+
+	//printf("%d\n", strlen(arr));//6
+	//printf("%d\n", strlen(arr + 0));//6
+	//printf("%d\n", strlen(*arr));//错误
+	//printf("%d\n", strlen(arr[1]));//错误
+	//printf("%d\n", strlen(&arr));//6   strlen接收从数组首地址开始数
+	//printf("%d\n", strlen(&arr + 1));//随机
+	//printf("%d\n", strlen(&arr[0] + 1));//5
+
+
+
+
+	char* p = "abcdef";
+
+	//printf("%d\n", sizeof(p));//4/8
+	//printf("%d\n", sizeof(p+1));//4/8
+	//printf("%d\n", sizeof(*p));//1
+	//printf("%d\n", sizeof(p[0]));//1
+	//printf("%d\n", sizeof(&p));//4/8
+	//printf("%d\n", sizeof(&p+1));//4/8
+	//printf("%d\n", sizeof(&p[0]+1));//4/8
+
+
+	//printf("%d\n", strlen(p));//6
+	//printf("%d\n", strlen(p+1));//5
+	//printf("%d\n", strlen(*p));//arr
+	//printf("%d\n", strlen(p[0]));//err
+	//printf("%d\n", strlen(&p));//随机（如果有0，必定小于4个字节）（地址4个字节，
+	// 如果0x23343600(十六进制：8个字节，一个字节4bit),以字节为单位解读，其中的00就等价\0;所以必定小于4个字节（例如这里233436=3字节））
+	
+	//printf("%d\n", strlen(&p+1));//随机
+	//printf("%d\n", strlen(&p[0]+1));//5
+
+	
+
+
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//#include<string.h>
+//int main() {
+//
+//	char arr[] = "haha";//有\0
+//	char a[] = { '2','3','4'};//没有\0
+//
+//	printf("%d\n", sizeof(arr));
+//	printf("%d\n", sizeof(a));
+//
+//	return 0;
+//}
+
+
+
+
+
+//sizeof(数组名)-数组名表示整个数组的-计算的是整个数组的大小
+//&arr数组名取的是数组的地址
+
+
+//int main() {
+//
+//	int a[] = { 1,2,3,4 };
+//	printf("%d\n", sizeof(a));//16
+//	printf("%d\n", sizeof(a+0));//4/8
+//	printf("%d\n", sizeof(*a));//4
+//	printf("%d\n", sizeof(a+1));//4/8//第一个元素地址+1
+//	printf("%d\n", sizeof(a[1]));//4
+//
+//	printf("%d\n", sizeof(&a));//4/8
+//	printf("%d\n", sizeof(*&a));//16//数组地址解引用=数组a
+//	printf("%d\n", sizeof(&a+1));//4/8//是数组后面的空间的地址
+//	printf("%d\n", sizeof(&a[0]));//4/8
+//	printf("%d\n", sizeof(&a[0]+1));//4/8
+//
+//
+//	return 0;
+//}
+
+
+
+
+									//&a+1跳过的大小
+
+
+//int main() {
+//
+//	int arr[] = { 1,2,3 };
+//
+//	int* pa = &arr+1;//和下面的一样
+//	int* pa1 = arr + 3;
+//
+//	printf("%d\n", *(arr + 1));
+//	printf("%d\n", pa);
+//	printf("%d\n", *(&arr + 1));
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+//int main() {
+//
+//	int a[] = { 1,3,4,6 };
+//	printf("%d\n", sizeof(a + 1));
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+//void get(int* pa) {
+//
+//	printf("%d ", *pa);
+//}
+//
+//int main() {
+//	int arr[3] = { 1,2,3 };
+//	get(arr+1);
+//	printf("\n");//
+//	get(&arr+1);//跳过一个数组,跳到arr[4]
+//	printf("\n");
+//	printf("%p\n", &arr);
+//	printf("%p", &arr + 1);//十六进制地址
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	int a = 10;
+//	void* pa = &a;//没有具体类型的指针，可以存放各种类型的数据；但不能解引用和指针++等，因为不知道具体类型，于是不知道访问几个字节；
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
 //模仿qsort,自己创建一个函数可以实现个个数据的类型的排序
-
-
-
 
 //int compare_element(const void*pa1,const void*pa2) {
 //	return *(int*)pa1 - *(int*)pa2;
