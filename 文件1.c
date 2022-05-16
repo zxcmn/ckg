@@ -10,6 +10,214 @@
 
 
 
+
+
+
+
+
+
+
+
+
+//类型属性：
+//int main() {
+//	short arr = 4;
+//	int t = 6;
+//	printf("%d\n,", sizeof(arr = 2 + t));//2
+//	printf("%d\n", arr);//4
+//	return 0;
+//}
+//
+//
+//
+//值属性：
+//int main() {
+//	int a = 4;
+//	int b = 6;
+//	a = a + b;
+//	printf("%d\n", a);//10
+//	return 0;
+//}
+
+
+
+
+
+
+//```csharp
+//int main() {
+//	int a[] = { 1,2,3,4 };
+//
+//	printf("%d\n", sizeof(a));
+//	printf("%d\n", sizeof(*a));
+//	printf("%d\n", sizeof(a + 0));
+//	printf("%d\n", sizeof(a + 1));
+//	printf("%d\n", sizeof(a[1]));
+//
+//	printf("%d\n", sizeof(&a));
+//	printf("%d\n", sizeof(*&a));
+//	printf("%d\n", sizeof(&a + 1));
+//	printf("%d\n", sizeof(&a[0]));
+//	printf("%d\n", sizeof(&a[0] + 1));
+//	return 0;
+//}
+//
+//```
+//
+//## 答案 + 解析
+//```csharp
+//int main() {
+//	int a[] = { 1,2,3,4 };
+//
+//	printf("%d\n", sizeof(a));//16  这里单独放数组名，表示计算整个数组大小
+//	printf("%d\n", sizeof(*a));//4  这里没有单独放数组名，表示首元素地址解引用，计算1的大小
+//	printf("%d\n", sizeof(a + 0));//4/8  这里没有单独放数组名，表示计算首元素地址大小
+//	printf("%d\n", sizeof(a + 1));//4/8  这里没有单独放数组名，第二个元素地址大小
+//	printf("%d\n", sizeof(a[1]));//4//  计算第二个元素类型大小
+//
+//	printf("%d\n", sizeof(&a));//4/8  根据前言，取出的是整个数组地址
+//	printf("%d\n", sizeof(*&a));//16  先取出整个数组地址，再解引用=数组a
+//	⭐注意：& 数组名，不管有没有单独放在sizeof都是取数组地址
+//		printf("%d\n", sizeof(&a + 1));//4/8  是数组后面的空间的地址（也是个地址）
+//	⭐注意：sizeof（类型属性）是不会去计算以及访问括号里的内容
+//		printf("%d\n", sizeof(&a[0]));//4/8  根据优先级，先算a[0]=1，再取地址，取出1的地址，计算大小
+//	printf("%d\n", sizeof(&a[0] + 1));//4/8  &a[0]是1的地址，+1是第二个元素的地址
+//	return 0;
+//}
+//地址大小取决于编译器是32位还是64位；32 = 4，64 = 8；
+//```
+//
+//# 2、字符数组
+//## 例题
+//
+//```csharp
+//int main() {
+//
+//	char arr[] = { 'a','b','c','d','e','f' };
+//
+//	printf("%d\n", sizeof(arr));
+//	printf("%d\n", sizeof(arr + 0));
+//	printf("%d\n", sizeof(*arr));
+//	printf("%d\n", sizeof(arr[1]));
+//	printf("%d\n", sizeof(&arr));
+//	printf("%d\n", sizeof(&arr + 1));
+//	printf("%d\n", sizeof(&arr[0] + 1));
+//
+//	printf("%d\n", strlen(arr));
+//	printf("%d\n", strlen(arr + 0));
+//	printf("%d\n", strlen(*arr));
+//	printf("%d\n", strlen(arr[1]));
+//	printf("%d\n", strlen(&arr));
+//	printf("%d\n", strlen(&arr + 1));
+//	printf("%d\n", strlen(&arr[0] + 1));
+//	return 0;
+//}
+//```
+//
+//## 答案 + 解析
+//```csharp
+//int main() {
+//
+//	char arr[] = { 'a','b','c','d','e','f' };
+//
+//	printf("%d\n", sizeof(arr));//6  单独放，表示计算整个数组的地址（字符数组没有\0）
+//	printf("%d\n", sizeof(arr + 0));//4/8  没有单独放，arr代表首元素地址
+//	printf("%d\n", sizeof(*arr));//1  没有单独放，代表首元素地址解引用计算a大小
+//	printf("%d\n", sizeof(arr[1]));//1  计算b大小
+//	printf("%d\n", sizeof(&arr));//4/8  &数组名代表取出整个数组的大小，地位再牛逼也是地址
+//	printf("%d\n", sizeof(&arr + 1));//4/8	数组地址+1跳过整个数组，计算数组外的地址
+//	⭐注意：sizeof（类型属性）是不会去计算以及访问括号里的内容
+//		printf("%d\n", sizeof(&arr[0] + 1));//4/8	取arr[0]首元素地址+1，计算第二个元素地址
+//
+//	printf("%d\n", strlen(arr));//随机值  以数组大小为单位访问没有\0,停下来取决于后面什么时候访问到\0
+//	printf("%d\n", strlen(arr + 0));//随机值		以元素大小为单位，停下来取决于后面什么时候访问到\0
+//	printf("%d\n", strlen(*arr));//报错 错误,不是地址，把a（Ascii=97）传过去，在经过进制转化成97，
+//	企图将97当成地址
+//		printf("%d\n", strlen(arr[1]));//错误	同上个题，'b'不是地址
+//	⭐注意：在模拟strlen时，我们传的是指针（地址）
+//		printf("%d\n", strlen(&arr));//随机值	整个数组地址，+1跳过整个数组大小，遇到\0才会停
+//	printf("%d\n", strlen(&arr + 1));//随机值	数组地址+1，跳过数组，以数组后的地址开始找\0
+//	printf("%d\n", strlen(&arr[0] + 1));//随机值		&arr[0]第一个元素地址，+1第二个元素地址开始找\0
+//	return 0;
+//}
+//```
+//
+//# 3、字符串数组
+//## 例题
+//
+//```csharp
+//int main() {
+//
+//	char arr[] = "abcdef";
+//
+//	printf("%d\n", sizeof(arr));
+//	printf("%d\n", sizeof(arr + 0));
+//	printf("%d\n", sizeof(*arr));
+//	printf("%d\n", sizeof(arr[1]));
+//	printf("%d\n", sizeof(&arr));
+//	printf("%d\n", sizeof(&arr + 1));
+//	printf("%d\n", sizeof(&arr[0] + 1));
+//
+//
+//	printf("%d\n", strlen(arr));
+//	printf("%d\n", strlen(arr + 0));
+//	printf("%d\n", strlen(*arr));
+//	printf("%d\n", strlen(arr[1]));
+//	printf("%d\n", strlen(&arr));
+//	printf("%d\n", strlen(&arr + 1));
+//	printf("%d\n", strlen(&arr[0] + 1));
+//
+//	return 0;
+//}
+//
+//```
+//
+//## 答案 + 解析
+//```csharp
+//int main() {
+//
+//	char arr[] = "abcdef";
+//
+//	printf("%d\n", sizeof(arr));//7		计算数组大小，有\0
+//	printf("%d\n", sizeof(arr + 0));//4/8	数组名没有单独，arr=首元素地址
+//	printf("%d\n", sizeof(*arr));//1	数组名没有单独，arr=首元素地址，解引用='a'
+//	printf("%d\n", sizeof(arr[1]));//1	计算b类型大小
+//	printf("%d\n", sizeof(&arr));//4/8	 数组地址
+//	⭐知识：取出的地址类型应该是char(*)[7]
+//		应为数组能存放在什么类型里，自身就应该是什么类型（指针数组）
+//		printf("%d\n", sizeof(&arr + 1));//4/8	  数组地址+1跳过整个数组，计算数组地址后的地址大小
+//	printf("%d\n", sizeof(&arr[0] + 1));//4/8	&arr[0]第一个元素地址，+1计算第二个元素地址大小
+//
+//
+//	printf("%d\n", strlen(arr));//6		单独放，计算整个数组长度
+//	printf("%d\n", strlen(arr + 0));//6		不单独放，代表首元素地址，于是从首元素地址开始找\0
+//	printf("%d\n", strlen(*arr));//错误		arr代表首元素地址，解引用找到具体值'a'字符,
+//	传输过程转化成ASCii（97），97不能当地址
+//		⭐注意：在模拟strlen时，我们传的是指针（地址）
+//		printf("%d\n", strlen(arr[1]));//错误	同上，找到'b'字符，不是地址
+//	printf("%d\n", strlen(&arr));//6   数组地址和首元素地址一样，
+//	strlen接收从数组地址开始数以char* 大小开始数
+//		⭐知识回忆：我们知道，模拟strlen传参，形参的创建不会创建一模一样大小，很浪费空间，于是传'a'的地址，地址 + 1，跳过4个字节，到下个'b'地址
+//		所以根本不会跳过整个数组大小，跳多少字节形参决定了
+//		printf("%d\n", strlen(&arr + 1));//随机		不同与上一题，在传之前已经跳到了整个数组后面的地址，找到\0才会停止
+//	printf("%d\n", strlen(&arr[0] + 1));//5		&arr[0]得到'a'地址，+1得到'b'地址；开始找\0；
+//
+//	return 0;
+//}
+//
+//```
+
+
+
+
+
+
+
+
+
+
+
+
 //int main() {
 //
 //	char a[3] = "ha";
@@ -23,16 +231,17 @@
 
 
 
-int main() {
-
-	short arr = 4;
-	int t = 6;
-	printf("%d\n", sizeof(arr = 2 + t));
-	printf("%d\n", arr);
 
 
-	return 0;
-}
+//int main() {
+//	char arr[] = { 'a','b' };
+//	printf("%p\n", arr);
+//	printf("%p\n", &arr);
+//	return 0;
+//}
+
+
+
 
 
 
