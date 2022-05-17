@@ -8,10 +8,83 @@
 
 
 
+//int main() {
+//
+//	int arr[] = { 1,2,3,4,5 };
+//	
+//	int* ptr = (int*)(&arr + 1);//arr[5]取地址，取出的是数组的地址，数组地址存放在数组里，自然要-指针数组int(*)[5];能放进去这个类型，自然是这个类型的数据
+//
+//
+//	return 0;
+//}
 
 
 
 
+
+
+//int main() {
+//
+//	char* a[] = { 'a','b','c' };
+//	printf("%p\n",&a);
+//	printf("%p\n",&a + 0);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	int a[3][4] = { 1,2,3,4,5,6,7,8,9,10,11,12 };
+//
+//
+//	printf("%d\n", sizeof(a[0] + 1));//4/8
+//	printf("%d\n", *(a[0]+1));
+//	printf("%p\n", &a[0]+1);
+//	printf("%p\n", a[1]);
+//	return 0;
+//}
+
+
+
+
+//int main() {
+//
+//	//经典：
+//	int a[3][4] = { 0 };
+//
+//	printf("%d\n", sizeof(a[0]));//16
+//	printf("%d\n", sizeof(*a));//16
+//	printf("%d\n", sizeof(*(&a[0])));//16
+//
+//}
+
+
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	char* p = "abcdef";
+//
+//	printf("%p\n", &p);
+//	printf("%p\n", p);
+//	printf("%d\n", sizeof(p));
+//
+//
+//	return 0;
+//}
 
 
 
