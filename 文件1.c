@@ -8,6 +8,33 @@
 
 
 
+////指针强题
+//
+//int main() {
+//
+//	char* c[] = { "ENTER","NEW","POINT","FIRST" };
+//	char** cp[] = { c + 3,c + 2,c + 1,c };
+//	char*** cpp = cp;
+//
+//	printf("%s\n", **++cpp);
+//	printf("%s\n", *-- * ++cpp + 3);
+//	printf("%s\n", *cpp[-2] + 3);
+//	printf("%s\n", cpp[-1][-1] + 1);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
 
 //如何证明电脑存-4，并不是简单的把-4存进去呢？
 
