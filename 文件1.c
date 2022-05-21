@@ -154,14 +154,13 @@
 //	short sBa[4];
 //
 //}*p;//*代表这是个结构体指针
-////假设p=0x100000,下面的结果是
+////p=0x00000000,下面的结果是
 //
 //
 //int main() {
-//
 //	printf("%p\n", p + 0x1);//0x10000014		0x1相当于二进制的1，也就是p(数据类型20个字节)的地址+1；跳过20个字节=0x1000014  /这个1是16，4是4，16+4=20
 //	printf("%p\n", (unsigned long)p + 0x1);//0x10000001       强转为长整型；转化成整型之后+1，加的就是1	==0x100001【例如10+1就是11】
-//	printf("%p\n", (unsigned int*)p + 0x1);//0x10000001
+//	printf("%p\n", (unsigned int*)p + 0x1);//0x10000004
 //
 //	return 0;
 //}
@@ -192,10 +191,14 @@
 //	int arr[] = { 1,2,3,4,5 };
 //	
 //	int* ptr = (int*)(&arr + 1);//arr[5]取地址，取出的是数组的地址，数组地址存放在数组里，自然要-指针数组int(*)[5];能放进去这个类型，自然是这个类型的数据
-//	printf("%d,%d\n",&(a+1),*(ptr-1));//prt作为整型指针-1，向前挪了一个整型=5
+//	printf("%d,%d\n",*(arr+1),*(ptr-1));//prt作为整型指针-1，向前挪了一个整型=5
 //
 //	return 0;
 //}
+//
+
+
+
 
 
 
@@ -950,7 +953,7 @@
 
 //模仿qsort,自己创建一个函数可以实现个个数据的类型的排序
 
-//int compare_element(const void*pa1,const void*pa2) {
+//int compare(const void*pa1,const void*pa2) {
 //	return *(int*)pa1 - *(int*)pa2;
 //}
 //
@@ -973,37 +976,32 @@
 //	}
 //}
 //
-//void mock_qsort(void* pa, int element_sum, int element_size, int (*compare_element)(const void* e1, const void* e2)) {
+//void mock_qsort(void* pa, int el_sum, int el_size, int (*compare)(const void* e1, const void* e2)) {
 //	int i = 0;
-//	for (i = 0; i < element_sum - 1; i++) {
+//	for (i = 0; i < el_sum - 1; i++) {
 //		int j = 0;
-//		for (j = 0; j < element_sum - 1 - i; j++) {
-//			if (compare_element((char*)pa + j * element_size, (char*)pa + (j + 1) * element_size) > 0) {
-//				swap((char*)pa + j * element_size, (char*)pa + (j + 1) * element_size, element_size);
+//		for (j = 0; j < el_sum - 1 - i; j++) {
+//			if (compare((char*)pa + j * el_size, (char*)pa + (j + 1) * el_size) > 0) {
+//				swap((char*)pa + j * el_size, (char*)pa + (j + 1) * el_size, el_size);
 //			}
 //		}
 //	}
 //}
 //
 //
-//void deliver_set() {
+//int main() {
 //
 //	int sz;
 //	int arr[] = { 9,8,7,6,5,4,3,2,1 };
 //	sz = sizeof(arr) / sizeof(arr[0]);
 //
-//	mock_qsort(arr, sz, sizeof(arr[0]), compare_element);
-//	print(sz,arr);
-//}
-//
-//
-//int main() {
-//
-//	//传参
-//	deliver_set();
+//	mock_qsort(arr, sz, sizeof(arr[0]), compare);
+//	print(sz, arr);
 //
 //	return 0;
 //}
+
+
 
 
 
