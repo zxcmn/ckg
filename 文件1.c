@@ -8,6 +8,220 @@
 
 
 
+
+
+
+
+
+
+//int main() {
+//
+//	int a = 5;
+//	int b = 4;
+//
+//	a = a ^ b;
+//	b = b ^ a;
+//	a = a ^ b;
+//	printf("a=%d\n", a);//4
+//	printf("b=%d\n", b);//5
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+											//不创建第三个变量交换两个数的值
+
+
+
+//int main() {
+//
+//	char a = 'h';
+//	char b = 'e';
+//
+//	a = a + b;
+//	b = a - b;
+//	a = a - b;
+//
+//	printf("a=%c\n", a);
+//	printf("b=%c\n", b);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+//【1】
+//int main() {
+//
+//	int a = 5;
+//	int b = 4;
+//
+//	a = a - b;
+//	b = b + a;
+//	a = b - a;
+//	printf("a=%d\n", a);
+//	printf("b=%d\n", b);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+//【2】
+//int main() {
+//
+//	int a = 5;
+//	int b = 4;
+//
+//	a = a + b;
+//	b = a - b;
+//	a = a - b;
+//
+//	printf("a=%d\n", a);
+//	printf("b=%d\n", b);
+//
+//
+//	return 0;
+//}
+
+
+
+
+//【3】
+//int main() {
+//
+//	char a = 'h';
+//	char b = 'k';
+//
+//	a = a ^ b;
+//	b = b ^ a;
+//	a = a ^ b;
+//	printf("a=%c,b=%c", a, b);
+//
+//
+//	return 0;
+//}
+
+
+
+//int main() {
+//
+//	int a = 4;
+//	int b = 5;
+//	//交换
+//	int c = 0;
+//
+//	c = a;
+//	a = b;
+//	b = c;
+//	printf("a=%d\n", a);
+//	printf("b=%d\n", b);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	char* a[] = { "work","at","alibaba" };
+//	char** pa = a;
+//	pa++;
+//
+//	printf("%s", *pa);//at
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	int a[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int* ptr1 = (int*)(&a+1);
+//	int* ptr2 = (int*)(*(a+1));
+//
+//	printf("%d,%d", *(ptr1 - 1), *( ptr2 - 1));//10,5
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	int a = 3;
+//	int b = 2;
+//	printf("%p\n", &a);
+//	printf("%p\n", &b);
+//	printf("%d\n", &a - &b);
+//
+//	return 0;
+//}
+
+
+
+
+
+//int main() {
+//
+//	int a[5][5];
+//	int(*p)[4];
+//	p = a;
+//
+//	printf("%p,%d\n",&p[4][2]-&a[4][2],&p[4][2]-&a[4][2]);//FFFFFFFC,-4
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+//int main() {
+//
+//	printf("%d\n", 0x02000000);
+//	printf("%p\n", 33554432);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
 ////指针强题
 //
 //int main() {
@@ -25,8 +239,17 @@
 //}
 
 
-
-
+//
+//int main() {
+//
+//	int a[4] = { 1,2,3,4 };
+//	int* ptr1 = (int*)(&a+1);
+//	int* ptr2 = (int*)((int)a+1);
+//
+//	printf("%x,%x", ptr1[-1], *ptr2);//4,2
+//
+//	return 0;
+//}
 
 
 
