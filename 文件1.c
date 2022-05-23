@@ -9,6 +9,120 @@
 
 
 
+															//判断字符是不是该字符的翻转字符
+
+
+//方法一：利用位移法
+
+//#include<string.h>
+//
+//int string_swap(char* str,char* str2)
+//{
+//	int i = 0;
+//	int n = strlen(str);
+//
+//	for (i = 0; i < n; i++)//全部循环一遍
+//	{
+//		char tmp = *str;
+//		int j = 0;
+//		for (j = 0; j < n - 1; j++)
+//		{
+//			*(str + j) = *(str + j + 1);
+//		}
+//		*(str + n - 1) = tmp;
+//		if (strcmp(str,str2)==0)//某一次找到返回1
+//		{
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+//
+//
+//int main() 
+//{
+//
+//	char arr[] = "ABCDEF";
+//	char arr2[] = "CDEFAB";
+//	int k = 2;//一次旋转2个
+//
+//	int Sum=string_swap(arr,arr2);
+//	if (Sum==1)
+//	{
+//		printf("yes\n");
+//	}
+//	else
+//	{
+//		printf("no\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+
+
+//方法2:利用三步翻转法
+
+
+//#include<string.h>
+//
+//void swap(char* str1, char* str2)
+//{
+//	while (str1<str2)
+//	{
+//		char store = *str1;
+//		*str1 = *str2;
+//		*str2 = store;
+//		str1++;
+//		str2--;
+//	}
+//}
+//
+//
+//int string_swap(char* str1, char* str2)
+//{
+//	int len = strlen(str1);
+//	int k = len;
+//	while (k--)
+//	{
+//		swap(str1, str1);
+//		swap(str1 + 1, str1 + len - 1);
+//		swap(str1, str1 + len - 1);
+//		if (strcmp(str1,str2)==0)
+//		{
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+//
+//
+//int main() 
+//{
+//
+//	char arr[]="ABCDEF";
+//	char arr2[]="CDEFAB";
+//
+//	int Sum=string_swap(arr,arr2);
+//	if (Sum==1)
+//	{
+//		printf("yes\n");
+//	}
+//	else
+//	{
+//		printf("no\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+//后面的往前放呢？换种写法？
+
 
 
 
@@ -25,52 +139,80 @@
 																	//旋转字符串
 
 
-                                     //写法1
+                             //写法1
 
-#include<string.h>
-
-void string_swap(char* str, int k)
-{
-	int i = 0;
-	int n = strlen(str);
-
-	for (i = 0; i < k; i++)
-	{
-		char tmp = *str;
-		int j = 0;
-		for (j = 0; j < n - 1; j++)
-		{
-			*(str + j) = *(str + j + 1);
-		}
-		*(str + n - 1) = tmp;
-	}
-}
-
-
-int main() 
-{
-
-	char arr[] = "ABCDEF";
-	int k = 4;//一次旋转2个
-
-	string_swap(arr,k);
-	printf("%s\n", arr);
-
-	return 0;
-}
+//#include<string.h>
+//
+//void string_swap(char* str, int k)
+//{
+//	int i = 0;
+//	int n = strlen(str);
+//
+//	for (i = 0; i < k; i++)
+//	{
+//		char tmp = *str;
+//		int j = 0;
+//		for (j = 0; j < n - 1; j++)
+//		{
+//			*(str + j) = *(str + j + 1);
+//		}
+//		*(str + n - 1) = tmp;
+//	}
+//}
+//
+//
+//int main() 
+//{
+//
+//	char arr[] = "ABCDEF";
+//	int k = 2;//一次旋转2个
+//
+//	string_swap(arr,k);
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
 
 
 
 												//写法2
 
+//三步翻转法
 
-
-
-
-
-
-
-
+//#include<string.h>
+//
+//void swap(char*left,char*right)
+//{
+//	while (left<right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		left++;
+//		right--;
+//	}
+//	
+//}
+//
+//void string_swap(char*arr,int k)
+//{
+//	int len=strlen(arr);
+//	swap(arr,arr+k-1);
+//	swap(arr+k,arr+len-1);
+//	swap(arr,arr+len-1);
+//}
+//
+//
+//int main()
+//{
+//
+//	char arr[] =  "ABCDEF";
+//	int k = 2;
+//	string_swap(arr,k);
+//	printf("%s", arr);
+//
+//	return 0;
+//}
 
 
 
