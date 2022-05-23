@@ -9,6 +9,79 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//精细的写法
+
+
+
+//if (str == NULL)
+//{
+//	return 0;
+//}
+//else
+//{
+//	return 1;
+//}
+//
+//
+//优质写法：
+//
+//return str != NULL;//不等于空指针成立返回1，否则返回0；
+
+
+
+
+
+											//【strcat和strncat】
+
+//strcat【被追加者，追加者】
+
+//#include<string.h>
+//int main() {
+//
+//	char arr[20] = "hell ";
+//
+//	strncat(arr,arr,5);
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+
+
+//strncat【被追加者，追加者，追加者个数】
+
+//#include<string.h>
+//int main() {
+//
+//	char arr[20] = "hell ";
+//	char arr2[] = "hh";
+//	//strcat(arr,"hh");//可以
+//	//strcat(arr,arr2);//可以
+//	//strcat(arr,arr);//不可以
+//
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+
+
+
 															//判断字符是不是该字符的翻转字符
 
 
@@ -105,6 +178,7 @@
 //
 //	char arr[]="ABCDEF";
 //	char arr2[]="CDEFAB";
+//	//char arr2[] = "FABCDE";
 //
 //	int Sum=string_swap(arr,arr2);
 //	if (Sum==1)
@@ -121,10 +195,69 @@
 
 
 
-//后面的往前放呢？换种写法？
+//后面的往前放呢？其实转到最后一个时候就是了
 
 
 
+
+
+
+
+
+//【写法3】！
+
+//如果给ABCD追加ABCD
+//ABCDABCD
+//我们再来
+//CDAB
+//是不是可以在追加的字符串中的子字符串找到它
+
+
+
+
+
+
+
+
+
+
+
+
+//#include<string.h>
+//
+//int arr_compare(char*arr1,char*arr2)
+//{
+//	if (strlen(arr1)!=strlen(arr2))
+//	{
+//		return 0;
+//	}
+//	strncat(arr1,arr1,6);//函数，只要有一模一样的子字符串就返回首地址，没有返回NULL空指针
+//
+//	char* pa = strstr(arr1,arr2);
+//	return pa != NULL;
+//
+//}
+//
+//
+//
+//int main()
+//{
+//
+//	char arr1[20] = "ABCDEF";
+//	char arr2[] = "CDEFAB";
+//
+//	int ret=arr_compare(arr1,arr2);
+//	if (ret==1)
+//	{
+//		printf("找到了\n");
+//	}
+//	else
+//	{
+//		printf("没找到\n");
+//	}
+//
+//	return 0;
+//}
 
 
 
