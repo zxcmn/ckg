@@ -22,6 +22,91 @@
 
 
 
+
+
+
+
+
+														//【结构体数组指针】
+
+
+//struct ben
+//{
+//	char arr[10];
+//	int arr2;
+//}b[2]=
+//{
+//	{"chen",2002},
+//	{"gang",2018}
+//};
+//
+//int main()
+//{
+//
+//	
+//	struct ben(*pa)[2] = b;
+//	printf("%s\n", ((*pa) + 1)->arr);//(*pa)==b(首元素地址)
+//	printf("%d\n", ((*pa) + 1)->arr2);
+//	printf("%d\n", (*pa)->arr2);
+//	printf("%s\n", (*pa)->arr);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main() {
+//
+//	//int a = 10;
+//	//int* pa = &a;
+//	//printf("%d\n",pa);//不行
+//
+//
+//	int a[][4] = { 1,2,3,4,5,6,7,8,9 };
+//	int* pa = a;
+//	int(*pa2)[] = a;
+//	printf("%p\n", &pa);
+//	printf("%p\n", &a);
+//	printf("\n");
+//
+//	printf("%d\n", *pa);
+//	printf("%d\n", **pa2);
+//	printf("%p\n", &a);
+//	printf("%p\n", a);
+//	printf("%p\n", &a[0][0]);
+//
+//
+//	/*int arr[][4] = { 1,2,3,4,5,6,7 };
+//	printf("%p\n", &arr);
+//	printf("%p\n",arr);*/
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
 //精细的写法
 
 
