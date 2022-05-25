@@ -13,10 +13,135 @@
 
 
 
+					
+								//【递归模拟strlen】
+
+//#include<assert.h>
+//size_t mock_strlen(const char*arr)
+//{
+//	assert(arr != NULL);
+//	if(*arr!='\0')
+//	{
+//	return mock_strlen(arr+1) + 1;
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//
+//}
+//
+//
+//int main()
+//{
+//
+//	char arr[] = "how are you";
+//	printf("%d\n",mock_strlen(arr));
+//
+//	return 0;
+//}
 
 
 
 
+						//【指针减指针模拟strlen】
+
+
+
+//#include<assert.h>
+//size_t mock_poin_strlen(const arr)
+//{
+//	assert(arr!=NULL);
+//	char* a = arr;
+//	while (*a++!='\0')
+//	{
+//	}
+//	return a - arr;
+//}
+//
+//int main()
+//{
+//	char arr[] = "how are you";
+//	
+//	printf("%d\n",mock_poin_strlen(arr));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+//模拟字符串拷贝  优化4【标准】
+
+//但是还是有缺陷
+//#include<assert.h>
+//
+//void Get(char* arr1, const char* arr2);
+//int main()
+//{
+//	char arr[] = "hanshtretwtu";
+//	char arr1[] = "HELLWODE";
+//
+//	Get(arr, arr1);
+//	printf("%s\n", arr1);
+//
+//	return 0;
+//}
+//
+////【标准结果】1，const  2,assert  3,char *;
+//void Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+//	assert(arr1 != NULL);
+//	assert(arr1 != NULL);
+//	while (*arr1++ = *arr2++) {
+//	}
+//	return 0;// 返回目标空间的起始地址；//同样返回类型是char *
+//}
+
+
+//#include<string.h>
+//int main() {
+//
+//	char arr[] = "xxxxxxxxxxxx";
+//	char arr1[] = "hell";
+//	strcpy(arr, arr1);
+//	printf("%s\n", arr);//结果纸只打印hell,因为字符串拷贝的时候会把\0也拷贝过去；
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+											//【strlen的返回值是无符号整型size_t,导致整型提升】
+
+
+//#include<string.h>
+//
+//int main()
+//{
+//
+//	char arr[] = "haha";
+//	char arr1[] = "he";
+//
+//	while (strlen(arr1)-strlen(arr)>0)//结果-2的符号位变成不是符号位，很大的数
+//	{
+//		printf("hangiwn\n");
+//
+//	}
+//
+//
+//	return 0;
+//}
 
 
 
@@ -5839,7 +5964,31 @@
 
 
 
+//模拟字符串拷贝  优化4【标准】
 
+////但是还是有缺陷
+//#include<assert.h>
+//
+//void Get(char* arr1, const char* arr2);
+//int main()
+//{
+//	char arr[] = "hanshtretwtu";
+//	char arr1[] = "HELLWODE";
+//
+//	Get(arr, arr1);
+//	printf("%s\n", arr1);
+//
+//	return 0;
+//}
+//
+////【标准结果】1，const  2,assert  3,char *;
+//void Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+//	assert(arr1 != NULL);
+//	assert(arr1 != NULL);
+//	while (*arr1++ = *arr2++) {
+//	}
+//	return 0;// 返回目标空间的起始地址；//同样返回类型是char *
+//}
 
 
 
