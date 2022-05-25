@@ -12,6 +12,135 @@
 
 
 
+//模拟字符串拷贝???不合理
+
+//#include<assert.h>
+//int mock_strcmp(const char*pa1,const char*pa2)
+//{
+//	assert(pa1&&pa2);
+//	while (*pa1++==*pa2++)
+//	{
+//		if (*pa1 == '\0')
+//		{
+//			return 0;
+//		}
+//	}
+//	return 1;
+//}
+//
+//int main()
+//{
+//	char arr1[] = "hell";
+//	char arr2[] = "hell";
+//
+//	if (mock_strcmp(arr1, arr2) == 0)
+//	{
+//		printf("成功\n");
+//	}
+//	else
+//	{
+//		printf("失败\n");
+//	}
+//
+//	return 0;
+//}
+
+
+										//strcmp   >0返回1，   <0返回-1，   ==0返回0
+
+
+
+//int mock_strcmp(const char* pa1, const char* pa2)
+//{
+//	assert(pa1&&pa2);
+//	while (*pa1 == *pa2)
+//	{
+//		if (*pa1 == '\0')
+//		{
+//			return 0;
+//		}
+//		pa1++;
+//		pa2++;
+//	}
+//	if (*pa1>*pa2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return -1;
+//	}
+//}
+//
+//
+//int main()
+//{
+//
+//	char arr1[] = "habc";
+//	char arr2[] = "habc";
+//
+//	if (mock_strcmp(arr1, arr2)>0)
+//	{
+//		printf("arr1>arr2\n");
+//	}
+//	else if(mock_strcmp(arr1, arr2) <0)
+//	{
+//		printf("arr1<arr2\n");
+//	}
+//	else
+//	{
+//		printf("arr1=arr2\n");
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+													//模拟strcmp标准写法
+
+
+
+
+int mock_strcmp(char*pa1,char*pa2)
+{
+	while (*pa1-*pa2==0)
+	{
+
+	}
+
+
+
+}
+
+
+
+int main()
+{
+	char arr1[] = "hell";
+	char arr2[] = "hell";
+
+	if (mock_strcmp(arr1, arr2) == 0)
+	{
+		printf("成功\n");
+	}
+	else
+	{
+		printf("失败\n");
+	}
+
+	return 0;
+}
+
+
+
+
+
+
 
 
 
@@ -25,7 +154,8 @@
 												//【模拟strcat】
 
 
-
+//为什么不能追加自己，因为创建2个指针，一个指向'\0'，一个指向初始地址，
+//当第一次交换时候，把\0覆盖掉了，又因为指向的是自己，所以没有\0可以补回去了，停不下来,指针++不停的重复追加自己
 	
 
 //#include<assert.h>
@@ -141,7 +271,7 @@
 //#include<assert.h>
 //size_t mock_strlen(const char*arr)
 //{
-//	assert(arr != NULL);
+//	assert(arr);
 //	if(*arr!='\0')
 //	{
 //	return mock_strlen(arr+1) + 1;
@@ -158,7 +288,7 @@
 //{
 //
 //	char arr[] = "how are you";
-//	printf("%d\n",mock_strlen(arr));
+//	printf("%d\n", mock_strlen(arr));
 //
 //	return 0;
 //}
@@ -220,12 +350,12 @@
 //
 ////【标准结果】1，const  2,assert  3,char *;
 //void Get(char* arr1, const char* arr2) {
-// 存首地址char*s=arr1;
+//	char*ele_add=arr1;
 //	assert(arr1 != NULL);
-//	assert(arr1 != NULL);
+//	assert(arr2 != NULL);
 //	while (*arr1++ = *arr2++) {//结果赋值’\0‘时为假，停止
 //	}
-//	return 首地址;
+//	return ele_add;
 //}
 
 
