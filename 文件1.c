@@ -13,6 +13,128 @@
 
 
 
+
+
+
+
+
+
+
+
+
+												//【模拟strcat】
+
+
+
+	
+
+//#include<assert.h>
+//char* mock_strcat(char* pa1, const char* pa2)
+//{
+//	char* store = pa1;
+//	assert(pa1 != NULL);
+//	assert(pa2 != NULL);
+//	//或者assert(pa1 && pa2);
+//	while (*pa1 != '\0')//while(*pa1)就行，如果结果'0'，ASCII=0;假
+//	{
+//		pa1++;
+//	}
+//	while (*pa1++ = *pa2++)
+//	{
+//	}
+//	return store;
+//}
+//
+//int main()
+//{
+//
+//	char arr[30] = "Hell world ";
+//	char arr1[] = "chenekg";
+//
+//	printf("%s\n", mock_strcat(arr, arr1));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+													//测试形参指针移动，原指针会不会移动
+
+
+
+//void test(char*test)
+//{
+//	test++;
+//	printf("形参移动后地址1：%p\n", test);
+//}
+//
+//int main()
+//{
+//
+//	char arr[] = "heeh";
+//	printf("首地址：%p\n", arr);//首地址
+//
+//	test(arr);
+//	printf("形参移动后地址2：%p\n", arr);
+//
+//}
+
+
+//【结论：其实返回函数char*返回类型，即使不返回首地址，原数组首地址也没变，应该是考虑到了一些特殊情况之类的，才使用的char*】
+//char*可以直接用与prinf打印
+
+
+
+
+
+
+
+//void mock_strcpy(char*arr1,char*arr2)
+//{
+//	*arr1 = *arr2;
+//}
+//
+//int main()
+//{
+//	char arr1[] = { 0 };
+//	char arr2[] = "hee";
+//	mock_strcpy(arr1,arr2);
+//	printf("%s\n", arr1);
+//	return 0;
+//}
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//	int a = 10;
+//	&a = 20;//地址是常量
+//	10 = 20;//常量不能修改
+//	&10 = 20;//地址是常量不能修改
+//
+//	char arr[] = { 0 };
+//	arr = "hehe";//地址是常量
+//
+// 因此有了为什么字符串除了赋值创建，还有strcmp
+//	return 0;
+//}
+
+
+
+
+
+
+
 					
 								//【递归模拟strlen】
 
@@ -81,6 +203,7 @@
 //模拟字符串拷贝  优化4【标准】
 
 //但是还是有缺陷
+
 //#include<assert.h>
 //
 //void Get(char* arr1, const char* arr2);
@@ -90,18 +213,19 @@
 //	char arr1[] = "HELLWODE";
 //
 //	Get(arr, arr1);
-//	printf("%s\n", arr1);
+//	printf("%s\n", arr);
 //
 //	return 0;
 //}
 //
 ////【标准结果】1，const  2,assert  3,char *;
-//void Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+//void Get(char* arr1, const char* arr2) {
+// 存首地址char*s=arr1;
 //	assert(arr1 != NULL);
 //	assert(arr1 != NULL);
-//	while (*arr1++ = *arr2++) {
+//	while (*arr1++ = *arr2++) {//结果赋值’\0‘时为假，停止
 //	}
-//	return 0;// 返回目标空间的起始地址；//同样返回类型是char *
+//	return 首地址;
 //}
 
 
@@ -5969,25 +6093,27 @@
 ////但是还是有缺陷
 //#include<assert.h>
 //
-//void Get(char* arr1, const char* arr2);
+//char* Get(char* arr1, const char* arr2);
 //int main()
 //{
+// char *st=arr1;
 //	char arr[] = "hanshtretwtu";
 //	char arr1[] = "HELLWODE";
 //
 //	Get(arr, arr1);
-//	printf("%s\n", arr1);
+//	printf("%s\n", arr);
 //
-//	return 0;
+//	return arr1;
 //}
 //
 ////【标准结果】1，const  2,assert  3,char *;
-//void Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+//char* Get(char* arr1, const char* arr2) {//返回类型char *；其实就是返回目标的起始地址；方便我们很好的查看；
+// char* st=arr1;
 //	assert(arr1 != NULL);
 //	assert(arr1 != NULL);
 //	while (*arr1++ = *arr2++) {
 //	}
-//	return 0;// 返回目标空间的起始地址；//同样返回类型是char *
+//	return st;// 返回目标空间的起始地址；//同样返回类型是char *
 //}
 
 
