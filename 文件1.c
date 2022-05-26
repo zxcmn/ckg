@@ -12,41 +12,222 @@
 
 
 
-//模拟字符串拷贝???不合理
+
+													//【模拟strncat】
 
 //#include<assert.h>
-//int mock_strcmp(const char*pa1,const char*pa2)
+//char* mock_strcat(char* pa1, const char* pa2,int i)
 //{
-//	assert(pa1&&pa2);
-//	while (*pa1++==*pa2++)
+//	char* store = pa1;
+//	assert(pa1 != NULL);
+//	assert(pa2 != NULL);
+//	//或者assert(pa1 && pa2);
+//	while (*pa1 != '\0')//while(*pa1)也行，如果结果'0'，ASCII=0;假
 //	{
-//		if (*pa1 == '\0')
-//		{
-//			return 0;
-//		}
+//		pa1++;
 //	}
-//	return 1;
+//	while ( i && (* pa1++ = *pa2++))
+//	{
+//		i--;
+//	}
+//	/*if (i==0)
+//	{
+//		*(pa1++) = '\0';
+//	}*/
+//
+//	return store;
 //}
 //
 //int main()
 //{
-//	char arr1[] = "hell";
-//	char arr2[] = "hell";
+//	int i = 6;
+//	char arr[30] = "Hell world ";//自动填补\0
+//	char arr1[] = "chenekg";
 //
-//	if (mock_strcmp(arr1, arr2) == 0)
-//	{
-//		printf("成功\n");
-//	}
-//	else
-//	{
-//		printf("失败\n");
-//	}
+//	printf("%s\n", mock_strcat(arr, arr1,i));
 //
 //	return 0;
 //}
 
 
-										//strcmp   >0返回1，   <0返回-1，   ==0返回0
+
+
+//#include<string.h>
+//int main()
+//{
+//
+//	char arr[] = "hehehe";
+//	char arr1[] = "ha";
+//	strncat(arr,arr1,5);
+//
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+									//【模拟strncpy】
+
+//char* mock_strncpy(char*pa1,char*pa2,int a)
+//{
+//	char* s = pa1;
+//	while (a && (*pa1++ = *pa2++) != '\0')
+//	{
+//		a--;
+//	}
+//	if (a)
+//		while (--a)
+//			*pa1++ = '\0';
+//
+//	return s;
+//}
+//
+//
+//int main()
+//{
+//
+//	int a = 5;
+//	char arr[] = "hehehehe";
+//	char arr1[] = "aaa";
+//	
+//	printf("%s\n",mock_strncpy(arr, arr1, a));
+//	return 0;
+//}
+
+
+
+
+
+
+														//【if与else】
+
+
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 2;
+//
+//	if (a == 1)
+//		if (b == 2)
+//			printf("hehe\n");
+//
+//	//结果什么也没打印
+//		else				              //else对应的是这一行的if(b==2)，所以if(a==1)无法通过，if(b==2)和else就都没没机会判定
+//			printf("haha\n");
+//
+//	return 0;
+//}
+	
+
+//等价
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 2;
+//
+//	if (a == 1)
+//		if (b == 2)
+//		{
+//			printf("hehe\n");//这样子就明白了，被括起来了
+//		}
+//	//结果什么也没打印
+//		else				              //else对应的是这一行的if(b==2)，所以if(a==1)无法通过，if(b==2)和else就都没没机会判定
+//			printf("haha\n"); 
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//	int a = 5;
+//	char arr[] = "hehehehe";
+//	char arr2[] = "aaa";
+//	char* pa = arr;
+//	char* pa1 = arr2;
+//
+//	while (a&&(*pa++=*pa1++)!='\0')
+//	{
+//		a--;
+//	}
+//	printf("%d\n", a);
+//	if (a)
+//		while (--a)
+//			*pa++ = '\0';
+//
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//	char arr[7] = "hehehe";
+//
+//	arr[0] = '/';
+//	arr[1] = '*';
+//	arr[4] = '*';
+//	arr[5] = '/';
+//	
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+
+ 
+
+
+
+
+//void test(size_t i)
+//{
+//}
+//
+//int main()
+//{
+//
+//	int i = 0;
+//	scanf("%d", &i);
+//
+//	test(i);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+										//模拟strcmp   >0返回1，   <0返回-1，   ==0返回0
 
 
 
@@ -65,7 +246,7 @@
 //	if (*pa1>*pa2)
 //	{
 //		return 1;
-//	}
+//	}				//标准写法：return *pa1-*pa2//没规定一定要放回1和-1//别的编译器不一定是返回1和-1；
 //	else
 //	{
 //		return -1;
@@ -101,48 +282,20 @@
 
 
 
-													//模拟strcmp标准写法
+
+														//strcmp标准库函数的实现
 
 
-
-
-int mock_strcmp(char*pa1,char*pa2)
-{
-	while (*pa1-*pa2==0)
-	{
-
-	}
-
-
-
-}
-
-
-
-int main()
-{
-	char arr1[] = "hell";
-	char arr2[] = "hell";
-
-	if (mock_strcmp(arr1, arr2) == 0)
-	{
-		printf("成功\n");
-	}
-	else
-	{
-		printf("失败\n");
-	}
-
-	return 0;
-}
-
-
-
-
-
-
-
-
+//int mock_strcmp(const char* pa1, const char* pa2)
+//{
+//	int ret = 0;
+//	while (ret=*(unsigned char*)pa1-*(unsigned char*)pa2==0&&*pa2)
+//	{
+//		pa1++;
+//		pa2++;
+//	}
+//	return (ret > 0) - ((-ret) > 0);//ret的值根据真假转化为1与0；从而返回1和-1，当*pa2==0,说明比完了，返回ret=0,0减去-0等于0；
+//}
 
 
 
@@ -7858,6 +8011,359 @@ int main()
 
 
 
+
+
+
+
+#define _CRT_SECURE_NO_WARNINGS 1    
+
+#include<stdio.h>
+
+
+
+
+//
+//#include<stdio.h>
+//#include<string.h>
+//	int main()
+//	{
+//		int x = 0;
+//		char password[20] = { 0 };
+//		for (x = 0; x < 3; x++)
+//		{
+//			printf("请输入密码：\n");
+//			scanf("%s", password);
+//			if (strcmp(password, "123456") == 0)
+//			{
+//				printf("登入成功\n"); break;
+//
+//			}
+//			else
+//			{
+//				printf("密码错误\n");
+//			}
+//
+//		}
+//		if (x == 3)
+//		{
+//
+//			printf("三次密码错误，请退出程序\n");
+//		}
+//
+//		return 0;
+//	}
+
+
+
+
+
+
+//
+//		#include<windows.h>
+//			#include<stdlib.h>
+//			#include<string.h>
+//int main() {
+//
+//
+//	char password[20] = { 0 };
+//	char input[20] = { 0 };
+//	char input2[] = { 0 };
+//
+//	printf("你想设置的密码是什么？");
+//
+//	scanf("%s", password);
+//	printf("我记住啦\n");
+//	Sleep(2000);
+//	system("cls");
+//
+//
+//
+//	int i;
+//	for (i = 3; i > 0;) {
+//
+//		printf("请输入密码：\n");
+//		scanf("%s", input);
+//		if (strcmp(input, password) == 0) {
+//
+//			printf("登陆成功\n");
+//			break;
+//		}
+//
+//	}
+//	return 0;
+//}
+
+
+//for (int i = 3; i > 0;) {
+//			printf("请输入你在本地预留的密码：");
+//			scanf("%s", input2);
+//			if (strcmp(input2, password) == 0) {
+//				printf("密码正确，【登陆成功！】\n");
+//				break;
+//			}
+//		}
+//
+//		return 0;
+//	}
+
+//int main()
+//{
+//
+//	char ch;
+//	char  a[20];
+//	printf("请输入密码\n");
+//	scanf("%s", a);
+//	printf("%s\n", a);
+//	while ((ch = getchar()) != '\n')//【空格也会被读取】
+//	{
+//		;   //不需要你干什么，只需要你不断需循环判断
+//	}
+//	printf("请确认密码(y\\n)\n");
+//
+//	ch = getchar();
+//	if (ch == 'y')
+//	{
+//		printf("正确\n");
+//	}
+//	else
+//	{
+//		/*putchar(ch);*/
+//		printf("错误\n");
+//	}
+//	return 0;
+//}
+
+
+//int main() {
+//	int s[] = 'w';
+//	printf("%d",s);
+//	return 0;
+//}
+
+
+//int main() {
+//	char array5 = '2';
+//	char array1[] = { 1,2,5,4 };//错
+//	char array2[] = "134";
+//	char array3[] = { '1','2','3','\0' };
+//	printf("%s\n", array1);
+//	printf("%s\n", array2);
+//	printf("%s\n", array3);
+//	printf("%c\n", array5);
+//	return 0;
+//}
+// 
+// 
+// 
+//#include<stdio.h>
+//#include<string.h>
+//int main(){
+//
+//	int x;
+//	char password[20] = { 0 };
+//	for(x=0;x<3;x++){
+//		printf("请输入密码：\n");
+//		/*printf("请输入密码：\n");*/
+//		scanf_s("%s", password);
+//		/*scanf("%s", password);*/
+//		/*scanf("%s", password);*/
+//		if (strcmp(password, "123456") == 0)
+//		{
+//			printf("登入成功\n"); break;
+//
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//
+//	}
+//	if (x == 3)
+//	{
+//
+//		printf("三次密码错误，请退出程序\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+// 
+//int main() {
+//	int a;
+//	int b;
+//	int c;
+//	char input = { 0 };
+//	printf("请输入\n");
+//	scanf("%d", &a);
+//	printf("请输入\n");
+//	scanf("%d", &b);
+//	getchar();
+//	printf("请输入算法\n");
+//	scanf("%c", &input);
+//
+//	switch (input) {
+//	case '+':
+//		c = a + b;
+//		printf("%d\n", c);
+//		break;
+//	case '-':
+//		c = a - b;
+//		printf("%d\n", c);
+//		break;
+//	case '*':
+//		c = a * b;
+//		printf("%d\n", c);
+//		break;
+//	case '/':
+//		c = a / b;
+//		printf("%d\n", c);
+//		break;
+//	}
+//	return 0;
+//}
+
+
+
+
+
+
+//#include<string.h>
+//int main() {
+//	char arry[] = { 0 };
+//	int i;
+//	for (i = 0; i < 3; i++) {
+//		printf("请输入密码\n");
+//		scanf("%s", arry);
+//		if (strcmp(arry, "123456") == 0) {
+//			printf("登录成功\n");
+//			break;
+//		}
+//		else {
+//			printf("密码错误\n");
+//		}
+//		
+//	}
+//	if (i == 3) {
+//		printf("3次登录失败\n");
+//	}
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	int x = 0;
+//	char password[50] = { 0 };
+//	for (x = 0; x < 3; x++)
+//	{
+//		printf("请输入密码：\n");
+//		scanf_s("%s", password);
+//		if (strcmp(password, "123456") == 0)
+//		{
+//			printf("登入成功\n");
+//			break;
+//
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//
+//	}
+//	if (x == 3)
+//	{
+//
+//		printf("三次密码错误，请退出程序\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+//
+
+//#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	int x = 0;
+//	char password[20] = { 0 };
+//	for (x = 0; x < 3; x++)
+//	{
+//		printf("请输入密码：\n");
+//		scanf_s("%s", password);
+//		if (strcmp(password, "123456") == 0)
+//		{
+//			printf("登入成功\n"); 
+//			break;
+//
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//
+//	}
+//	if (x == 3)
+//	{
+//
+//		printf("三次密码错误，请退出程序\n");
+//	}
+//
+//	return 0;
+//}
+
+
+//#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	int x = 0;
+//	char password[20] = { 0 };
+//	/*for (x = 0; x < 3; x++)
+//	{*/
+//		printf("请输入密码：\n");
+//		scanf_s("%s", password);
+//		if (strcmp(password, "123456") == 0)
+//		{
+//			printf("登入成功\n"); 
+//			
+//
+//		}
+//	
+//
+//	/*}*/
+//	/*if (x == 3)
+//	{
+//
+//		printf("三次密码错误，请退出程序\n");
+//	}*/
+//
+//		return 0;
+//}
+
+
+
+
+
+
+
+
+
+
 																			//【关于printf的返回值】
 
 
@@ -10289,6 +10795,28 @@ else
 //		else				              //else对应的是这一行的if(b==2)，所以if(a==1)无法通过，if(b==2)和else就都没没机会判定
 //			printf("haha\n");         //就算把sls/ /未匹配的if进行匹配的。【else就近原则】 注:else是怎么匹配if的？其实else是与离他最近的e挪到和if(a==1)对齐也没有
 			//可能你会不明白为什么if(b==2)不通过else就也不运行---->【只用if是可以的，但else却一定要和if相搭配，没有if就不会有else】
+
+
+//等价【2022-5-26补】
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 2;
+//
+//	if (a == 1)
+//		if (b == 2)
+//		{
+//			printf("hehe\n");//这样子就明白了，被括起来了
+//		}
+//	//结果什么也没打印
+//		else				              //else对应的是这一行的if(b==2)，所以if(a==1)无法通过，if(b==2)和else就都没没机会判定
+//			printf("haha\n");
+
+
+
+
+
 
 
 
