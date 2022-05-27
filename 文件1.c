@@ -13,6 +13,153 @@
 
 
 
+														//////【字体颜色】
+
+//#include <windows.h>
+//void color(int control)
+//{
+//	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), control);
+//}
+//
+
+//int main()
+//{
+//	int control = 0;
+//	while (1)
+//	{
+//		scanf("%d", &control);
+//
+//		if (control == 100)break;
+//
+//		color(control);
+//		printf("测试颜色\n");
+//	}
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//
+//	char str[] = "hehe";
+//	char* pa = str;
+//	*str = 'e';
+//	str = 'e';
+//
+//	*pa = 'a';
+//	pa = 'a';
+//
+//	printf("%s", str);
+//	printf("%p", pa);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//	//int a = 10;
+//	//char arr[] = "hehe";
+//	//char* pa = arr;
+//	//char* pa2 = "haha";
+//	//arr = "haha";//数组名是地址常量，不能修改
+//	//pa2 = "eee";//可以修改指针的指向，使它指向e的地址
+//	//*pa2 = "aaa";//字符串常量不能被修改，只读区
+//	//printf("%s", pa2);
+//
+//	//a = 20;//地址常量不能被修改
+//	//&a = 20;//变量
+//	//printf("%d", a);
+//
+//
+//	//char str[] = "hehe";
+//	//char* pa = str;
+//	//*str = 'e';
+//	//str = 'e';
+//
+//	//printf("%s", str);
+//
+//	return 0;
+//}
+
+
+
+
+//总结
+
+//int main()
+//{
+//
+//	//char arr[] = "hehe";
+//	//arr = 'a';//地址常量不能修改
+//
+//	//char arr[] = "hehe";
+//	//*arr = 'a';
+//
+//	int a = 10;
+//	char* pa = "hehe";
+//	char* pa2 = a;
+//	*pa2 = 3;//常量
+//	printf("%d", a);
+//
+//	char* pa2 = &a;
+//	*pa2 = 3;//变量
+//	printf("%d", a);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//#include<string.h>
+//int main()
+//{
+//
+//	
+//	char* pa = "aheh";
+//	pa[2] = 'w';
+//	printf("%s\n", pa);
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
 													//【模拟strncat】
 
 //#include<assert.h>
