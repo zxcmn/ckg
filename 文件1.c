@@ -5,6 +5,149 @@
 
 
 
+int main()
+{
+
+	printf("ahha\n");
+
+	return 0;
+}
+
+
+
+
+
+												//模拟字符串查找子字符串strstr//找到就会返回找到的首地址，否则空指针
+
+
+
+
+//自己写的
+//char* mock_strstr(const char* pa1, const char* pa2)
+//{
+//  assert(pa1&&pa2);
+//	char store = *pa2;
+//	while (*pa1)//继续找stoer
+//	{
+//		if (*pa1 == store)
+//		{
+//			//探查
+//			char* pa3 = pa1;
+//			char* pa4 = pa2;
+//			while (*pa3 == *pa4 && *pa4 != '\0')
+//			{
+//				pa3++;
+//				pa4++;
+//			}
+//			if (*pa4 == '\0')
+//			{
+//				return pa1;
+//			}
+//		}
+//		pa1++;
+//	}
+//	return NULL;
+//}
+//
+//
+//
+//int main()
+//{
+//	char arr1[] = "abcdabcdabcd";
+//	char arr2[] = "cdab";
+//
+//	printf("%s\n",mock_strstr(arr1, arr2));
+//
+//	return 0;
+//}
+
+
+
+
+
+												//标准写法
+
+
+
+//#include<assert.h>
+//
+//char* mock_strstr(const char* pa1, const char* pa2)
+//{
+//	assert(pa1 && pa2);
+//	while (*pa1)
+//	{
+//		const char* pa3 = pa1;
+//		const char* pa4 = pa2;
+//		while (*pa3 && (*pa3 == *pa4))
+//		{		//⭐如果使用strncmp,进行比较，也行，不用考虑回位，ncmp限制好访问几个，然后不符合就开始访问的位置++，从第二个开始访问限制的个数
+//			pa3++;
+//			pa4++;
+//		}
+//		if (*pa4 == '\0') {
+//			return pa1;
+//			//如果我要返回pa3;应该写成:return (char*)pa3;//因为pa3是const char*;应该转成char*返回
+//		}
+//		pa1++;
+//	}
+//	return NULL;
+//}
+//
+//
+//
+//
+//int main()
+//{
+//	char arr1[] = "abcdabcdabcd";
+//	char arr2[] = "cdab";
+//
+//	printf("%s\n",mock_strstr(arr1, arr2));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+																	//利用strdncmp实现
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main()
+//{
+//	char arr1[] = "heh";
+//	*arr1 = "haha";//可改变值
+//	arr1 = "haha";//地址是常量，不可改
+//	printf("%s\n", arr1);
+//
+//
+//	char arr[] = "aa";
+//	char* arr2 = "hehe";
+//	arr2 = arr;//可改变指向
+//	//arr2 = 'a';//不可改变值，常量字符串
+//	printf("%s\n", arr2);
+//
+//	return 0;
+//}
+
+
 
 
 
