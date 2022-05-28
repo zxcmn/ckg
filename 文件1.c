@@ -8,6 +8,181 @@
 
 
 
+//#define _CRT_SECURE_NO_WARNINGS 1    
+//
+//#include<stdio.h>
+//#include<stdlib.h>
+//#include<windows.h>
+//#define W 10//长
+//#define D 10//宽
+//
+////菜单
+//int menu()
+//{
+//	do {
+//		int i = 0;
+//		for (i = 0; i <= W; i++)
+//		{
+//			printf("--");
+//			if (i == 5)printf("欢迎使用图书馆里系统");
+//		}
+//		printf("\n\n            ");
+//		printf("1 进入管理员模式\n");
+//		printf("            ");
+//		printf("2 查看馆存图书\n");
+//		printf("            ");
+//		printf("3 借阅图书\n");
+//		printf("            ");
+//		printf("4 归还图书\n");
+//		printf("            ");
+//		printf("0 退出系统\n\n");
+//		printf("请输入选择：");
+//		scanf("%d", &i);
+//		if (i >= 0 && i < 5) {
+//			return i;
+//		}
+//		printf("[选择错误]\n");
+//		Sleep(600);
+//		system("cls");
+//	} while (1);
+//}
+//
+////初始化书库
+//struct book
+//{
+//	char name[20];//书名
+//	int ID;//编号
+//	int inve;//库存
+//	char state[10];//状态
+//}ben[10] =
+//{
+//	{"《万古剑尊》",0,10,"上架"},
+//	{"《万古剑帝》",1,40,"上架"},
+//	{"《万古剑圣》",2,90,"上架"},
+//	{"《万古剑神》",3,10,"上架"},
+//	{"《恋爱手册》",4,30,"上架"},
+//	{"《养猪指南》",5,20,"上架"},
+//	{"《Cplusplus》",6,80,"上架"},
+//	{"《思想道德》",7,67,"上架"},
+//	{"《形势与政策》",8,50,"上架"},
+//	{"《C语言基础》",9,20,"上架"},
+//};
+//
+////书库打印
+//void all_book()
+//{
+//	system("cls");
+//	int i = 0;
+//	printf("—————————————————————");
+//	printf("\n      【书名】   【编号】【库存】【状态】\n");
+//	for (i = 0; i < 10; i++) {
+//		printf("%16s %4d %8d %8s", ben[i].name, ben[i].ID, ben[i].inve, ben[i].state);
+//		printf("\n");
+//	}
+//}
+//
+////借书
+//void Library()
+//{
+//	while (1)
+//	{
+//		all_book();
+//		int input = 0;
+//		printf("请输入借阅的书号：");
+//		scanf("%d", &input);
+//		while (input < 0 || input>9)
+//		{
+//			printf("馆里没有这本书！\n");
+//			scanf("%d", &input);
+//		}
+//		//if (input == 'a')return;
+//		ben[input].inve--;
+//		all_book();
+//		printf("\n【借书成功！】\n");
+//		while (1) {
+//			char str = 0;
+//			printf("是否继续借书 y/n ：");
+//			getchar();
+//			scanf("%c", &str);
+//			if (str == 'y')
+//			{
+//				break;
+//			}
+//			if (str == 'n')
+//			{
+//				system("cls");
+//				return;
+//			}
+//			printf("错误\n");
+//		}
+//		system("cls");
+//	}
+//}
+//
+////还书
+//void return_book()
+//{
+//	int i = 1;
+//	while (i)
+//	{
+//		all_book();
+//		int store = 0;
+//		printf("请输入归还的序号：");
+//		scanf("%d", &store);
+//
+//		ben[store].inve++;
+//		printf("归还成功!\n");
+//
+//		all_book();
+//		printf("结束归还【0】继续归还【1】");
+//		scanf("%d", &i);
+//	}
+//	system("cls");
+//}
+//
+////管理模式
+//void backg()
+//{
+//
+//}
+//
+//
+//int main()
+//{
+//	int store = 1;
+//	while (store)
+//	{
+//		//all馆存图书 Li借书 ret还书
+//		int (*pfArr[])() = { NULL,NULL,all_book,Library,return_book };
+//		store = menu();//菜单
+//		if (store != 0)
+//			pfArr[store]();// 调用
+//	}
+//	printf("退出成功！\n");
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+//#include<string.h>
+//int main()
+//{
+//
+//	char arr[] = "上架";
+//	strcpy(arr, "下架");
+//
+//	printf("%s", arr);
+//
+//	return 0;
+//}
 
 
 
