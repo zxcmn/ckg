@@ -5,13 +5,30 @@
 
 
 
-int main()
-{
 
-	printf("ahha\n");
 
-	return 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main()
+//{
+//
+//	printf("ahha\n");
+//
+//	return 0;
+//}
 
 
 
@@ -116,11 +133,34 @@ int main()
 
 
 
-
-
-
-
-
+//#include<string.h>
+//#include<assert.h>
+//char* mock_strstr(const char*pa1,const char*pa2)
+//{
+//	assert(pa1&&pa2);
+//	while (*pa1)
+//	{
+//		const char* pa3 = pa1;
+//		const char* pa4 = pa2;
+//		if (strncmp(pa3,pa4,strlen(pa4))==0)
+//		{
+//			return pa1;
+//		}
+//		pa1++;
+//	}
+//	return NULL;
+//}
+//
+//
+//int main()
+//{
+//	char arr1[] = "abcdabcdabcd";
+//	char arr2[] = "cdab";
+//
+//	printf("%s\n",mock_strstr(arr1, arr2));
+//
+//	return 0;
+//}
 
 
 
