@@ -22,6 +22,109 @@
 
 
 
+
+
+
+//#include<string.h>
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5 };
+//	int arr2[10] = { 0 };
+//	
+//	int* pa = memcpy(arr2, arr, 15);
+//	printf("%d", *pa);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+//memcpy内存拷贝
+//#include<string.h>
+//int main()
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int arr2[10] = { 0 };
+//
+//	memcpy(arr2,arr1,20);
+//	for (int i = 0; i < 10; i++)
+//	{
+//	printf("%d\n", arr2[i]);
+//	}
+//	return 0;
+//}
+
+
+
+
+
+//模拟memcpy内存拷贝
+//#include<assert.h>
+//void* mock_memcpy(void* dest2, const void* dest1, size_t num)
+//{
+//	assert(dest1 && dest2);
+//	void* pa = dest2;
+//	while (num--)
+//	{
+//		//*(char*)dest2 = *(char*)dest1;
+//		//dest2=((char*)dest2)++;//如果不括起来，++优先级更高，导致void*进行++；
+//		//dest1=(char*)dest1+1;
+//		*((char*)dest2)++ = *((char*)dest1)++;//或者合成这样
+//	}
+//	return pa;
+//}
+//
+//int main()
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int arr2[10] = { 0 };
+//	int i = 0;
+//	//mock_memcpy(arr2, arr1, 20);
+//	//int* pa = (int*)mock_memcpy(arr2, arr1, 20);
+// //int *pa=mock_memcpy(arr2,arr1,20);
+//	//printf("%d", *(int*)mock_memcpy(arr2, arr1, 20));
+//	/*for (i=0;i<10;i++)
+//	{
+//		printf("%d\n", arr2[i]);
+//	}*/
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+//大小写转化库函数
+
+//#include <ctype.h>
+//int main()
+//{
+//	char arr[10] = { 0 };
+//	scanf("%s",arr);
+//	for (int i = 0; i < 10 && arr[i] != '\0'; i++)
+//	{
+//	arr[i]= toupper(arr[i]);//小写转大写
+//	arr[i]= tolower(arr[i]);//大写转小写
+//
+//	}
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+
+
+
+
+
 //int main()
 //{
 //
