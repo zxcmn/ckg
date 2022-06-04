@@ -6,12 +6,139 @@
 
 
 
+														//结构体
+
+//结构体声明
+//结构体的基础知识
+//结构体是一些值的集合，这些值别称为成员变量。结构体的每个成员可以是不同类型的变量
+
+
+//结构体的声明
+//struct tag//struct是关键字，tag是标签名、struct tag合起来是结构体类型
+
+
+
+//struct Book
+//{
+//	char name[20];
+//	int price;
+//	char id[12];
+//}p4,p5,p6;//p4,p5,p6是全局变量
+//
+//int main()
+//{
+//	struct Book p1;
+//	struct Book p2;//p1,p2,p3是局部变量
+//	struct Book p3;
+//
+//	return 0;
+//}
+
+
+
+
+
+//不完全声明【匿名结构体类型】
+
+//struct
+//{
+//	char a[10];
+//	int k;
+//	float gh;
+//	double z;
+//
+//}s;//利用这个匿名结构体直接创建一个结构体变量s
+//这种匿名结构体只能用一次
+
+
+
+
+//【结构体的自引用】
+//在结构体中包含一个类型为结构体本身的成员是否可以
+
+
+//  1,结构体里包含另一个结构体为成员是可行的
+
+//struct A
+//{
+//	char a;
+//	int k;
+//};
+//
+//struct B
+//{
+//	char ch;
+//	struct A ben;
+//	int str;
+//};
+
+
+
+
+//
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+					//指针+1与指针++，数组名+1与数组名++；数组名改变改指向，与字符串数组改指向不改内容
+
+//int main()
+//{
+//
+//	int arr[] = { 1,3,4 };
+//
+//	arr[0] = 2;
+//	arr++;//报错
+//
+//	//数组可以改变内容不能改变指向，字符串指针可以改变指向不能改变内容
+//
+//	printf("%d\n", arr[0]);
+//	return 0;
+//}
+
+
+
+
+
+
+//int main()
+//{
+//	int i = 3;
+//	int arr[] = { 1,2,3,4 };
+//	int* p = arr;
+//
+//	while (i--)
+//	{
+//		p++;
+//		printf("%d\n", *p);
+//	}
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3 };
+//	int* p = arr;
+//	int i = 3;
+//	 while(i--)
+//	{
+//	p + 1;
+//	printf("%d\n", *p);
+//	}
+//	return 0;
+//}
 
 
 
@@ -72,7 +199,7 @@
 //	{
 //		//*(char*)dest2 = *(char*)dest1;
 //		//dest2=((char*)dest2)++;//如果不括起来，++优先级更高，导致void*进行++；
-//		//dest1=(char*)dest1+1;
+//		//dest1=(char*)dest1+1;//这种写法好
 //		*((char*)dest2)++ = *((char*)dest1)++;//或者合成这样
 //	}
 //	return pa;
