@@ -2,6 +2,150 @@
 
 #include<stdio.h>	
 
+
+
+
+
+																			//【重要：realloc】
+
+
+//1.realloc函数的出现让动态内存管理更加灵活
+//2.有时候我们发现过去申请的空间太小了，有时候我们又觉得申请的空间太大了，//以字节为单位
+//那为了合理地使用内存，我们一定会对内存的大小做灵活的调整。
+//那realloc函数就可以做到对动态开辟内存大小的调整。
+
+//函数原型：void*realloc(void*ptr,size_t size);
+//·ptr是要调整的内存地址
+//·size是调整后新的大小
+//·返回值是调整之后内存的起始地址
+//·这个函数调整原内存空间的大小的基础上，还会将原来内存中的数据移动到新的空间。
+//·realloc调整内存空间存在两种情况：
+//		情况1：原有空间之后有足够大的空间，返回原来的地址（地址后面空间扩大了）
+//		情况2：原有空间之后没有足够大的空间，返回新空间的地址（它会找一个足够大的新空间，【开辟空间，把字符串拷贝过去，释放原有空间】）
+//		情况3：没有足够空间，返回空指针NULL（所以通常不用接收原空间地址的指针，重新接收它，担心空间不够，返回的空指针把原来的地址覆盖掉）
+
+
+
+//例
+
+//#include<stdlib.h>
+//int main()
+//{
+//
+//	int* pa = (int*)calloc(10, sizeof(int));//开辟10个int大小空间
+//	if (pa == NULL)
+//	{
+//		perror("main");
+//		return 0;
+//
+//	}
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d\n", pa[i]);
+//	}
+//	//更改空间
+//	int*pa1=(int*)realloc(pa,20);
+//	if (pa1 != NULL)
+//	{
+//		pa = pa1;//替换地址
+//	}//空间变成了20字节
+//
+//	free(pa);
+//	pa = NULL;
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int* pa = (int*)realloc(NULL, 40);//单独使用功能和malloc是一样的
+//
+//}
+
+
+
+
+
+
+
+
+
+			//malloc不初始化内存，calloc初始化内存
+
+//#include<stdlib.h>
+//int main()
+//{
+//	//int* pa = (int*)malloc(40);
+//	int* pa = (int*)calloc(10,4);
+//	if (pa == NULL)
+//		return 0;
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d\n", *(pa + i));
+//	}
+//	free(pa);
+//	pa = NULL;
+//}
+
+
+
+
+
+
+
+//动态内存开辟
+//malloc(几个字节)//返回类型void*
+//calloc(几个元素，每个元素几个字节）//开辟一个数组，返回类型void*   ⭐：会初始化成0
+
+//#include<stdlib.h>
+//#include<string.h>
+//int main()
+//{
+//
+//
+//	int arr[10] = { 0 };//栈区
+//	int* pa = (int*)malloc(10 * sizeof(int));//返回void*指针//有些编译器需要malloc强制类型int*
+//	//int* pa = (int*)malloc(100000000000000 * sizeof(int));//会开辟失败，perror会报错main:Not enough space没有足够的空间
+//	memset(pa,0,40);
+//
+//	if (pa == NULL)
+//	{
+//		//printf("malloc error\n");
+//		perror("main");//错误信息打印
+//		return 0;//开辟失败停止
+//	}
+//	//使用
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(pa + i) = i;//每个整型空间依次放i
+//	}//当成数组使用
+//	for (i = 0; i < 10; i++)
+//	{
+//		//printf("%d\n", *(pa + i));
+//		printf("%d\n", pa[i]);
+//	}
+//	free(pa);//释放返回内存
+//	pa = NULL;//防止称为野指针
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //int Get(char* input,char c)
 //{
 //	int count = 0;
