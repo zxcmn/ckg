@@ -2,12 +2,98 @@
 
 #include<stdio.h>	
 
+//int Get(char* input,char c)
+//{
+//	int count = 0;
+//	while (*input)
+//	{
+//		if (*input==c)
+//		{
+//			count++;
+//		}
+//		input++;
+//	}
+//	return count;
+//}
+//
+//int main()
+//{
+//	int i = 0;
+//	char input[21] = { 0 };
+//	char arr[4] = { '1','2','3','4'};
+//	int arr0[4] = { 0 };
+//	scanf("%s", input);
+//	char* pa = arr;
+//
+//	for (i=0;i<4;i++)
+//	{
+//	 arr0[i] = Get(input, arr[i]);
+//	}
+//
+//	printf("同学1:%d\n同学2:%d\n同学3:%d\n同学4:%d\n",arr0[0],arr0[1],arr0[2],arr0[3]);
+//	i = 0;
+//	int j = i+1;
+//	int max = 0;
+//	for (j = 0; j < 4; j++)
+//	{
+//		if (arr0[i] < arr0[j])
+//		{
+//			i=j;
+//		}
+//	}
+//	printf("答题比赛结果：%d号同学胜出\n",i+1);
+//	return 0;
+//}
 
 
-												//【通讯录】
+//#include<stdio.h>
+//
+//int main()
+//{
+//	char s = '#';
+//	char k = ' ';
+//	int i = 0;
+//	int j = 0;
+//	printf("      ");
+//	printf("###");
+//	printf("    \n");
+//	printf("    #     #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("   #       #\n");
+//	printf("    #     #\n");
+//
+//	printf("      ");
+//	printf("###");
+//	printf("    \n");
+//
+//	return 0;
+//}
 
 
 
+
+
+
+
+
+
+
+
+//int main()
+//{
+//	int a[] = { 1,2,4 };
+//	printf("%5d\t%8d\t%15d\t\n", a[0], a[1], a[2]);//\t是tab按键
+//	printf("%5d%8d%15d\n", a[0], a[1], a[2]);
+//	printf("%d\t%d\t%d\t", a[0], a[1], a[2]);
+//		return 0;
+//}
 
 
 
