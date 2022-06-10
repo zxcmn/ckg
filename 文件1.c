@@ -6,6 +6,48 @@
 
 
 
+
+
+struct N
+{
+	char ID[6];
+	char name[10];
+	int arr[3];
+};
+
+#include<stdlib.h>
+int main()
+{
+	int j = 0;
+	int i = 0;
+	int k = 0;
+	struct N per[5] = { 0 };
+	scanf("%d", &i);
+	for (j = 0; j < i;j++)
+	{
+		scanf("%s %s %d%d%d", per[j].ID, per[j].name, &per[j].arr[0], &per[j].arr[1], &per[j].arr[2]);
+	}
+	for (j = 0; j < i; j++)
+	{
+		if (per[k].arr[0] + per[k].arr[1] + per[k].arr[2] < per[j + 1].arr[0] + per[j + 1].arr[1] + per[j + 1].arr[2])
+		{
+			k = j;
+		}
+
+	}
+	printf("%s %s %d", per[k+1].ID,per[k+1].name, per[k+1].arr[0] + per[k+1].arr[1] + per[k+1].arr[2]);
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
 																			//【重要：realloc】
 
 
