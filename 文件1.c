@@ -5,40 +5,156 @@
 
 
 
+													//【动态内存开辟常见的错误】
+//1.对NULL指针的解引用
+
+//#include<stdlib.h>
+//int main()
+//{
+//	int* pa = (int*)malloc(100000000000000);
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		*(pa + i) = i;//对空指针解引用
+//	}
+//	//空间太大，开辟失败，返回空指针
+//	return 0;
+//}
+
+
+//2.对动态内存的越界访问	
+
+//#include<stdlib.h>
+//int main()
+//{
+//	int* pa = (int*)malloc(10 * sizeof(int));
+//	if (pa==NULL)
+//	{
+//		return 1;
+//	}
+//	int i = 0;
+//	for (i = 0; i < 40; i++)
+//	{
+//		*(pa + i) = i;//越界访问
+//	}
+//	free(pa);
+//	pa = NULL;
+//	return 0;
+//}
+
+
+//3.使用free释放非动态开辟的空间
+
+
+//#include<stdlib.h>
+//int main()
+//{
+//	int arr[10] = { 0 };//栈区
+//	int* p = arr;
+//	free(p);//释放栈区空间
+//	p = NULL;
+//	return 0;
+//}
 
 
 
-struct N
-{
-	char ID[6];
-	char name[10];
-	int arr[3];
-};
 
-#include<stdlib.h>
-int main()
-{
-	int j = 0;
-	int i = 0;
-	int k = 0;
-	struct N per[5] = { 0 };
-	scanf("%d", &i);
-	for (j = 0; j < i;j++)
-	{
-		scanf("%s %s %d%d%d", per[j].ID, per[j].name, &per[j].arr[0], &per[j].arr[1], &per[j].arr[2]);
-	}
-	for (j = 0; j < i; j++)
-	{
-		if (per[k].arr[0] + per[k].arr[1] + per[k].arr[2] < per[j + 1].arr[0] + per[j + 1].arr[1] + per[j + 1].arr[2])
-		{
-			k = j;
-		}
 
-	}
-	printf("%s %s %d", per[k+1].ID,per[k+1].name, per[k+1].arr[0] + per[k+1].arr[1] + per[k+1].arr[2]);
 
-	return 0;
-}
+//4.使用free释放动态内存中的一部分
+
+//#include<stdlib.h>
+//int main()
+//{
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (p==NULL)
+//	{
+//		return 1;
+//	}
+//	int i = 0;
+//	for (i=0;i<10;i++)
+//	{
+//		*p++ = i;
+//		//*(p+i)=i;//这样才对，p+1并没有改变p的指向
+//	}
+//	free(p);//释放内存要保证指针指向的是开辟空间的首地址
+//	p = NULL;
+//
+//	return 0;
+//}
+
+
+
+
+//对同一块开辟内存多次释放
+
+//int main()
+//{
+//	int* p = (int)malloc(10 * sizeof(int));
+//	pree(p);
+//	pree(p);
+//
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int* p = (int)malloc(10 * sizeof(int));
+//	pree(p);
+//	p = NULL;
+//	pree(p);//这回没事，释放的目标为空指针时，pree什么也不会发生
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//struct N
+//{
+//	char ID[6];
+//	char name[10];
+//	int arr[3];
+//};
+//
+//#include<stdlib.h>
+//int main()
+//{
+//	int j = 0;
+//	int i = 0;
+//	int k = 0;
+//	struct N per[5] = { 0 };
+//	scanf("%d", &i);
+//	for (j = 0; j < i;j++)
+//	{
+//		scanf("%s %s %d%d%d", per[j].ID, per[j].name, &per[j].arr[0], &per[j].arr[1], &per[j].arr[2]);
+//	}
+//	for (j = 0; j < i; j++)
+//	{
+//		if (per[k].arr[0] + per[k].arr[1] + per[k].arr[2] < per[j + 1].arr[0] + per[j + 1].arr[1] + per[j + 1].arr[2])
+//		{
+//			k = j;
+//		}
+//
+//	}
+//	printf("%s %s %d", per[k+1].ID,per[k+1].name, per[k+1].arr[0] + per[k+1].arr[1] + per[k+1].arr[2]);
+//
+//	return 0;
+//}
 
 
 
