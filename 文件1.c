@@ -5,7 +5,418 @@
 
 
 
+
+
+
+															//【柔性数组】柔性数组成员
+//C99中，结构体中的最后一个成员允许是未知大小的数组，这就叫“柔性数组”成员。
+
+//·柔性数组的特点
+//1.结构中柔性数组成员前必须至少一个其他成员。
+//2.sizeof返回的这种结构体大小不包含柔性数组的内存
+//3.包含柔性数组成员的结构用malloc（）函数进行内存的动态分配，
+//并且分配的内存应该大于结构的大小，以适应柔性数组的预期大小
+
+//例如
+
+//typedef struct st
+//{
+//	int i;
+//	int a[];
+//}type_s;
+ 
+
+//typedef struct st
+//{
+//	int i;
+//	int a[0];
+//}type_s;
+
+//根据3.我们开辟柔性数组应该使用malloc等，并且应大于结构的大小
+//例如
+
+//struct st
+//{
+//	int i;
+//	int a[];
+//};
+//
+//#include<stdlib.h>
+//int main()
+//{
+//	struct st* s = (struct st*)malloc(sizeof(struct st) + 10*sizeof(int));
+////     								    申请给i的大小		剩下的给int a[]
+//	//这时候会发现，是用malloc开辟的，这时候可以用realloc改变，体现了柔性
+//	return 0;
+//}
+
+//优点：malloc和free次数少
+//空间申请少了，内存碎片少
+
+
+
+
+														//对通讯录使用柔性数组
+
+//typedef struct PeoInfo//一个人的信息
+//{
+//	char name[5];
+//	char sex[5];
+//	int age;
+//	char tele[5];//电话
+//	char addr[5];//地址
+//
+//}PeoInfo;
+//
+//typedef struct contact
+//{
+//	int sz;//记录当前通讯录有效信息的个数
+//	int per;//记录当前最大空间
+//	PeoInfo data[];
+//}Contact;
+
+
+
+
+
+
+//#include <stdio.h>
+//struct str {
+//	int len;
+//	char s[0];
+//	//char* s;
+//};
+//
+//struct foo {
+//	struct str* a;
+//};
+//
+//int main(int argc, char** argv) {
+//	struct foo f = { 0 };
+//	if (f.a->s) {
+//		//printf(f.a->s);
+//		printf("%x\n", f.a->s);
+//	}
+//	return 0;
+//}
+
+
+
+
+
+//int main()
+//{
+//
+//	int arr[10] = { 0 };
+//	int* pa=NULL;
+//
+//	printf("%p\n", pa);
+//	printf("%p\n", &pa);
+//
+//	printf("%p\n", arr);
+//	printf("%p\n", &arr);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+//struct a
+//{
+//	int i;
+//	int a[0];
+//};
+//
+//int main()
+//{
+//	struct a s={0};
+//	printf("%p\n", &s.i);
+//	printf("%p\n", s.a);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//struct str {
+//	int len;
+//	//char s[0];
+//	char* s;
+//};
+//
+//struct foo {
+//	struct str* a;
+//};
+//
+//int main(int argc, char** argv) {
+//	struct foo f = { 0 };
+//	if (f.a->s) {
+//		//printf(f.a->s);
+//		//printf("%x",f.a->s);
+//		printf("%x\n", f.a->s);
+//	}
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main()
+//{
+//	char* arr = "hehe";
+//	char arr1[10]={1,2,3,4};
+//	printf(arr);
+//	printf("\n");
+//	printf(arr1);
+//	printf("\n");
+//
+//	printf("%x\n",arr1);
+//
+//	return 0;
+//}
+
+
+
+
+
+//struct test {
+//	int i;
+//	short c;
+//	char* p;
+//	char s[10];//地址
+//};
+//
+//int main() {
+//	struct test* pt = NULL;
+//	printf("%d\n", sizeof(struct test));
+//	printf("&s = %x\n", pt->s); //等价于 printf("%x\n", &(pt->s) );
+//	printf("&i = %x\n", &pt->i); //因为操作符优先级，我没有写成&(pt->i)
+//	printf("&c = %x\n", &pt->c);
+//	printf("&p = %x\n", &pt->p);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+////realloc不能修改栈区空间
+//#include<stdlib.h>
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int* p = arr;
+//	p=(int*)malloc(p,20*sizeof(int));
+//
+////	p = (int*)realloc(p, 10 * sizeof(int));//不能修改栈区空间
+//
+//	printf("%d", sizeof(arr));
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+																	//【指针不能连续定义】
+
+//int* p1, p2;//这里的*给了p1，p1是指针，那p2就只能是int类型
+//可以写成：int*p1,*p2;
+
+//例题
+
+//#define INT_P int*
+//typedef int* INT_K;
+//
+//int main()
+//{
+//	INT_P a, b;
+//	INT_K c, d;
+//
+//	return 0;
+//}
+
+//请问哪个不是指针类型
+//答案：b
+//解析:define 是用INT_P表示int* ,也就是int*a,b;解引用给了a，b就只能是int
+//typedef 是类型重定义，把int*重定义为INT_K；重定义后是个完整的类型了，就像int,float之类的
+
+
+
+
+
+
+
+
+
+				//【内核区】
+//用户代码不能读写
+
+				//【栈区】向下增长
+//函数变量
+
+				//【内存映射】
+//文件映射，动态库，匿名映射
+
+				//【堆区】向上增长
+//malloc,calloc,realloc
+
+				//【代码段】
+//可执行代码，只读常量char*="hell";
+
+				//【数据段=静态区】
+//全局数据，静态数据
+
+		
+
+
+
+
+
+//错
+//void Get(char*pa)
+//{
+//	pa = (char*)malloc(20);
+//
+//}
+//
+//int main()
+//{
+//	char* str = NULL;
+//	Get(str);//传值，NULL
+//	strcpy(str,"hell");//空指针
+//	printf(str);
+//
+//	return 0;
+//}
+
+
+//改
+
+//#include<stdlib.h>
+//#include<string.h>
+//char* Get(char* pa)
+//{
+//	pa = (char*)malloc(20);
+//	return pa;
+//}
+
+//int main()
+//{
+//	char* str = NULL;
+//	str=Get(str);//传值，NULL
+//	strcpy(str, "hell");//空指针
+//	printf(str);
+//	free(str);
+//	str = NULL;
+//	return 0;
+//}
+
+
+
+
+//或者传地址
+
+//#include<stdlib.h>
+//#include<string.h>
+//
+//void Get(char** pa)
+//{
+//	*pa = (char*)malloc(100);
+//}
+//
+//int main()
+//{
+//	char* str = NULL;
+//	Get(&str);//传值，NULL
+//	strcpy(str, "hell");//空指针
+//	printf(str);
+//	free(str);
+//	str = NULL;
+//	return 0;
+//}
+
+
+
+
+//																	【野指针】
+
+//int main()
+//{
+//	int* p;
+//	*p = 10;
+//	//非法内存访问，野指针，p没有初始化，*p非法
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+//打印方法
+//int main()
+//{
+//
+//	char* pa = "haha";
+//	printf(pa);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
 													//【动态内存开辟常见的错误】
+								
+//1.对NULL指针的解引用
+//2.对动态内存的越界访问	
+//3.使用free释放非动态开辟的空间
+//4.使用free释放动态内存中的一部分
+//5.对同一块开辟内存多次释放
+//6.动态开辟空间忘记释放	【内存泄露】
+
+
+
 //1.对NULL指针的解引用
 
 //#include<stdlib.h>
@@ -86,7 +497,7 @@
 
 
 
-//对同一块开辟内存多次释放
+//5.对同一块开辟内存多次释放
 
 //int main()
 //{
@@ -110,7 +521,28 @@
 
 
 
+//6.动态开辟空间忘记释放	【内存泄露】
 
+//void test()
+//{
+//	int* p = (int*)malloc(10*sizeof(int));
+//	if (p==NULL)
+//	{
+//		return 0;
+//	}
+//	//使用
+//
+//	//结束
+//	return 0;
+//}//结束了还没释放，导致唯一指向这片空间的指针消失了，但开辟的空间还没释放
+////如果运行32天，多次调用这个函数，每天浪费泄露一点空间
+//
+//int mian()
+//{
+//	test();
+//
+//	return 0;
+//}
 
 
 
