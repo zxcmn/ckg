@@ -7,6 +7,240 @@
 
 
 
+																//【文件操作】
+
+
+//#include<stdio.h>
+//int main()
+//{
+//	char arr[20]={0};//用来存储输出的内容
+//	char arr2[20];//用来存储输入的内容
+//	FILE*pf=fopen("D:/test文件测试/test.txt","w");//或者//
+//	if (pf==NULL)
+//	{
+//		perror("fopen");//告诉我哪个地方出问题:出什么错
+//		return 1;
+//	}
+//	//写文件
+//	//fputc('a', pf);
+//	scanf("%s", arr);
+//	fputs(arr,pf);
+//
+//	//读//要改为r，改文件打开方式
+//	fgets(arr2,4,pf);//实际读取3个，1个留\0
+//	printf("%s\n", arr2);
+//
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------
+
+//typedef struct
+//{
+//	char name[20];
+//	char ID[20];
+//	int age;
+//}nae;
+
+
+//【输出】
+//int main()
+//{
+//	nae a={0};
+//	scanf("%s%s%d", a.name, a.ID, &a.age);
+//
+//	//打开文件
+//	FILE* pf = fopen("D:/test文件测试/test.txt","w");
+//	if (pf==NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	//写入test.txt
+//	fprintf(pf, "%s\n%s\n%d\n",a.name, a.ID, a.age);
+//
+//	//关闭
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+//【输入】到结构体中
+//int main()
+//{
+//	nae a={0};
+//
+//	//打开文件
+//	FILE* pf = fopen("D:/test文件测试/test.txt","r");
+//	if (pf==NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	//输出test.txt
+//	fscanf(pf,"%s%d", a.name, a.ID, &(a.age));
+//
+//	//打印现在的结构体
+//	printf("%s\n%s\n%d\n", a.name, a.ID, a.age);
+//
+//	//关闭
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+//输出和输入结合，看中文名字是否还乱码
+//结论：文本中的名字，需要是fprintf以%s输出进去的，这样fscanf可以以%s读取名字
+//如果不使用fprintf而预先编辑文档输入名字，fscanf输出名字到结构体的时候，会字符串无效
+//int main()
+//{
+//	nae a = { 0 };
+//	scanf("%s%s%d", a.name, a.ID, &a.age);
+//
+//	//打开文件
+//	FILE* pf = fopen("D:/test文件测试/test.txt", "w");
+//	if (pf == NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	//写入test.txt
+//	fprintf(pf, "%s\n%s\n%d\n", a.name, a.ID, a.age);
+//
+//
+//
+//	//打开文件
+//	pf = fopen("D:/test文件测试/test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	//输出test.txt
+//	fscanf(pf, "%s%d", a.name, a.ID, &(a.age));
+//
+//	//打印现在的结构体
+//	printf("%s\n%s\n%d\n", a.name, a.ID, a.age);
+//
+//	//关闭
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//
+//#define MAXN 10
+//typedef float ElementType;
+//
+//ElementType Median(ElementType A[], int N);
+//
+//int main()
+//{
+//	ElementType A[MAXN];
+//	int N, i;
+//
+//	scanf("%d", &N);
+//	for (i = 0; i < N; i++)
+//		scanf("%f", &A[i]);
+//	printf("%.2f\n", Median(A, N));
+//
+//	return 0;
+//}
+
+
+
+//ElementType Median(ElementType A[], int N)
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 0; i < N-1; i++)
+//	{
+//		int s = i;
+//		for (j = s + 1; j < N; j++)
+//		{
+//			if (A[s] < A[j])
+//			{
+//				s = j;
+//			}
+//		}
+//		if (i != s)
+//		{
+//			ElementType store = A[i];
+//			A[i] = A[s];
+//			A[s] = store;
+//		}
+//	}
+//	if (N % 2 == 0)
+//	{
+//		return (A[N / 2] + A[(N / 2) - 1])/2;
+//	}
+//	else
+//	{
+//		return A[(N - 1) / 2];
+//	}
+//}
+
+
+//#include<stdlib.h>
+//int cmp(const void* s1,const void*s2)
+//{
+//	return *(ElementType*)s1 - *(ElementType*)s2;
+//}
+//
+//ElementType Median(ElementType A[], int N)
+//{
+//	qsort(A,N, sizeof(A[0]), cmp);
+//
+//	if (N % 2 == 0)
+//	{
+//		return (A[N / 2] + A[(N / 2) - 1]) / 2;
+//	}
+//	else
+//	{
+//		return A[(N - 1) / 2];
+//	}
+//
+//}
+
+
+
+
+
+
+
 
 
 
