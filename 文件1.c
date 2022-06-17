@@ -42,6 +42,32 @@
 
 
 
+//typedef struct s
+//{
+//	char name[20];
+//	char ID[20];
+//	int age;
+//}S;
+//
+//int main()
+//{
+//	S b[10] = { 0 };
+//	FILE* pf = fopen("D:/test文件测试/test.txt", "r");
+//	if (pf==NULL)
+//	{
+//		perror(fopen);
+//	}
+//	//二进制读
+//	fread(b, sizeof(S), 3, pf);
+//	printf("%s %s %d\n", b[0].name, b[0].ID, b[0].age);
+//	printf("%s %s %d\n", b[1].name, b[1].ID, b[1].age);
+//	printf("%s %s %d\n", b[2].name, b[2].ID, b[2].age);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
 
 
 
@@ -54,12 +80,12 @@
 
 //--------------------------
 
-//typedef struct
-//{
-//	char name[20];
-//	char ID[20];
-//	int age;
-//}nae;
+typedef struct
+{
+	char name[20];
+	char ID[20];
+	int age;
+}nae;
 
 
 //【输出】
@@ -98,7 +124,7 @@
 //		perror("fopen:");
 //	}
 //	//输出test.txt
-//	fscanf(pf,"%s%d", a.name, a.ID, &(a.age));
+//	fscanf(pf,"%s%s%d", a.name, a.ID, &(a.age));
 //
 //	//打印现在的结构体
 //	printf("%s\n%s\n%d\n", a.name, a.ID, a.age);
@@ -111,9 +137,8 @@
 
 
 
-//输出和输入结合，看中文名字是否还乱码
-//结论：文本中的名字，需要是fprintf以%s输出进去的，这样fscanf可以以%s读取名字
-//如果不使用fprintf而预先编辑文档输入名字，fscanf输出名字到结构体的时候，会字符串无效
+//结合
+// 
 //int main()
 //{
 //	nae a = { 0 };
@@ -137,7 +162,7 @@
 //		perror("fopen:");
 //	}
 //	//输出test.txt
-//	fscanf(pf, "%s%d", a.name, a.ID, &(a.age));
+//	fscanf(pf, "%s%s%d", a.name, a.ID, &(a.age));
 //
 //	//打印现在的结构体
 //	printf("%s\n%s\n%d\n", a.name, a.ID, a.age);
