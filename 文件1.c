@@ -7,6 +7,158 @@
 
 
 
+														//程序环境与预处理
+
+//预编译（预处理）——> 编译——>汇编
+
+//预处理完成的事情
+//1.完成了头文件的包涵
+//2.#define的符号定义和宏的替换
+//3.注释删除
+
+//编译
+//把C语言代码转化成汇编代码
+//1.语法分析
+//2.词法分析
+//3.语义分析
+//4.符号汇总（只会汇总全局变量）
+
+//汇编
+//把汇编代码转化成了机器指令（二进制指令）
+//1.生成符号表
+
+
+
+																	//【文件拷贝一份】
+
+//int main()
+//{
+//	//读
+//	FILE* pf = fopen("D:/test1.txt","r");
+//	if (pf==NULL)
+//	{
+//		perror("fopen:");
+//		fclose(pf);
+//		pf = NULL;
+//		return 1;
+//	}
+//	
+//	//写
+//	FILE* pe = fopen("D:/test2.txt","w");
+//	if (pe==NULL)
+//	{
+//		perror("fopen:");
+//		fclose(pe);
+//		pe = NULL;
+//		return 1;
+//	}
+//
+//	int ch = 0;//接收每次读取到的字符的ASCII
+//	while ((ch = fgetc(pf)) != EOF)//从pf里面读（指向一个文件）
+//	{
+//		//写进去
+//		fputc(ch,pe);
+//	}
+//
+//
+//
+//	//【文件读取结束的判定】
+//
+//	if (feof(pf))
+//	{
+//		printf("文件读取到末尾，正常结束\n");
+//	}
+//	else if (ferror(pf))
+//	{
+//		printf("文件读取异常结束\n");
+//	}
+//
+//
+//	/*char arr[30];
+//	fgets(arr,20,pf);
+//	fputs(arr,pe);*/
+//
+//	
+//	
+//	return 0;
+//}
+
+
+
+
+
+
+															//【文件的随机读写】
+
+//【关键函数fseek】（从哪里读，偏移量，起始位置）
+//SEEK_CUR	当前文件指针的位置开始偏移
+//SEEK_END	文件末尾开始偏移   [abcdef指向f后面一位]
+//SEEK_SET	文件起始位置开始偏移	[abcdef指向a]
+
+//int main()
+//{
+//	FILE* pf = fopen("D:/test1.txt","r");
+//	if (pf==NULL)
+//	{
+//		perror("fopen:");
+//		return 1;
+//	}
+//	//读取文件	
+//	//一个一个的读
+//	//int c = fgetc(pf);//a  /fgetc返回的是ASCII值，用int接收
+//	//printf("%c", c);
+//	//c = fgetc(pf);//b
+//	//printf("%c", c);
+//	//c = fgetc(pf);//c
+//	//printf("%c", c);
+//	
+//	//偏移abcdef
+//	//int c = fgetc(pf);//a 
+//	//printf("%c", c);
+//	//c = fseek(pf,-1,SEEK_CUR);//从当前指针位置的-1偏移量开始偏移（指针指完a，移到b，后偏移-1，指回a）
+//	//c = fgetc(pf);//a
+//	//printf("%c", c);
+//	//c = fgetc(pf);//b
+//	//printf("%c", c);
+//
+//	//起始位置abcdef
+//	//int c = fgetc(pf);//a 
+//	//printf("%c", c);
+//	//c = fseek(pf, 1, SEEK_SET);
+//	//c = fgetc(pf);//b
+//	//printf("%c", c);
+//	//c = fgetc(pf);//c
+//	//printf("%c", c);
+//
+//	//末尾位置abcdef
+//	//int c = fgetc(pf);//a 
+//	//printf("%c", c);
+//	//c = fseek(pf, -1, SEEK_END);
+//	//c = fgetc(pf);//f
+//	//printf("%c", c);
+//	
+//
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+//【关键函数ftell(FILE*pf)】
+//探索文件当前偏移量是多少,返回int
+
+
+//【关键函数rewind(FILE*pf)】
+//让文件指针回到文件的起始位置
+
+
+
+
+
 																//【文件操作】
 
 
@@ -27,7 +179,7 @@
 //	fputs(arr,pf);
 //
 //	//读//要改为r，改文件打开方式
-//	fgets(arr2,4,pf);//实际读取3个，1个留\0
+//	fgets(arr2,4,pf);//实际读取3个，1个留\0		//返回地址是arr2的首地址
 //	printf("%s\n", arr2);
 //
 //
@@ -80,12 +232,12 @@
 
 //--------------------------
 
-typedef struct
-{
-	char name[20];
-	char ID[20];
-	int age;
-}nae;
+//typedef struct
+//{
+//	char name[20];
+//	char ID[20];
+//	int age;
+//}nae;
 
 
 //【输出】
