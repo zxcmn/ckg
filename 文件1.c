@@ -4,6 +4,288 @@
 
 
 
+//预定义符号
+
+//__FILE__//进行编译的源文件file
+//__LINE__//文件当前的行号line
+//__DATE__//文件被编译的日期date
+//__TIME__//文件被编译的时间time
+//__STDC__//如果遵从ANSI C，其值为1，否则未定义
+//__FUNCTION__//获取所在函数的函数名
+
+//int main()
+//{
+//
+//	printf("%s\n", __FILE__);//文件位置
+//	printf("%d\n", __LINE__);//当前代码行号代码位置
+//	printf("%s\n", __DATE__);//编译日期
+//	printf("%s\n", __TIME__);//编译时间
+//	printf("%s\n", __FUNCTION__);//函数名
+//
+//	return 0;
+//}
+
+
+
+
+											//【模拟每次运行都会给文件添加一些内容，比如自己修改了什么】
+
+//#define INPUT "今天修改了"//每一次修改了什么在这里描述
+//
+//int main()
+//{
+//	FILE* pf = fopen("E:/代码文件测试/test1.txt","a+");//最加的形式读取
+//	if (pf == NULL)
+//	{
+//		perror("fopen:");
+//		return 1;
+//	}
+//	int i = 0;
+//	for (i=0;i<10;i++)
+//	{
+//	fprintf(pf, "【修改日志%d】\n： %s  %d  %s  %s  【修改内容】%s\n",i,__FILE__,__LINE__,__DATE__,__TIME__,INPUT);
+//	}
+//
+//	//关闭
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+//#define可以定义符号
+//#define可以起到typedef
+//1.#define MAX 1000
+//2.#define unint unsiged int
+
+
+                                  //死循环
+//#define FOR for(;;)
+//int main()
+//{
+//	FOR;//FOR会被替换成for(;;)
+//	//等价=for(;;);空语句循环
+//}
+
+//#define CASE break;case
+//int main()
+//{
+//	int n = 0;
+//	switch (1)
+//	{
+//	case 1:
+//	CASE 2:
+//	CASE 3:
+//	}
+//	return 0;
+//}
+
+
+
+//#define PR printf("%s %s %s\n","陈","19","131")
+//#define PR2 printf("%s %s %s\n","陈","19","131");
+//
+//int main()
+//{
+//	PR;
+//	//也可以预加;，但不建议
+//	PR2
+//}
+
+
+//【为什么：
+
+//#define Max 1000;
+//int main()
+//{
+//	int i = 2;
+//	if (i > 10)
+//		i = Max;
+//	else
+//		i = -Max;
+//	//因为if后面只能跟一条语句，否则else匹配不到
+//	return 0;
+//}
+
+//【等价】
+//int main()
+//{
+//	int i = 2;
+//	if (i > 10)
+//		i = 1000;
+//	;
+//	else
+//		i = -1000;
+//	;
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 0;
+//	if (i==0)
+//	{
+//		i == 1;
+//		;//空语句，没必要
+//	}
+//	return 0;
+//}
+
+
+
+//										【宏完全替换】【重点】
+
+//#define Max(x) x*x
+//int main()
+//{
+//	printf("%d\n", Max(3));//9
+//	printf("%d\n", Max(3+1));//7
+//	//为什么是7？
+//	//注意，宏是完全替换（先替换，再传参）
+//	//变成:
+//	printf("%d\n", 3 + 1 * 3 + 1);
+//	return 0;
+//}
+
+//变：
+// 
+//#define Max(x) ((x)*(x))
+//int main()
+//{
+//	printf("%d\n", Max(3+1));//16
+//	return 0;
+//}
+
+//空号没给到位：
+// 
+//正确：
+//#define Max(x) ((x)+(x))
+//int main()
+//{
+//	printf("%d\n", 10 * Max(3 + 1));//80
+//	return 0;
+//}
+
+
+//错误：
+//#define Max(x) (x)+(x)
+//int main()
+//{
+//	printf("%d\n", 10*Max(4));//44
+//	printf("%d\n", 10*(4)+4;//44
+//	return 0;
+//}
+
+
+//【宏的传参可以传另一个宏，但不能传自己（宏不能递归，自己调用自己）】
+
+
+
+						 //如果太长，添加【续航符】
+//#define PR printf("%s\
+//%s\
+//%s\n","陈","19","131")
+
+
+
+
+
+									//【#和##】将宏的参数插入到字符串中
+
+//int main()
+//{
+//	printf("Hell world\n");
+//	printf("Hell "    "world\n");
+//	//可以发现，两个的处理方式是一样的
+//	return 0;
+//}
+
+
+
+
+//#define PF(x) printf("the value of "#x" is %d\n",x)//插入x
+//int main()
+//{
+//	int a = 10;
+//	PF(a);
+//	int b = 20;
+//	PF(b);
+//	int c = 30;
+//	PF(c);
+//
+//	/*printf("the value of a is 10\n");
+//	printf("the value of b is 20\n");
+//	printf("the value of c is 30\n");*/
+//	
+//	//如果不加#
+//	//printf("the value of "x" is %d\n", x);//显然语法错误
+//
+//	return 0;
+//}
+
+//#x就是把传过来的变成字符串
+//【等价】
+//printf("the value of ""a"" is %d\n",x)
+//printf("the value of ""b"" is %d\n",x)
+//printf("the value of ""c"" is %d\n",x)
+//printf("the value of""a""is %d\n");刚好3个字符串
+//printf("the value of" "a" "is %d\n");刚好3个字符串
+
+
+												//【如果数据类型不一样呢？】
+
+//#define PF(x,INPUT) printf("the value of " #x " is " INPUT "\n",x)
+//int main()
+//{
+//	int a = 10;
+//	PF(a,"%d");
+//	float b = 2.2;
+//	PF(b,"%f");
+//	double c = 3.3;
+//	PF(c,"%lf");
+//	//可以设置成自己传打印的方式
+//
+//	return 0;
+//}
+
+
+
+											//【##】拼接符号
+
+//#define PF(x,y) x##y
+//int main()
+//{
+//	int clas100 = 200;
+//	printf("%d\n", PF(clas,100));
+//	//等价
+//	printf("%d\n", clas100);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -14011,7 +14293,7 @@ int main()
 
 	//define不是关键字，是一种指令
 	//宏的定义
-	//#define MAX(x,y) (x>y?x:y)
+	//#define MAX(x,y) (x>y?x:y)//MAX(x,y)之间不能空格
 	//
 	//int main()
 	//{
@@ -14020,6 +14302,10 @@ int main()
 	//	int max = MAX(a, b);
 	//	printf("%d", max);
 
+
+
+	//#define Name(目标1) name
+	//目标1会赋给name
 
 
 
