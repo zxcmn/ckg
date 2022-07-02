@@ -76,11 +76,13 @@
 //	switch (1)
 //	{
 //	case 1:
-//	CASE 2:
-//	CASE 3:
+//	CASE 2 :
+//	CASE 3 :
+//	;
 //	}
 //	return 0;
 //}
+
 
 
 
@@ -269,16 +271,183 @@
 
 
 
+//宏
+
+//#include<stdio.h>
+//
+//#define  MALLOC(num,type) (type*)malloc(num * sizeof(type))
+//
+//int main()
+//{
+//	int* pa = MALLOC(10, int);//写成这样
+//	//int* pa = (int*)malloc(10*sizeof(int));
+//	return 0;
+//}
+
+
+
+//什么时候用宏：如果一个函数的功能足够简单，而且写起来不太容易出现错误，那么我们完全可以用宏来代替
+
+											//【#undef定义】移除宏定义
+//#define M 100
+//#undef M
+//#undef作用是移除一个宏的定义
+
+//#define M 100
+//
+//int main()
+//{
+//	int a = M;
+//#undef M
+//	printf("%d\n", M);
+//
+//	return 0;
+//}
+
+
+
+											//【命令行定义】
+
+//许多编译器提供了一种能力，允许在命令行中定义符号。用于启动编译过程。
+//在Linx中，例如可以在命令行中给莪M定义以及赋值//更灵活，根本不需要改代码 但[不常用]
+
+//int main()
+//{
+//	int arr[M] = { 0 };
+//	int i = 0;
+//	for (i=0;i<M;i++)
+//	{
+//	printf("%d\n", arr[i]);
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+												//【条件编译】
+
+//在编译一个程序的时候我们要将一条语句（一组语句）编译或者放弃是很方便的。因为我们有条件编译指令。
+//#ifdef M
+//#endif
+//调试性代码，删除了可惜，保留碍事，所以我们可以选择性编译。
+
+
+
+														//【如果定义了，编译】条件指令
+//int main()
+//{
+//#ifdef PRINTF//如果我们定义了PRINTF，条件就为真，就会执行【例如下面重写的】
+//	printf("haha\n");//想编译这句话就编译，想不编译就不编译
+//#endif
+//
+//	return 0;
+//}
+
+
+//#define PRINTF
+//int main()
+//{
+//#ifdef PRINTF
+//	printf("haha\n");//会打印haha
+//#endif
+//
+//	return 0;
+//}
+
+//【上面的#ifdef PRINTF
+//就像下面的缩写
+//#if defined(PRINTF)  】
+
+//#defined
+//#endif
+//如果定义了，为真
+
+//int main()
+//{
+//#if defined(PRINTF)
+//	printf("hehe\n");
+//#endif
+//	return 0;
+//}
 
 
 
 
 
+				//相反，条件为假，就编译的条件指令：
+//int main()
+//{
+//#ifndef PRINTF
+//	printf("hehe\n");
+//#endif
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//#if !defined(PRINTF)
+//	printf("hehe\n");
+//#endif
+//	return 0;
+//}
 
 
 
 
+													//【常见的条件编译指令有】
+//#if 1/0
+//......
+//#endif
 
+//【例如：
+
+//int main()
+//{
+//#if 1//1为真，编译
+//#if 1-2//-1为真，编译
+////#if 0//0为假，不编译
+//	printt("hehe\n");
+//#endif
+//
+//	return 0;
+//}
+
+
+//同理
+//#define PRINTF 1
+//#if PRINTF
+// printf("hehe\n");
+//#endif
+
+//用来注释
+//#if 0
+//int main()
+//{
+//	printf("hehe\n");
+//	return 0;
+//}
+//#endif
+
+
+										//【#if #elif #else #endif】多分支条件指令
+
+//#if和#leif后面不能变量，只能常量表达式以及常量
+//int main()
+//{
+//#if 1==1//判断为真
+//	printf("hehe\n");
+//#elif 2==2//因为前面的以及判断成功了，更if-else语句是一样的
+//	printf("haha\n");
+//#else
+//	printf("gaga\n");
+//#endif
+//
+//	return 0;
+//}
 
 
 
