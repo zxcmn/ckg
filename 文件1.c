@@ -4,6 +4,326 @@
 
 
 
+//模拟atoi
+
+//#define SET 1//1代表返回的0是异常结束的0
+//int my_atoi(const char* pa)
+//{
+//	if (*pa == NULL)
+//	{
+//		printf("error:NULL");
+//		return 0;
+//	}
+//	while (*pa == ' ')pa++;
+//	int bol = 1;
+//	if (*pa == '-')
+//	{
+//		bol = -1;
+//		pa++;
+//	}
+//	else if (*pa == '+')
+//	{
+//		pa++;
+//	}
+//	int sum = 0;
+//	while (*pa != '\0')
+//	{
+//		sum =sum* 10 + bol * (*pa - '0');
+//		pa++;
+//	}
+//	return sum;
+//}
+//
+//int main()
+//{
+//	char* arr = "1234";
+//	int sum=my_atoi(arr);
+//	printf("%d\n", sum);
+//
+//	return 0;
+//}
+
+
+
+
+
+
+
+//#define A (struct S*)0
+//struct S
+//{
+//	int a;
+//};
+//
+//int main()
+//{
+//	(struct S*)0;//把0强制类型转化成这个结构体指针
+//
+//	return 0;
+//}
+
+
+
+//题
+
+//#define A 2+2
+//#define B 3+3
+//#define C A*B
+//int main()
+//{
+//	printf("%d\n", C);
+//	return 0;
+//}
+
+
+
+//写一个函数，把一个数的二进制位上的奇数位和偶数位互换
+
+//#define SWAP(N) ((N&0xaaaaaaaa)>>1)+((N&0x55555555)<<1)
+//int main()
+//{
+//	int num = 10;
+//	printf("%d\n",SWAP(num));
+//
+//	return 0;
+//}
+//...10101010101010  0xaaaaaaa   、取出1010 >> 0101
+//...00000000001010  10								+= 0101   //也可以用|起来
+//...01010101010101  0x5555555	 、取出0000 << 0000
+//利用按位与，把奇数位和偶数维取出来
+
+
+
+											//算法题：有一组数，其中有2个数只出现过一次，找出这两个数字
+//思路：1234 56 1234
+//把它们都异或起来=5^6
+//5^6=3=011（是1的位，说明其中一个为1，另一个为0，0的位不行，都是0不能区分分组）
+//其中5：101
+//其中6：110
+//如果以二进制最后一位区分：
+//最后是1的分一块：13513
+//最后是0的分一块：24624
+//分别异或得出不同的数5和6
+
+
+//void Find(int* arr, int sz)
+//{
+//	
+//	int sum = 0;
+//	int str1 = 0;
+//	int str2 = 0;
+//	//int st = 1;//第一位为1
+//	//int sf = 2;//第二位为1
+//	//全部异或，看哪一位为1
+//	/*int i = 0;
+//	int ret = 0;
+//	for (i=0;i<sz;i++)
+//	{
+//		ret ^= *(arr + i);
+//	}*/
+//	//&分组
+//
+//	while (sum != sz)
+//	{
+//		if (*(arr + sum) & 1 == 1)//异或1，找出二进制最后一位是1的数（异或2就是以第二位是1为区分）
+//		{
+//			str1 ^= *(arr + sum);
+//		}
+//		else
+//		{
+//			str2 ^= *(arr + sum);//（不是1的部分）
+//		}
+//		sum++;
+//	}
+//	printf("单数1：%d\n单数2：%d\n", str1, str2);
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,1,2,3,4 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	Find(arr,sz);
+//
+//	return 0;
+//}
+
+
+//改良完全：
+
+
+//void Find(int* arr, int sz,int *px,int *py)
+//{
+//	//全体异或后根据按位与的结果找出为1的进制位
+//	int i = 0;
+//	int str = 0;
+//	int store = 0;
+//	int pos = 0;//记录1的位置
+//	for (i=0;i<sz;i++)
+//	{
+//		store ^= *(arr + i);//全部^后的数，可以使用store &= -store,再位移找出仅有的1
+//	}
+//	//找出store二进制中1
+//	for (i=0;i<32;i++)
+//	{
+//		if (((store<<i)&1) == 1)
+//		{
+//			pos = i;
+//			break;//此时i的值就是二进制位1的下标位
+//		}
+//	}
+//	//分组
+//	int num2 = 0;
+//	for (i=0;i<sz;i++)
+//	{
+//		if ((* (arr + i) >> pos)&1 == 1)
+//		{
+//			*px ^= *(arr + i);
+//		}
+//		else
+//		{
+//			*py ^= *(arr + i);
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,1,2,3,4 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int x = 0;//负责带回值 (返回型参数)
+//	int y = 0;//负责带回值（返回型参数）
+//	//或者用int tore[2] = {0};//传进去
+//	Find(arr, sz,&x,&y);
+//	printf("单数1：%d\n单数2：%d\n", x, y);
+//
+//	return 0;
+//}
+
+//实现找最低位1
+//arr&=(-arr)//求出最低位的1
+//例如
+//0000 0100原码
+//1111 1100补码
+//&=0000 0100
+
+
+
+
+
+
+
+
+
+//#include <stdio.h>
+//#include <string.h>
+//char sDec[4] = { 0x05,0xc5,0xb3,0xea };
+////怎样把 0x05,0xc5,0xb3,0xea 组合成一个十六进制数 0x05c5b3ea ，
+////并且把 0x05c5b3ea  转换成十进制数。
+//unsigned int i, v;
+//int main() {
+//	v = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		v |= ((unsigned int)sDec[3 - i] & 0xFF) << (i * 8);
+//	}
+//	printf("0x%08x,%u\n", v, v);
+//	return 0;
+//}
+//0x05c5b3ea,96842730
+//
+
+
+
+											//【把1和2和3和4合成一个整数】
+//土方法
+
+//#define SUM 4
+//int main()
+//{
+//	int buffer[SUM] = { 1,2,3,4 };
+//	unsigned int str = 0;
+//	int i = 0;
+//	str=buffer[0] * 1000 + buffer[1] * 100 + buffer[2] * 10 + buffer[3] * 1;
+//	printf("%d\n", str);
+//
+//	return 0;
+//}
+
+
+												//文件写入法
+//int main()
+//{
+//	int buffer[4] = { 1,2,3,4 };
+//	int str = 0;
+//	FILE* pf = fopen("E:/代码文件测试/test7_5","w+");//文件名可以不加后缀名
+//	if (pf==NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	fprintf(pf, "%d%d%d%d", buffer[0], buffer[1], buffer[2], buffer[3]);
+//	fclose(pf);//要关闭文件进行刷新
+//	pf = fopen("E:/代码文件测试/test7_5.txt", "r");
+//	if (pf == NULL)
+//	{
+//		perror("fopen:");
+//	}
+//	fscanf(pf, "%d",&str);
+//	printf("%d\n", str);
+//
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+
+
+												//【常用的方法3】atoi也可以用,数字的字符-"0",=数字
+
+//int main()
+//{
+//	int arr[4] = { 1,2,3,4 };
+//	int i = 0;
+//	int str = 0;
+//	for (i=0;i<4;i++)
+//	{
+//		str = str * 10 + arr[i];
+//	}
+//	printf("%d\n", str);
+//
+//	return 0;
+//}
+
+//如果 1 34 5 33；就要考虑要追加的数是几位，如果是2位，*100，一位*10
+//-1234==str = str * 10 + arr[i]*(-1);第一次-10+（-2）...
+
+
+
+
+
+
+//void Get(char*p)
+//{
+//	p = 0x123;
+//}
+//
+//int main()
+//{
+//	char* a = NULL;
+//	char** str = &a;
+//	Get(&a);
+//
+//	printf("%p\n",a);
+//
+//	return 0;
+//}
+
+//修改指针的指向，并不改变原指针的指向（指针传地址本质上也是传值，只不过可以根据地址找到地址对应的内容，但地址修改并不修改原地址指向）
+
+
+
+
 
 //整型的每一个字节都有自己的地址，整型的地址是4个地址中第一个字节的地址
 //int main()
@@ -29,6 +349,8 @@
 //
 //	return 0;
 //}
+
+
 
 
 
@@ -1550,7 +1872,7 @@
 //	int* p = arr;
 //	p=(int*)malloc(p,20*sizeof(int));
 //
-////	p = (int*)realloc(p, 10 * sizeof(int));//不能修改栈区空间
+//	p = (int*)realloc(arr, 20 * sizeof(int));//注意，不能修改栈区空间
 //
 //	printf("%d", sizeof(arr));
 //
@@ -3130,17 +3452,37 @@
 
 
 
+//int main()
+//{
+//
+//
+//	char str[] = "hehe";
+//	char* pa = str;
+//	*str = 'e';
+//	//str = 'e';
+//
+//	*pa = 'a';
+//	pa = 'a';
+//
+//	printf("%s\n", str);
+//	printf("%c", pa);
+//
+//
+//	return 0;
+//}
+
+
 
 
 
 //int main()
-//{
+//{//内容可以修改，指向不能修改
 //	char arr1[] = "heh";
 //	*arr1 = "haha";//可改变值
 //	arr1 = "haha";//地址是常量，不可改
 //	printf("%s\n", arr1);
 //
-//
+////内容不可以修改，指向可以修改
 //	char arr[] = "aa";
 //	char* arr2 = "hehe";
 //	arr2 = arr;//可改变指向
@@ -3149,7 +3491,6 @@
 //
 //	return 0;
 //}
-
 
 
 
