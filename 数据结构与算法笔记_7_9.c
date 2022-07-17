@@ -168,6 +168,107 @@
 //时间是一去不复返的
 
 
+											//消失的数字【要求：时间复杂度O(n)】
+//#include<stdio.h>
+//#include<stdlib.h>
+//
+//
+////1.假设从1开始使用异或^	【优】，时间复杂度O(N),空间复杂度O(1)
+//int main()
+//{
+//	int arr[100] = { 0 };
+//	int Max = 0;
+//	int i = 0;
+//	while (~scanf("%d",arr+i))
+//	{
+//		if (arr[i]>Max)
+//		{
+//			Max = arr[i];
+//		}
+//		i++;
+//	}
+//	int count = 0;
+//	for (i=1;i<=Max;i++)
+//	{
+//		count ^= i ^ arr[i - 1];//【或者：给定一个x，x先和0-N个数异或，再和数组中的数字一一异或】
+// 	}
+//	printf("%d\n", count);
+//
+//	return 0;
+//}
+
+
+//思路2.1~n的数加起来减去输入的数和		//【优】、时间复杂度O(n),空间复杂度O(1)没有消耗额外的空间
+
+//思路3.建立一个n大小的数组，每写一个都放在对应的数组下标内，最后没写的就是缺的
+
+
+
+
+
+
+
+														//旋转数组
+
+//1.取出一个存起来，其余后挪（时间复杂度O(n*k),空间复杂度O(1)）
+//2.申请一块N大小空间，挪动3个，就把后三位放在开辟的空间的前面，其余放在后面，左后拷贝回去【以时间换空间】时间复杂度0（1），空间复杂度O(n)
+//3.三步翻转法
+//1234567
+//
+//4321 567  [1]前n-k个逆置
+//4321 765  [2]后k个逆置
+//567 1234  [3]整体逆置
+
+//时间复杂度，[1]+[2]=O（n）+[3]O(n) ==O（2n）=O(n)
+//没有借助空间复杂度：O（1）
+
+
+
+
+														//顺序表和链表
+
+
+//常见的【线性表】：
+//1.顺序表：本质上就算数组[在数组的基础上要求数据从头开始存，并且连续存储，不能跳跃间隔]
+//2.链表:用指针把一块一块的内存链接起来
+//3.栈
+//4.队列
+//5.字符串
+//......
+
+
+//静态顺序表【特点：如果满了就不让插入】缺点：给多大的空间合适？很难确定
+//#include<stdio.h>
+//#define N 100
+//#define int SLDatatype;//实现想存什么类型数据就改一下
+//typedef struct SeqList
+//{
+//	SLDatatype a[N];
+//	int size;//存储了多少个数据
+//}SL;
+
+
+//由于缺点，于是实现动态的
+
+//动态顺序表
+
+
+#include<stdio.h>
+typedef int SLDataType;
+typedef struct SeqList
+{
+	SLDataType* pa;//定义一个指针指向动态开辟的空间
+	int size;
+	int capacity;
+}SL;
+
+//接口函数--命名风格是跟着STL
+void SeqListInint(SL* ps);
+void SeqListPushBack(SL* ps,SLDataType x);
+void SeqListPoPBock(SL* ps);
+void SeqListPushFront(SL* Ps,SLDataType x);
+void SeqLIstPopFront(SL* ps);
+
 
 
 
