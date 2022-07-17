@@ -253,26 +253,37 @@
 //动态顺序表
 
 
-#include<stdio.h>
-typedef int SLDataType;
-typedef struct SeqList
+//#include<stdio.h>
+//typedef int SLDataType;
+//typedef struct SeqList
+//{
+//	SLDataType* pa;//定义一个指针指向动态开辟的空间
+//	int size;
+//	int capacity;
+//}SL;
+//
+////接口函数--命名风格是跟着STL
+//void SeqListInint(SL* ps);
+//void SeqListPushBack(SL* ps,SLDataType x);
+//void SeqListPoPBock(SL* ps);
+//void SeqListPushFront(SL* Ps,SLDataType x);
+//void SeqLIstPopFront(SL* ps);
+
+
+
+
+typedef struct SeqListInit
 {
-	SLDataType* pa;//定义一个指针指向动态开辟的空间
-	int size;
-	int capacity;
-}SL;
+	int a;
+	int b;
+}a1;
 
-//接口函数--命名风格是跟着STL
-void SeqListInint(SL* ps);
-void SeqListPushBack(SL* ps,SLDataType x);
-void SeqListPoPBock(SL* ps);
-void SeqListPushFront(SL* Ps,SLDataType x);
-void SeqLIstPopFront(SL* ps);
+#include<stdio.h>
+int main()
+{
+	a1 s={0,1};
+	printf("%d\n",s.a);
 
-
-
-
-
-
-
+	return 0;
+}
 
