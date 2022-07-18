@@ -63,3 +63,39 @@ void SeqListPopBack(SL* ps)//尾删
 	//ps->size--;
 }
 
+//首插
+void SeqListPushFront(SL* ps,SLDataType x)
+{
+	int end = ps->size-1;
+	while (end >= 0)
+	{
+		ps->pa[end + 1] = ps->pa[end];
+		--end;
+	}
+	ps->pa[0] = x;
+	ps->size++;
+
+}
+
+//三步头插
+void Turn(SLDataType* pa, size_t size);
+void SeqListPushFront2(SL* ps,SLDataType x)
+{
+	ps->pa[ps->size] = x;
+	ps->size++;
+	Turn(ps->pa,ps->size-1);
+	Turn(ps->pa,ps->size);
+}
+void Turn(SLDataType* pa,size_t size)
+{
+	SLDataType* right = pa + (size - 1);
+	SLDataType* left = pa;
+	while (left < right)
+	{
+		int temp = *left;
+		*left = *right;
+		*right = temp;
+		left++;
+		--right;
+	}
+}
