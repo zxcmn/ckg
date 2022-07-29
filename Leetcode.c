@@ -82,3 +82,106 @@
 //        --temp;
 //    }
 //}//时间复杂度O(m+n);
+
+
+															//4.【移除链表元素】//附带快速构建链表进行调试
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+//struct ListNode* removeElements(struct ListNode* head, int val)
+//{
+//    struct ListNode* oneTemp = NULL;
+//    struct ListNode* twoTemp = head;
+//    while (twoTemp != NULL)
+//    {
+//        if (twoTemp->val == val)
+//        {
+//            if (twoTemp == head)//头删
+//            {
+//                head = twoTemp->next;
+//                free(twoTemp);
+//                twoTemp = head;
+//            }
+//            else//删除节点
+//            {
+//                oneTemp->next = twoTemp->next;
+//                free(twoTemp);//释放节点
+//                twoTemp = oneTemp->next;
+//            }
+//
+//        }
+//        else//迭代往后走
+//        {
+//            oneTemp = twoTemp;
+//            twoTemp = twoTemp->next;
+//        }
+//    }
+//    return head;
+//}
+
+//---------------------------------------快速构建一个链表进行OJ测试---------------------------------------
+
+
+//#include<stdlib.h>
+//struct ListNode
+//{
+//	int val;
+//	struct ListNode* next;
+//};
+// 
+//struct ListNode* removeElements(struct ListNode* head, int val)
+//{
+//	struct ListNode* oneTemp = NULL;
+//	struct ListNode* twoTemp = head;
+//	while (twoTemp != NULL)
+//	{
+//		if (twoTemp->val == val)
+//		{
+//			if (twoTemp == head)//头删
+//			{
+//				head = twoTemp->next;
+//				free(twoTemp);
+//				twoTemp = head;
+//			}
+//			else//删除节点
+//			{
+//				oneTemp->next = twoTemp->next;
+//				free(twoTemp);//释放节点
+//				twoTemp = oneTemp->next;
+//			}
+//
+//		}
+//		else//迭代往后走
+//		{
+//			oneTemp = twoTemp;
+//			twoTemp = twoTemp->next;
+//		}
+//	}
+//	return head;
+//}
+//
+//int main()
+//{
+//	struct ListNode* n1 = (struct ListNode*)malloc(sizeof(struct ListNode));
+//	struct ListNode* n2 = (struct ListNode*)malloc(sizeof(struct ListNode));
+//	struct ListNode* n3 = (struct ListNode*)malloc(sizeof(struct ListNode));
+//	struct ListNode* n4 = (struct ListNode*)malloc(sizeof(struct ListNode));
+//	n1->val = 7;
+//	n2->val = 7;
+//	n3->val = 7;
+//	n4->val = 7;
+//	n1->next = n2;
+//	n2->next = n3;
+//	n3->next = n4;
+//	n4->next = NULL;
+//	struct ListNode*head = removeElements(n1,7);
+//
+//	return 0;
+//}
