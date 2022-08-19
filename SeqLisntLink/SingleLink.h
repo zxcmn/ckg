@@ -20,3 +20,4 @@ void SeqListPopDelete(SL** phead);//尾删
 void SeqListHeadDelete(SL** phead);//首删
 SL* SeqListFind(SL* phead,SLDataType x);//查找
 void SeqListInsert(SL** phead,SL* x,SLDataType y);//节点前面插入
+void SeqListAfterInsert(SL* pos, SLDataType y);//节点后插入
