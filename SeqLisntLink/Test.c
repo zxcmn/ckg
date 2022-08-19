@@ -87,12 +87,31 @@ void Test6()
 	
 	
 	SeqListPrint(pphead);
-	;
 	
 	SeqListInsert(&pphead, SeqListFind(pphead, 2), 30);
 	SeqListInsert(&pphead, SeqListFind(pphead, 4), 30);
 	SeqListPrint(pphead);
 	//如果只有一个节点，又有问题，太繁琐，并且付出一定的效率代价（找前一个）不建议节点前插
+}
+
+void Test7()
+{
+	SL* pphead = NULL;
+	SeqListPushFront(&pphead, 1);//尾插
+	SeqListPushFront(&pphead, 2);
+	SeqListPushFront(&pphead, 3);
+	SeqListPushFront(&pphead, 4);
+	//查找要尾插的位
+	SeqListAfterInsert(SeqListFind(pphead, 1), 666);
+
+	SeqListPrint(pphead);
+}
+
+void Test8()
+{
+	
+
+
 }
 
 int main()
@@ -102,7 +121,10 @@ int main()
 	//Test3();//尾删
 	//Test4();//首删
 	//Test5();//查找位置
-	Test6();//节点前插入/太繁琐/效率代价，不建议在前面插入
+	//Test6();//节点前插入/太繁琐/效率代价，不建议在前面插入
+	//Test7();//节点后插入
+	Test8();//节点选择性删除pos
+	//Test9();//选择删除pos的后一个
 	return 0;
 }
 
