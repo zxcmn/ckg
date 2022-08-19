@@ -148,3 +148,18 @@ void SeqListInsert(SL** phead ,SL* x,SLDataType y)//在x位置前插入，插入什么
 	manageSL->next = str;*/
 	
 }
+
+//在指定位置后面插入
+void SeqListAfterInsert(SL* pos, SLDataType y)
+{
+	SL* str = SingleLinkNode(y);
+	if (pos->next == NULL)
+	{
+		pos->next = str;
+	}
+	else
+	{
+		str->next = pos->next;
+		pos->next = str;
+	}
+}
