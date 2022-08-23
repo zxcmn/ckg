@@ -31,6 +31,8 @@ SL* SingleLinkNode(SLDataType x)
 //Á´±íÎ²Ìí
 void SeqListPushBack(SL** phead,SLDataType x)//µÚÒ»´ÎÒª¸Ä±äÖ¸Ïò£¬Ö¸ÏòÍ·½Úµã£¬µÚ¶þ´Î¸Ä±ä½á¹¹Ìå£¬ÒòÎªÒÑ¾­Ö¸ÏòÒ»¸ö½ÚµãÁË£¬ºóÃæÓÃÒ»¼¶Ö¸Õë¾ÍÐÐÁË
 {
+	assert(phead);//·ÀÖ¹´«µÄÊÇÖ¸ÕëµÄÄÚÈÝ£¬²»ÊÇÖ¸ÕëµÄµØÖ·
+
 	SL* newSL = SingleLinkNode(x);
 	if (*phead == NULL)
 	{
@@ -50,6 +52,7 @@ void SeqListPushBack(SL** phead,SLDataType x)//µÚÒ»´ÎÒª¸Ä±äÖ¸Ïò£¬Ö¸ÏòÍ·½Úµã£¬µÚ¶
 //Á´±íÍ·²å
 void SeqListPushFront(SL** phead, SLDataType x)
 {
+	assert(phead);//·ÀÖ¹´«µÄÊÇÖ¸ÕëµÄÄÚÈÝ£¬²»ÊÇÖ¸ÕëµÄµØÖ·
 	SL* newSL = SingleLinkNode(x);
 	newSL->next = *phead;
 	*phead = newSL;
@@ -59,7 +62,7 @@ void SeqListPushFront(SL** phead, SLDataType x)
 void SeqListPopDelete(SL** phead)
 {
 
-	assert(*phead != NULL);//Èç¹ûÃ»ÓÐ½ÚµãÁË
+	assert(*phead != NULL);//Èç¹ûÃ»ÓÐ½ÚµãÁË/Õæ¿É¹ý.¼Ù²»¹ý
 
 	if ((*phead)->next == NULL)//Ö»ÓÐÒ»¸ö½Úµã
 	{
@@ -93,7 +96,7 @@ void SeqListPopDelete(SL** phead)
 //Í·É¾
 void SeqListHeadDelete(SL** phead)
 {
-	assert(*phead != NULL);
+	assert(*phead);
 	/*if ((*phead)->next == NULL)
 	{
 		free(*phead);
@@ -152,6 +155,7 @@ void SeqListInsert(SL** phead ,SL* x,SLDataType y)//ÔÚxÎ»ÖÃÇ°²åÈë£¬²åÈëÊ²Ã´
 //ÔÚÖ¸¶¨Î»ÖÃºóÃæ²åÈë
 void SeqListAfterInsert(SL* pos, SLDataType y)
 {
+	assert(pos);
 	SL* str = SingleLinkNode(y);
 	if (pos->next == NULL)
 	{
@@ -161,5 +165,63 @@ void SeqListAfterInsert(SL* pos, SLDataType y)
 	{
 		str->next = pos->next;
 		pos->next = str;
+	}
+}
+
+
+
+//Ñ¡ÔñÉ¾³ý½Úµã
+void SeqListNodeDelete(SL* pos,SL** phead)
+{
+	if (pos == *phead)
+	{
+		*phead = (*phead)->next;
+		return;
+	}
+	SL* str = *phead;
+	while (str->next != pos)
+	{
+		str = str->next;
+	}
+	str->next = pos->next;
+	free(pos);
+}
+
+
+//É¾³ý½ÚµãµÄºóÒ»¸ö
+void SeqListAfterDelete(SL* pos)
+{
+	assert(pos->next);
+	SL* str = pos->next;
+	pos->next = str->next;
+	free(str);
+}
+
+
+
+//´Ý»ÙÁ´±í
+
+//void SeqListDestroy(SL** phead)
+//{
+//	assert(phead);
+//	SL* str = *phead;
+//	while (str)
+//	{
+//		SL* next = str->next;
+//		free(str);
+//		str = next;
+//	}
+//	*phead = NULL;
+//}
+//»òÕß
+void SeqListDestroy(SL* phead)
+{
+	assert(phead);
+	SL* str = phead;
+	while (str)
+	{
+		phead = str;
+		str = phead->next;
+		free(phead);
 	}
 }
