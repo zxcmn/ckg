@@ -21,3 +21,6 @@ void SeqListHeadDelete(SL** phead);//首删
 SL* SeqListFind(SL* phead,SLDataType x);//查找
 void SeqListInsert(SL** phead,SL* x,SLDataType y);//节点前面插入
 void SeqListAfterInsert(SL* pos, SLDataType y);//节点后插入
+void SeqListNodeDelete(SL* pos,SL** phead);//选择删除节点
+void SeqListAfterDelete(SL* pos);//删除节点的后一个
+void SeqListDestroy(SL* phead);//摧毁链表
