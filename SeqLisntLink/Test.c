@@ -101,7 +101,7 @@ void Test7()
 	SeqListPushFront(&pphead, 2);
 	SeqListPushFront(&pphead, 3);
 	SeqListPushFront(&pphead, 4);
-	//查找要尾插的位
+	//查找要尾插的位SeqListFind(pphead, 1)
 	SeqListAfterInsert(SeqListFind(pphead, 1), 666);
 
 	SeqListPrint(pphead);
@@ -109,7 +109,44 @@ void Test7()
 
 void Test8()
 {
-	
+	SL* pphead = NULL;
+	SeqListPushFront(&pphead, 1);//尾插
+	SeqListPushFront(&pphead, 2);
+	SeqListPushFront(&pphead, 3);
+	SeqListPushFront(&pphead, 4);
+	//查找要删除的节点
+	SeqListNodeDelete(SeqListFind(pphead, 4),&pphead);
+	SeqListPrint(pphead);
+}
+
+
+void Test9()
+{
+	SL* pphead = NULL;
+	SeqListPushFront(&pphead, 1);//尾插
+	SeqListPushFront(&pphead, 2);
+	SeqListPushFront(&pphead, 3);
+	SeqListPushFront(&pphead, 4);
+
+	SeqListAfterDelete(SeqListFind(pphead, 4));//删除节点后一个（头不会改变，不用传地址）
+	SeqListPrint(pphead);
+}
+
+void Test10()
+{
+	SL* pphead = NULL;
+	SeqListPushFront(&pphead, 1);//尾插
+	SeqListPushFront(&pphead, 2);
+	SeqListPushFront(&pphead, 3);
+	SeqListPushFront(&pphead, 4);
+	//摧毁
+	//SeqListDestroy(&pphead);
+	//或者
+	SeqListDestroy(pphead);
+	pphead = NULL;
+	//pphead可以不用置空，因为函数内部的变量出了函数就释放归还，没人指向它
+	//打印
+	SeqListPrint(pphead);
 
 
 }
@@ -123,8 +160,10 @@ int main()
 	//Test5();//查找位置
 	//Test6();//节点前插入/太繁琐/效率代价，不建议在前面插入
 	//Test7();//节点后插入
-	Test8();//节点选择性删除pos
+
+	//Test8();//节点选择性删除pos
 	//Test9();//选择删除pos的后一个
+	//Test10();//摧毁链表
 	return 0;
 }
 
