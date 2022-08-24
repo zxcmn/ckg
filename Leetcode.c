@@ -84,7 +84,7 @@
 //}//时间复杂度O(m+n);
 
 
-															//4.【移除链表元素】//附带快速构建链表进行调试
+															//4.【203移除链表元素】//附带快速构建链表进行调试
 
 /**
  * Definition for singly-linked list.
@@ -185,3 +185,56 @@
 //
 //	return 0;
 //}
+
+		
+//——————————————————————————————————————————————————
+
+
+
+																//5.【206反转链表】
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+ //【思路1】遍历替换：不移动节点，改变节点的值。双重循环
+ //第一个节点数和后一个节点数交换，后一个节点指针+1，继续和第一个替换，直到5放在开头，然后第一个节点+1，重复。
+ /*struct ListNode* reverseList(struct ListNode* head)
+ {
+ if(head == NULL)
+ {
+ return head;
+ }
+ struct ListNode* phead = head;
+     while(phead->next != NULL)
+     {
+         struct ListNode* str = phead->next;
+         while(str != NULL)
+         {
+             int storage = phead->val;
+             phead->val = str->val;
+             str->val = storage;
+             str = str->next;
+         }
+     phead = phead->next;
+     }
+     return head;
+ }*/
+ //题目【思路2】递归
+struct ListNode* reverseList(struct ListNode* head)
+{   
+
+}
+
+
+
+
+
+
+
+
+
