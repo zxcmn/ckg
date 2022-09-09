@@ -207,7 +207,7 @@
  {
  if(head == NULL)
  {
- return head;
+    return head;
  }
  struct ListNode* phead = head;
      while(phead->next != NULL)
@@ -224,17 +224,108 @@
      }
      return head;
  }*/
- //题目【思路2】递归
-struct ListNode* reverseList(struct ListNode* head)
-{   
-
-}
+ 
 
 
 
 
+                                                        //6.【876链表的中间结点】
+
+//思路1：快慢指针（双指针）：两个指针，从头节点开始，poi1一次走一步，poi2一次走2步，poi2走完（下一个是NULL），此时poi1速度是它1/2、刚好走到一半路程
+//思路2：每走一下，更新中间节点？
+
+//struct ListNode* middleNode(struct ListNode* head) {
+//    if (head->next == NULL)return head;
+//    struct ListNode* middleNode, * lastNode;
+//    middleNode = lastNode = head;
+//    while (lastNode != NULL && lastNode->next != NULL)//(lastNode && lastNode->next)这种写法省略了空指针
+//    {
+//        middleNode = middleNode->next;
+//        lastNode = lastNode->next->next;
+//    }
+//    return middleNode;
+//}
+
+
+
+                                                        //7.【链表中第k个节点】
+
+//思路：双指针，第一个在原位，第二个走k-1或者k个位（如果以最后位的前一位开始数，就k），然后第一位和最后一位一起走，最后一位走到尾部（如果是以前一位开始数，就走到NULL），此时第一位的位置就是倒数第K个。
+//struct ListNode* getKthFromEnd(struct ListNode* head, int k) {
+//    struct ListNode* first, * last;
+//    first = last = head;
+//    while (--k)
+//    {
+//        if (last == NULL)
+//        {
+//            return NULL;
+//        }
+//        last = last->next;
+//    }
+//    while (last->next)
+//    {
+//        first = first->next;
+//        last = last->next;
+//    }
+//    return first;
+//}
 
 
 
 
+                                                                        //8【21.合并两个有序链表】
 
+//思路1：创建一个头节点，依次遍历两个链表，进行尾插。
+//struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
+//    struct ListNode* head, * last;
+//    head = last = NULL;
+//    if (!list1)
+//    {
+//        return list2;
+//    }
+//    if (!list2)
+//    {
+//        return list1;
+//    }
+//    while (list1 && list2)
+//    {
+//        if (list1->val <= list2->val)
+//        {
+//            if (!head)
+//            {
+//                head = last = list1;
+//                list1 = list1->next;
+//            }
+//            else
+//            {
+//                last->next = list1;
+//                last = list1;
+//                list1 = list1->next;
+//            }
+//        }
+//        else
+//        {
+//            if (!head)
+//            {
+//                head = last = list2;
+//                list2 = list2->next;
+//            }
+//            else
+//            {
+//                last->next = list2;
+//                last = list2;
+//                list2 = list2->next;
+//            }
+//        }
+//    }
+//    //有一边链表提前结束了，另一个链表的还没链接完，把它接上去新链表的后面。
+//    if (!list1)
+//    {
+//        last->next = list2;
+//    }
+//    if (!list2)
+//    {
+//        last->next = list1;
+//    }
+//    return head;
+//}
