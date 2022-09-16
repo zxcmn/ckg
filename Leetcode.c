@@ -329,3 +329,149 @@
 //    }
 //    return head;
 //}
+
+
+
+
+                                                        //9【234.回文链表】
+
+//bool isPalindrome(struct ListNode* head) {
+//    struct ListNode* mid, * last;
+//    mid = last = head;
+//    while (last && last->next)
+//    {
+//        mid = mid->next;
+//        last = last->next->next;
+//
+//    }
+//    struct ListNode* prev, * mid_next;
+//    prev = NULL;
+//    while (mid)//
+//    {
+//        mid_next = mid->next;//不能在外面定义，会导致内部最后一次空指针访问。只要在mid更改前面移动即可
+//        mid->next = prev;
+//        prev = mid;
+//        mid = mid_next;
+//    }
+//    struct ListNode* phead = head;
+//    while (prev)
+//    {
+//        if (phead->val != prev->val)return false;
+//        else
+//        {
+//            phead = phead->next;
+//            prev = prev->next;
+//        }
+//    }
+//    return true;
+//}
+
+
+                                                                            //10【52.两个链表的第一个节点】
+
+//struct ListNode* getIntersectionNode(struct ListNode* headA, struct ListNode* headB) {
+//    struct ListNode* new_headA = headA;
+//    struct ListNode* new_headB = headB;
+//    int headA_node_sum = 1;
+//    int headB_node_sum = 1;
+//
+//    if (!new_headA || !new_headB)return 0;
+//    //两分支循环到最后一个，但不循环到NULL，用来比较尾
+//    while (new_headA->next || new_headB->next)
+//    {
+//        if (new_headA->next)
+//        {
+//            new_headA = new_headA->next;
+//            headA_node_sum++;
+//        }
+//        if (new_headB->next)
+//        {
+//            new_headB = new_headB->next;
+//            headB_node_sum++;
+//        }
+//    }
+//    if (new_headA != new_headB)return 0;
+//
+//    int dis = headA_node_sum - headB_node_sum;
+//    new_headA = headA;
+//    new_headB = headB;
+//    while (new_headA != new_headB)
+//    {
+//        if (dis < 0)
+//        {
+//            new_headB = new_headB->next;
+//            dis++;
+//        }
+//        else if (dis > 0)
+//        {
+//            new_headA = new_headA->next;
+//            --dis;
+//        }
+//        else
+//        {
+//
+//            new_headA = new_headA->next;
+//            new_headB = new_headB->next;
+//        }
+//    }
+//
+//    return new_headA;
+//}
+
+
+                                                                //11【141.环形链表I-判断是否是环形链表】
+
+//思路：用快慢指针，如果循环则指针会相遇
+ //思考：如何找出环口？利用公式推导
+ //K(L+X) = L+X+NQ   //K是倍数，L是头到环口，X是环口到相遇，N是快指针圈数，Q是一圈步数
+ //KL+KX = L+X+NQ
+ //(K-1)(L+X) = NQ
+ //这里使用2倍快慢指针K = 2;
+ //L+X = NQ
+ //L = NQ - X
+ //L = (N-1)Q + N-X //圈数 
+ //L = 环内相遇点开始走的步数
+/*bool hasCycle(struct ListNode* head) {
+    struct ListNode* fast, * slow;
+    fast = slow = head;
+    while (fast && fast->next)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+        if (slow == fast)return true;
+    }
+    return false;
+}*/
+
+
+
+                                                                        //142【12.环形链表II-找出入环点】
+
+ //利用公式 L = (N-1)Q + N-X
+/*struct ListNode* detectCycle(struct ListNode* head) {
+    struct ListNode* fast, * slow;
+    fast = slow = head;
+    while (fast && fast->next)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+        {
+            struct ListNode* meet = slow;
+            struct ListNode* phead = head;
+            while (meet != phead)
+            {
+                meet = meet->next;
+                phead = phead->next;
+            }
+            return meet;
+        }
+    }
+    return NULL;
+}*/
+
+
+
+
+
+
